@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Thu Dec 16 15:59:07 2021
+    on Fri Dec 17 17:29:27 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/jmt/GitHub/cbic-pyschopy/WaitForTrigger.py',
+    originPath='/Users/jmt/GitHub/cbic-pyschopy/WaitForTrigger/WaitForTrigger.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -85,13 +85,14 @@ defaultKeyboard = keyboard.Keyboard()
 
 # Initialize components for Routine "WaitForTrigger"
 WaitForTriggerClock = core.Clock()
-WaitForScanner = visual.TextStim(win=win, name='WaitForScanner',
+WaitForScannerText = visual.TextStim(win=win, name='WaitForScannerText',
     text='Waiting for scanner …',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
+TriggerDetect = keyboard.Keyboard()
 
 # Initialize components for Routine "Fixation"
 FixationClock = core.Clock()
@@ -101,6 +102,13 @@ Fixation_Cross = visual.ShapeStim(
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor='0.0000, 0.0000, 0.0000', fillColor='lightgray',
     opacity=1.0, depth=0.0, interpolate=False)
+TriggerDetectedText = visual.TextStim(win=win, name='TriggerDetectedText',
+    text='Trigger detected!',
+    font='Open Sans',
+    pos=(0, 0.5), height=0.1, wrapWidth=None, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=-1.0);
 
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
@@ -108,10 +116,12 @@ routineTimer = core.CountdownTimer()  # to track time remaining of each (non-sli
 
 # ------Prepare to start Routine "WaitForTrigger"-------
 continueRoutine = True
-routineTimer.add(1.000000)
 # update component parameters for each repeat
+TriggerDetect.keys = []
+TriggerDetect.rt = []
+_TriggerDetect_allKeys = []
 # keep track of which components have finished
-WaitForTriggerComponents = [WaitForScanner]
+WaitForTriggerComponents = [WaitForScannerText, TriggerDetect]
 for thisComponent in WaitForTriggerComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -126,7 +136,7 @@ WaitForTriggerClock.reset(-_timeToFirstFrame)  # t0 is time of first possible fl
 frameN = -1
 
 # -------Run Routine "WaitForTrigger"-------
-while continueRoutine and routineTimer.getTime() > 0:
+while continueRoutine:
     # get current time
     t = WaitForTriggerClock.getTime()
     tThisFlip = win.getFutureFlipTime(clock=WaitForTriggerClock)
@@ -134,22 +144,34 @@ while continueRoutine and routineTimer.getTime() > 0:
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
     
-    # *WaitForScanner* updates
-    if WaitForScanner.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+    # *WaitForScannerText* updates
+    if WaitForScannerText.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
         # keep track of start time/frame for later
-        WaitForScanner.frameNStart = frameN  # exact frame index
-        WaitForScanner.tStart = t  # local t and not account for scr refresh
-        WaitForScanner.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(WaitForScanner, 'tStartRefresh')  # time at next scr refresh
-        WaitForScanner.setAutoDraw(True)
-    if WaitForScanner.status == STARTED:
-        # is it time to stop? (based on global clock, using actual start)
-        if tThisFlipGlobal > WaitForScanner.tStartRefresh + 1.0-frameTolerance:
-            # keep track of stop time/frame for later
-            WaitForScanner.tStop = t  # not accounting for scr refresh
-            WaitForScanner.frameNStop = frameN  # exact frame index
-            win.timeOnFlip(WaitForScanner, 'tStopRefresh')  # time at next scr refresh
-            WaitForScanner.setAutoDraw(False)
+        WaitForScannerText.frameNStart = frameN  # exact frame index
+        WaitForScannerText.tStart = t  # local t and not account for scr refresh
+        WaitForScannerText.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(WaitForScannerText, 'tStartRefresh')  # time at next scr refresh
+        WaitForScannerText.setAutoDraw(True)
+    
+    # *TriggerDetect* updates
+    waitOnFlip = False
+    if TriggerDetect.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        TriggerDetect.frameNStart = frameN  # exact frame index
+        TriggerDetect.tStart = t  # local t and not account for scr refresh
+        TriggerDetect.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(TriggerDetect, 'tStartRefresh')  # time at next scr refresh
+        TriggerDetect.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(TriggerDetect.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(TriggerDetect.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if TriggerDetect.status == STARTED and not waitOnFlip:
+        theseKeys = TriggerDetect.getKeys(keyList=['5'], waitRelease=False)
+        _TriggerDetect_allKeys.extend(theseKeys)
+        if len(_TriggerDetect_allKeys):
+            TriggerDetect.keys = _TriggerDetect_allKeys[-1].name  # just the last key pressed
+            TriggerDetect.rt = _TriggerDetect_allKeys[-1].rt
     
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -172,15 +194,26 @@ while continueRoutine and routineTimer.getTime() > 0:
 for thisComponent in WaitForTriggerComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-thisExp.addData('WaitForScanner.started', WaitForScanner.tStartRefresh)
-thisExp.addData('WaitForScanner.stopped', WaitForScanner.tStopRefresh)
+thisExp.addData('WaitForScannerText.started', WaitForScannerText.tStartRefresh)
+thisExp.addData('WaitForScannerText.stopped', WaitForScannerText.tStopRefresh)
+# check responses
+if TriggerDetect.keys in ['', [], None]:  # No response was made
+    TriggerDetect.keys = None
+thisExp.addData('TriggerDetect.keys',TriggerDetect.keys)
+if TriggerDetect.keys != None:  # we had a response
+    thisExp.addData('TriggerDetect.rt', TriggerDetect.rt)
+thisExp.addData('TriggerDetect.started', TriggerDetect.tStartRefresh)
+thisExp.addData('TriggerDetect.stopped', TriggerDetect.tStopRefresh)
+thisExp.nextEntry()
+# the Routine "WaitForTrigger" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
 
 # ------Prepare to start Routine "Fixation"-------
 continueRoutine = True
-routineTimer.add(5.000000)
+routineTimer.add(3.000000)
 # update component parameters for each repeat
 # keep track of which components have finished
-FixationComponents = [Fixation_Cross]
+FixationComponents = [Fixation_Cross, TriggerDetectedText]
 for thisComponent in FixationComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -213,12 +246,29 @@ while continueRoutine and routineTimer.getTime() > 0:
         Fixation_Cross.setAutoDraw(True)
     if Fixation_Cross.status == STARTED:
         # is it time to stop? (based on global clock, using actual start)
-        if tThisFlipGlobal > Fixation_Cross.tStartRefresh + 5-frameTolerance:
+        if tThisFlipGlobal > Fixation_Cross.tStartRefresh + 3-frameTolerance:
             # keep track of stop time/frame for later
             Fixation_Cross.tStop = t  # not accounting for scr refresh
             Fixation_Cross.frameNStop = frameN  # exact frame index
             win.timeOnFlip(Fixation_Cross, 'tStopRefresh')  # time at next scr refresh
             Fixation_Cross.setAutoDraw(False)
+    
+    # *TriggerDetectedText* updates
+    if TriggerDetectedText.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        TriggerDetectedText.frameNStart = frameN  # exact frame index
+        TriggerDetectedText.tStart = t  # local t and not account for scr refresh
+        TriggerDetectedText.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(TriggerDetectedText, 'tStartRefresh')  # time at next scr refresh
+        TriggerDetectedText.setAutoDraw(True)
+    if TriggerDetectedText.status == STARTED:
+        # is it time to stop? (based on global clock, using actual start)
+        if tThisFlipGlobal > TriggerDetectedText.tStartRefresh + 3-frameTolerance:
+            # keep track of stop time/frame for later
+            TriggerDetectedText.tStop = t  # not accounting for scr refresh
+            TriggerDetectedText.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(TriggerDetectedText, 'tStopRefresh')  # time at next scr refresh
+            TriggerDetectedText.setAutoDraw(False)
     
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -243,6 +293,8 @@ for thisComponent in FixationComponents:
         thisComponent.setAutoDraw(False)
 thisExp.addData('Fixation_Cross.started', Fixation_Cross.tStartRefresh)
 thisExp.addData('Fixation_Cross.stopped', Fixation_Cross.tStopRefresh)
+thisExp.addData('TriggerDetectedText.started', TriggerDetectedText.tStartRefresh)
+thisExp.addData('TriggerDetectedText.stopped', TriggerDetectedText.tStopRefresh)
 
 # Flip one final time so any remaining win.callOnFlip() 
 # and win.timeOnFlip() tasks get executed before quitting
