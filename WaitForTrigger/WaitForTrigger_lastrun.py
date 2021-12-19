@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Fri Dec 17 17:40:00 2021
+    on December 19, 2021, at 10:30
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/jmt/GitHub/cbic-pyschopy/WaitForTrigger/WaitForTrigger_lastrun.py',
+    originPath='C:\\Users\\miket\\OneDrive\\Documents\\GitHub\\cbic-psychopy\\WaitForTrigger\\WaitForTrigger_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -100,7 +100,7 @@ Fixation_Cross = visual.ShapeStim(
     win=win, name='Fixation_Cross', vertices='cross',
     size=(0.05, 0.05),
     ori=0.0, pos=(0, 0),
-    lineWidth=1.0,     colorSpace='rgb',  lineColor='0.0000, 0.0000, 0.0000', fillColor='lightgray',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='lightgray', fillColor='lightgray',
     opacity=1.0, depth=0.0, interpolate=False)
 TriggerDetectedText = visual.TextStim(win=win, name='TriggerDetectedText',
     text='Trigger detected!',

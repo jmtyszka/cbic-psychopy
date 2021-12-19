@@ -62,7 +62,7 @@
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="fillColor" updates="constant" val="lightgray" valType="color"/>
         <Param name="interpolate" updates="constant" val="nearest" valType="str"/>
-        <Param name="lineColor" updates="constant" val="0.0000, 0.0000, 0.0000" valType="color"/>
+        <Param name="lineColor" updates="constant" val="lightgray" valType="color"/>
         <Param name="lineWidth" updates="constant" val="1" valType="num"/>
         <Param name="nVertices" updates="constant" val="4" valType="int"/>
         <Param name="name" updates="None" val="Fixation_Cross" valType="code"/>

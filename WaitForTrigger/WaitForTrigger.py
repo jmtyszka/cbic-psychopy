@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Fri Dec 17 17:29:27 2021
+    on December 19, 2021, at 10:33
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/jmt/GitHub/cbic-pyschopy/WaitForTrigger/WaitForTrigger.py',
+    originPath='C:\\Users\\miket\\OneDrive\\Documents\\GitHub\\cbic-psychopy\\WaitForTrigger\\WaitForTrigger.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -85,14 +85,14 @@ defaultKeyboard = keyboard.Keyboard()
 
 # Initialize components for Routine "WaitForTrigger"
 WaitForTriggerClock = core.Clock()
-WaitForScannerText = visual.TextStim(win=win, name='WaitForScannerText',
-    text='Waiting for scanner …',
+TriggerDetect = keyboard.Keyboard()
+WaitText = visual.TextStim(win=win, name='WaitText',
+    text='Waiting for trigger …',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
-    depth=0.0);
-TriggerDetect = keyboard.Keyboard()
+    depth=-1.0);
 
 # Initialize components for Routine "Fixation"
 FixationClock = core.Clock()
@@ -100,12 +100,12 @@ Fixation_Cross = visual.ShapeStim(
     win=win, name='Fixation_Cross', vertices='cross',
     size=(0.05, 0.05),
     ori=0.0, pos=(0, 0),
-    lineWidth=1.0,     colorSpace='rgb',  lineColor='0.0000, 0.0000, 0.0000', fillColor='lightgray',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='lightgray', fillColor='lightgray',
     opacity=1.0, depth=0.0, interpolate=False)
 TriggerDetectedText = visual.TextStim(win=win, name='TriggerDetectedText',
     text='Trigger detected!',
-    font='Open Sans',
-    pos=(0, 0.5), height=0.1, wrapWidth=None, ori=0.0, 
+    font='Arial',
+    pos=(0, 0.25), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-1.0);
@@ -121,7 +121,7 @@ TriggerDetect.keys = []
 TriggerDetect.rt = []
 _TriggerDetect_allKeys = []
 # keep track of which components have finished
-WaitForTriggerComponents = [WaitForScannerText, TriggerDetect]
+WaitForTriggerComponents = [TriggerDetect, WaitText]
 for thisComponent in WaitForTriggerComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -144,15 +144,6 @@ while continueRoutine:
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
     
-    # *WaitForScannerText* updates
-    if WaitForScannerText.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        WaitForScannerText.frameNStart = frameN  # exact frame index
-        WaitForScannerText.tStart = t  # local t and not account for scr refresh
-        WaitForScannerText.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(WaitForScannerText, 'tStartRefresh')  # time at next scr refresh
-        WaitForScannerText.setAutoDraw(True)
-    
     # *TriggerDetect* updates
     waitOnFlip = False
     if TriggerDetect.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -172,6 +163,17 @@ while continueRoutine:
         if len(_TriggerDetect_allKeys):
             TriggerDetect.keys = _TriggerDetect_allKeys[-1].name  # just the last key pressed
             TriggerDetect.rt = _TriggerDetect_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+    
+    # *WaitText* updates
+    if WaitText.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        WaitText.frameNStart = frameN  # exact frame index
+        WaitText.tStart = t  # local t and not account for scr refresh
+        WaitText.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(WaitText, 'tStartRefresh')  # time at next scr refresh
+        WaitText.setAutoDraw(True)
     
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -194,8 +196,6 @@ while continueRoutine:
 for thisComponent in WaitForTriggerComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-thisExp.addData('WaitForScannerText.started', WaitForScannerText.tStartRefresh)
-thisExp.addData('WaitForScannerText.stopped', WaitForScannerText.tStopRefresh)
 # check responses
 if TriggerDetect.keys in ['', [], None]:  # No response was made
     TriggerDetect.keys = None
@@ -205,6 +205,8 @@ if TriggerDetect.keys != None:  # we had a response
 thisExp.addData('TriggerDetect.started', TriggerDetect.tStartRefresh)
 thisExp.addData('TriggerDetect.stopped', TriggerDetect.tStopRefresh)
 thisExp.nextEntry()
+thisExp.addData('WaitText.started', WaitText.tStartRefresh)
+thisExp.addData('WaitText.stopped', WaitText.tStopRefresh)
 # the Routine "WaitForTrigger" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 

@@ -1,0 +1,4 @@
+﻿InstructionsText.started,InstructionsText.stopped,InstructionsEndKey.keys,InstructionsEndKey.rt,InstructionsEndKey.started,InstructionsEndKey.stopped,TriggerKey.keys,TriggerKey.rt,TriggerKey.started,TriggerKey.stopped,TriggerWaitText.started,TriggerWaitText.stopped,participant,session,date,expName,psychopyVersion,frameRate,
+9.143495000000257,None,space,6.159806900000149,9.143495000000257,None,,,,,,,999,001,2021_Dec_19_1058,PacedBreathHolding,2021.2.3,60.11414473814793,
+,,,,,,5,2.0186518000000433,15.332470300000296,None,,,999,001,2021_Dec_19_1058,PacedBreathHolding,2021.2.3,60.11414473814793,
+,,,,,,,,,,15.332470300000296,None,,,,,,,

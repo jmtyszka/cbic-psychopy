@@ -1,0 +1,3 @@
+﻿TriggerDetect.keys,TriggerDetect.rt,TriggerDetect.started,TriggerDetect.stopped,WaitText.started,WaitText.stopped,Fixation_Cross.started,Fixation_Cross.stopped,TriggerDetectedText.started,TriggerDetectedText.stopped,participant,session,date,expName,psychopyVersion,frameRate,
+5,7.632323800000222,13.45891430000006,None,,,,,,,999,001,2021_Dec_19_1029,WaitForTrigger,2021.2.3,59.99617224423003,
+,,,,13.45891430000006,None,21.118510900000047,None,21.118510900000047,None,,,,,,,
