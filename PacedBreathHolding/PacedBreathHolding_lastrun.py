@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on December 19, 2021, at 14:51
+    on December 19, 2021, at 17:29
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -136,7 +136,7 @@ HoldCircle = visual.ShapeStim(
 # Initialize components for Routine "FreeBreath"
 FreeBreathClock = core.Clock()
 FreeBreathText = visual.TextStim(win=win, name='FreeBreathText',
-    text='Breath normally',
+    text='Breath normally again',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -560,8 +560,12 @@ for thisBreathHoldTrial in BreathHoldTrials:
                 HoldCircle.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(HoldCircle, 'tStopRefresh')  # time at next scr refresh
                 HoldCircle.setAutoDraw(False)
-        tt = t/16.0 
-        h = int(tt * 120.0) # Green hue
+        tt = t/16.0
+        
+        # Hue in range 0 (red) to 120 (green)
+        # Stop color slide at 80 (green-yellow)
+        h = int(tt * 80.0)
+        
         s = 1 # Fully saturated
         v = 1 # Fully bright
         HoldCircle.color = (h, s, v)
@@ -619,7 +623,7 @@ for thisBreathHoldTrial in BreathHoldTrials:
         # update/draw components on each frame
         
         # *FreeBreathText* updates
-        if FreeBreathText.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        if FreeBreathText.status == NOT_STARTED and tThisFlip >= 0.5-frameTolerance:
             # keep track of start time/frame for later
             FreeBreathText.frameNStart = frameN  # exact frame index
             FreeBreathText.tStart = t  # local t and not account for scr refresh
@@ -628,7 +632,7 @@ for thisBreathHoldTrial in BreathHoldTrials:
             FreeBreathText.setAutoDraw(True)
         if FreeBreathText.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > FreeBreathText.tStartRefresh + 16-frameTolerance:
+            if tThisFlipGlobal > FreeBreathText.tStartRefresh + 15.5-frameTolerance:
                 # keep track of stop time/frame for later
                 FreeBreathText.tStop = t  # not accounting for scr refresh
                 FreeBreathText.frameNStop = frameN  # exact frame index

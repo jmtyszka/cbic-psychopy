@@ -251,8 +251,8 @@
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="tt = t/16.0 &amp;#10;h = int(tt * 120.0) # Green hue&amp;#10;s = 1 # Fully saturated&amp;#10;v = 1 # Fully bright&amp;#10;HoldCircle.color = (h, s, v)" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="tt = (t / 16.0);&amp;#10;h = Number.parseInt((tt * 120.0));&amp;#10;s = 1;&amp;#10;v = 1;&amp;#10;HoldCircle.color = [h, s, v];&amp;#10;" valType="extendedCode"/>
+        <Param name="Each Frame" updates="constant" val="tt = t/16.0&amp;#10;&amp;#10;# Hue in range 0 (red) to 120 (green)&amp;#10;# Stop color slide at 80 (green-yellow)&amp;#10;h = int(tt * 90.0)&amp;#10;&amp;#10;s = 1 # Fully saturated&amp;#10;v = 1 # Fully bright&amp;#10;HoldCircle.color = (h, s, v)" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="tt = (t / 16.0);&amp;#10;h = Number.parseInt((tt * 90.0));&amp;#10;s = 1;&amp;#10;v = 1;&amp;#10;HoldCircle.color = [h, s, v];&amp;#10;" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
