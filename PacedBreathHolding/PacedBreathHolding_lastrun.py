@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on December 19, 2021, at 17:29
+    on December 21, 2021, at 11:30
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\miket\\OneDrive\\Documents\\GitHub\\cbic-psychopy\\PacedBreathHolding\\PacedBreathHolding_lastrun.py',
+    originPath='C:\\Users\\jmt\\Documents\\GitHub\\cbic-psychopy\\PacedBreathHolding\\PacedBreathHolding_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -564,7 +564,7 @@ for thisBreathHoldTrial in BreathHoldTrials:
         
         # Hue in range 0 (red) to 120 (green)
         # Stop color slide at 80 (green-yellow)
-        h = int(tt * 80.0)
+        h = int(tt * 90.0)
         
         s = 1 # Fully saturated
         v = 1 # Fully bright
