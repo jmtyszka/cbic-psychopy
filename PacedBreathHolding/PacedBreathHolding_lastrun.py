@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on December 21, 2021, at 11:30
+    on February 10, 2022, at 15:39
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\jmt\\Documents\\GitHub\\cbic-psychopy\\PacedBreathHolding\\PacedBreathHolding_lastrun.py',
+    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\PacedBreathHolding\\PacedBreathHolding_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -65,9 +65,9 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=(1024, 768), fullscr=True, screen=0, 
+    size=[1920, 1080], fullscr=True, screen=-1, 
     winType='pyglet', allowGUI=False, allowStencil=False,
-    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor='hPrisma Projector', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
     units='height')
 # store frame rate of monitor if we can measure it
@@ -143,8 +143,8 @@ FreeBreathText = visual.TextStim(win=win, name='FreeBreathText',
     languageStyle='LTR',
     depth=0.0);
 
-# Initialize components for Routine "Thanks"
-ThanksClock = core.Clock()
+# Initialize components for Routine "Thanks305"
+Thanks305Clock = core.Clock()
 ThanksText = visual.TextStim(win=win, name='ThanksText',
     text='Breath hold task complete!',
     font='Open Sans',
@@ -667,13 +667,13 @@ for thisBreathHoldTrial in BreathHoldTrials:
 # completed 5.0 repeats of 'BreathHoldTrials'
 
 
-# ------Prepare to start Routine "Thanks"-------
+# ------Prepare to start Routine "Thanks305"-------
 continueRoutine = True
 routineTimer.add(5.000000)
 # update component parameters for each repeat
 # keep track of which components have finished
-ThanksComponents = [ThanksText]
-for thisComponent in ThanksComponents:
+Thanks305Components = [ThanksText]
+for thisComponent in Thanks305Components:
     thisComponent.tStart = None
     thisComponent.tStop = None
     thisComponent.tStartRefresh = None
@@ -683,14 +683,14 @@ for thisComponent in ThanksComponents:
 # reset timers
 t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-ThanksClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+Thanks305Clock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
 
-# -------Run Routine "Thanks"-------
+# -------Run Routine "Thanks305"-------
 while continueRoutine and routineTimer.getTime() > 0:
     # get current time
-    t = ThanksClock.getTime()
-    tThisFlip = win.getFutureFlipTime(clock=ThanksClock)
+    t = Thanks305Clock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=Thanks305Clock)
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
@@ -720,7 +720,7 @@ while continueRoutine and routineTimer.getTime() > 0:
     if not continueRoutine:  # a component has requested a forced-end of Routine
         break
     continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in ThanksComponents:
+    for thisComponent in Thanks305Components:
         if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
             continueRoutine = True
             break  # at least one component has not yet finished
@@ -729,8 +729,8 @@ while continueRoutine and routineTimer.getTime() > 0:
     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
         win.flip()
 
-# -------Ending Routine "Thanks"-------
-for thisComponent in ThanksComponents:
+# -------Ending Routine "Thanks305"-------
+for thisComponent in Thanks305Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
 thisExp.addData('ThanksText.started', ThanksText.tStartRefresh)
