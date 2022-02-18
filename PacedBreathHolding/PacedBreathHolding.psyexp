@@ -123,7 +123,7 @@
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="text" updates="constant" val="BREATHOLDING INSTRUCTIONS&amp;#10;&amp;#10;Follow the size of the green circle with your breathing&amp;#10;&amp;#10;Hold your breath when the circle turns RED&amp;#10;&amp;#10;The circle will fade slowly from RED back to GREEN&amp;#10;&amp;#10;You will be told when you can breath normally again&amp;#10;&amp;#10;This will repeat five times&amp;#10;&amp;#10;PRESS ANY BUTTON TO CONTINUE" valType="str"/>
         <Param name="units" updates="None" val="norm" valType="str"/>
-        <Param name="wrapWidth" updates="constant" val="1.5" valType="num"/>
+        <Param name="wrapWidth" updates="constant" val="1.8" valType="num"/>
       </TextComponent>
       <KeyboardComponent name="InstructionsEndKey">
         <Param name="allowedKeys" updates="constant" val="" valType="list"/>

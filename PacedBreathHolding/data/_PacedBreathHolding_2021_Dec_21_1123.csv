@@ -1,7 +1,0 @@
-﻿BreathHoldTrials.thisRepN,BreathHoldTrials.thisTrialN,BreathHoldTrials.thisN,BreathHoldTrials.thisIndex,InstructionsText.started,InstructionsText.stopped,InstructionsEndKey.keys,InstructionsEndKey.rt,InstructionsEndKey.started,InstructionsEndKey.stopped,TriggerKey.keys,TriggerKey.rt,TriggerKey.started,TriggerKey.stopped,TriggerWaitText.started,TriggerWaitText.stopped,GetReadyText.started,GetReadyText.stopped,BreathCircle.started,BreathCircle.stopped,HoldCircle.started,HoldCircle.stopped,FreeBreathText.started,FreeBreathText.stopped,participant,session,date,expName,psychopyVersion,frameRate,
-,,,,12.618523799988907,None,escape,22.240239200007636,12.618523799988907,None,,,,,,,,,,,,,,,,001,2021_Dec_21_1123,PacedBreathHolding,2021.2.3,59.92491408295944,
-,,,,,,,,,,5,9.84227030002512,34.88857619999908,None,,,,,,,,,,,,001,2021_Dec_21_1123,PacedBreathHolding,2021.2.3,59.92491408295944,
-0,0,0,0,,,,,,,,,,,35.37222409999231,None,45.24230089999037,None,50.25612550001824,None,72.76009480003268,None,89.2439968000399,None,,001,2021_Dec_21_1123,PacedBreathHolding,2021.2.3,59.92491408295944,
-1,0,1,0,,,,,,,,,,,,,105.22784980002325,None,110.24172869999893,None,132.74562370002968,None,149.2295044999919,None,,001,2021_Dec_21_1123,PacedBreathHolding,2021.2.3,59.92491408295944,
-2,0,2,0,,,,,,,,,,,,,165.23014970001532,None,170.24415009998484,None,192.74792749999324,None,209.2317747999914,None,,001,2021_Dec_21_1123,PacedBreathHolding,2021.2.3,59.92491408295944,
-,,,,,,,,,,,,,,,,225.23232140002074,None,230.24623879999854,None,252.7470430000103,None,,,,,,,,,

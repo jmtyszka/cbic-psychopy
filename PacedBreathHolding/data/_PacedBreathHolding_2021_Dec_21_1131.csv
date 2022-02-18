@@ -1,4 +1,0 @@
-﻿BreathHoldTrials.thisRepN,BreathHoldTrials.thisTrialN,BreathHoldTrials.thisN,BreathHoldTrials.thisIndex,InstructionsText.started,InstructionsText.stopped,InstructionsEndKey.keys,InstructionsEndKey.rt,InstructionsEndKey.started,InstructionsEndKey.stopped,TriggerKey.keys,TriggerKey.rt,TriggerKey.started,TriggerKey.stopped,TriggerWaitText.started,TriggerWaitText.stopped,GetReadyText.started,GetReadyText.stopped,participant,session,date,expName,psychopyVersion,frameRate,
-,,,,20.624925300013274,None,space,1.1647901000105776,20.624925300013274,None,,,,,,,,,,001,2021_Dec_21_1131,PacedBreathHolding,2021.2.3,60.01856974713735,
-,,,,,,,,,,5,0.9347623999929056,21.814916500006802,None,,,,,,001,2021_Dec_21_1131,PacedBreathHolding,2021.2.3,60.01856974713735,
-,,,,,,,,,,,,,,22.298481000005268,None,23.251627999998163,None,,,,,,,
