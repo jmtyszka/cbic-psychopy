@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on December 19, 2021, at 17:12
+    on Wed Jan 26 12:23:09 2022
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\miket\\OneDrive\\Documents\\GitHub\\cbic-psychopy\\LeoneFaces\\LeoneFaces_lastrun.py',
+    originPath='/Users/jmt/GitHub/cbic-pyschopy/LeoneFaces/LeoneFaces_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -88,7 +88,7 @@ InstructionsClock = core.Clock()
 InstructionsText = visual.TextStim(win=win, name='InstructionsText',
     text='Stay awake and still.\nEnjoy the movie!',
     font='Open Sans',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -125,8 +125,8 @@ MovieObject = visual.MovieStim3(
     depth=0.0,
     )
 
-# Initialize components for Routine "PostFixation"
-PostFixationClock = core.Clock()
+# Initialize components for Routine "PostFixation495"
+PostFixation495Clock = core.Clock()
 PostFixationCross = visual.ShapeStim(
     win=win, name='PostFixationCross', vertices='cross',
     size=(0.1, 0.1),
@@ -442,13 +442,13 @@ for thisComponent in PlayMovieComponents:
         thisComponent.setAutoDraw(False)
 MovieObject.stop()
 
-# ------Prepare to start Routine "PostFixation"-------
+# ------Prepare to start Routine "PostFixation495"-------
 continueRoutine = True
 routineTimer.add(30.000000)
 # update component parameters for each repeat
 # keep track of which components have finished
-PostFixationComponents = [PostFixationCross]
-for thisComponent in PostFixationComponents:
+PostFixation495Components = [PostFixationCross]
+for thisComponent in PostFixation495Components:
     thisComponent.tStart = None
     thisComponent.tStop = None
     thisComponent.tStartRefresh = None
@@ -458,14 +458,14 @@ for thisComponent in PostFixationComponents:
 # reset timers
 t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-PostFixationClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+PostFixation495Clock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
 
-# -------Run Routine "PostFixation"-------
+# -------Run Routine "PostFixation495"-------
 while continueRoutine and routineTimer.getTime() > 0:
     # get current time
-    t = PostFixationClock.getTime()
-    tThisFlip = win.getFutureFlipTime(clock=PostFixationClock)
+    t = PostFixation495Clock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=PostFixation495Clock)
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
@@ -495,7 +495,7 @@ while continueRoutine and routineTimer.getTime() > 0:
     if not continueRoutine:  # a component has requested a forced-end of Routine
         break
     continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in PostFixationComponents:
+    for thisComponent in PostFixation495Components:
         if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
             continueRoutine = True
             break  # at least one component has not yet finished
@@ -504,8 +504,8 @@ while continueRoutine and routineTimer.getTime() > 0:
     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
         win.flip()
 
-# -------Ending Routine "PostFixation"-------
-for thisComponent in PostFixationComponents:
+# -------Ending Routine "PostFixation495"-------
+for thisComponent in PostFixation495Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
 thisExp.addData('PostFixationCross.started', PostFixationCross.tStartRefresh)

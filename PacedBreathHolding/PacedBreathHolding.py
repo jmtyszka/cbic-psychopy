@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on December 19, 2021, at 14:19
+    on Wed Jan 26 12:20:01 2022
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\miket\\OneDrive\\Documents\\GitHub\\cbic-psychopy\\PacedBreathHolding\\PacedBreathHolding.py',
+    originPath='/Users/jmt/GitHub/cbic-pyschopy/PacedBreathHolding/PacedBreathHolding.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -86,7 +86,7 @@ defaultKeyboard = keyboard.Keyboard()
 # Initialize components for Routine "Instructions"
 InstructionsClock = core.Clock()
 InstructionsText = visual.TextStim(win=win, name='InstructionsText',
-    text='BREATHOLDING INSTRUCTIONS\n\nFollow the size of the colored circle with your breathing\n\nHold your breath when the circle turns RED\n\nThe circle will fade slowly from RED back to GREEN\n\nWhen it finally turns GREEN, you can breath normally again\n\nPRESS ANY BUTTON TO CONTINUE',
+    text='BREATHOLDING INSTRUCTIONS\n\nFollow the size of the green circle with your breathing\n\nHold your breath when the circle turns RED\n\nThe circle will fade slowly from RED back to GREEN\n\nYou will be told when you can breath normally again\n\nThis will repeat five times\n\nPRESS ANY BUTTON TO CONTINUE',
     font='Arial',
     units='norm', pos=(0, 0), height=0.1, wrapWidth=1.5, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -136,15 +136,15 @@ HoldCircle = visual.ShapeStim(
 # Initialize components for Routine "FreeBreath"
 FreeBreathClock = core.Clock()
 FreeBreathText = visual.TextStim(win=win, name='FreeBreathText',
-    text='Breath normally',
+    text='Breath normally again',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
 
-# Initialize components for Routine "Thanks"
-ThanksClock = core.Clock()
+# Initialize components for Routine "Thanks305"
+Thanks305Clock = core.Clock()
 ThanksText = visual.TextStim(win=win, name='ThanksText',
     text='Breath hold task complete!',
     font='Open Sans',
@@ -306,7 +306,7 @@ while continueRoutine:
             continueRoutine = False
     
     # *TriggerWaitText* updates
-    if TriggerWaitText.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+    if TriggerWaitText.status == NOT_STARTED and tThisFlip >= 0.5-frameTolerance:
         # keep track of start time/frame for later
         TriggerWaitText.frameNStart = frameN  # exact frame index
         TriggerWaitText.tStart = t  # local t and not account for scr refresh
@@ -370,7 +370,7 @@ for thisBreathHoldTrial in BreathHoldTrials:
     
     # ------Prepare to start Routine "GetReady"-------
     continueRoutine = True
-    routineTimer.add(3.500000)
+    routineTimer.add(5.500000)
     # update component parameters for each repeat
     # keep track of which components have finished
     GetReadyComponents = [GetReadyText]
@@ -406,7 +406,7 @@ for thisBreathHoldTrial in BreathHoldTrials:
             GetReadyText.setAutoDraw(True)
         if GetReadyText.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > GetReadyText.tStartRefresh + 3-frameTolerance:
+            if tThisFlipGlobal > GetReadyText.tStartRefresh + 5-frameTolerance:
                 # keep track of stop time/frame for later
                 GetReadyText.tStop = t  # not accounting for scr refresh
                 GetReadyText.frameNStop = frameN  # exact frame index
@@ -439,12 +439,12 @@ for thisBreathHoldTrial in BreathHoldTrials:
     
     # ------Prepare to start Routine "PacedBreathing"-------
     continueRoutine = True
-    routineTimer.add(11.000000)
+    routineTimer.add(22.500000)
     # update component parameters for each repeat
     # Breathing circle scaling
     breath_amp = 0.25 # Sinusoid scaling amplitude
     breath_off = 0.75 # Sinusoid scaling offset
-    breath_t = 4.0 # Breathing period in seconds
+    breath_t = 6.0 # Resp cycle in seconds
     phi_0 = 0.0 # Initial phase offset
     orig_size = BreathCircle.size
     # keep track of which components have finished
@@ -481,7 +481,7 @@ for thisBreathHoldTrial in BreathHoldTrials:
             BreathCircle.setAutoDraw(True)
         if BreathCircle.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > BreathCircle.tStartRefresh + 11-frameTolerance:
+            if tThisFlipGlobal > BreathCircle.tStartRefresh + 22.5-frameTolerance:
                 # keep track of stop time/frame for later
                 BreathCircle.tStop = t  # not accounting for scr refresh
                 BreathCircle.frameNStop = frameN  # exact frame index
@@ -518,7 +518,7 @@ for thisBreathHoldTrial in BreathHoldTrials:
     
     # ------Prepare to start Routine "HoldBreath"-------
     continueRoutine = True
-    routineTimer.add(15.000000)
+    routineTimer.add(16.000000)
     # update component parameters for each repeat
     # keep track of which components have finished
     HoldBreathComponents = [HoldCircle]
@@ -554,16 +554,20 @@ for thisBreathHoldTrial in BreathHoldTrials:
             HoldCircle.setAutoDraw(True)
         if HoldCircle.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > HoldCircle.tStartRefresh + 15-frameTolerance:
+            if tThisFlipGlobal > HoldCircle.tStartRefresh + 16-frameTolerance:
                 # keep track of stop time/frame for later
                 HoldCircle.tStop = t  # not accounting for scr refresh
                 HoldCircle.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(HoldCircle, 'tStopRefresh')  # time at next scr refresh
                 HoldCircle.setAutoDraw(False)
-        tt = t/15.0
-        h = int(tt * 120.0) # Green hue
-        s = 1
-        v = 1
+        tt = t/16.0
+        
+        # Hue in range 0 (red) to 120 (green)
+        # Stop color slide at 80 (green-yellow)
+        h = int(tt * 90.0)
+        
+        s = 1 # Fully saturated
+        v = 1 # Fully bright
         HoldCircle.color = (h, s, v)
         
         # check for quit (typically the Esc key)
@@ -592,7 +596,7 @@ for thisBreathHoldTrial in BreathHoldTrials:
     
     # ------Prepare to start Routine "FreeBreath"-------
     continueRoutine = True
-    routineTimer.add(30.000000)
+    routineTimer.add(16.000000)
     # update component parameters for each repeat
     # keep track of which components have finished
     FreeBreathComponents = [FreeBreathText]
@@ -619,7 +623,7 @@ for thisBreathHoldTrial in BreathHoldTrials:
         # update/draw components on each frame
         
         # *FreeBreathText* updates
-        if FreeBreathText.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        if FreeBreathText.status == NOT_STARTED and tThisFlip >= 0.5-frameTolerance:
             # keep track of start time/frame for later
             FreeBreathText.frameNStart = frameN  # exact frame index
             FreeBreathText.tStart = t  # local t and not account for scr refresh
@@ -628,7 +632,7 @@ for thisBreathHoldTrial in BreathHoldTrials:
             FreeBreathText.setAutoDraw(True)
         if FreeBreathText.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > FreeBreathText.tStartRefresh + 30-frameTolerance:
+            if tThisFlipGlobal > FreeBreathText.tStartRefresh + 15.5-frameTolerance:
                 # keep track of stop time/frame for later
                 FreeBreathText.tStop = t  # not accounting for scr refresh
                 FreeBreathText.frameNStop = frameN  # exact frame index
@@ -663,13 +667,13 @@ for thisBreathHoldTrial in BreathHoldTrials:
 # completed 5.0 repeats of 'BreathHoldTrials'
 
 
-# ------Prepare to start Routine "Thanks"-------
+# ------Prepare to start Routine "Thanks305"-------
 continueRoutine = True
 routineTimer.add(5.000000)
 # update component parameters for each repeat
 # keep track of which components have finished
-ThanksComponents = [ThanksText]
-for thisComponent in ThanksComponents:
+Thanks305Components = [ThanksText]
+for thisComponent in Thanks305Components:
     thisComponent.tStart = None
     thisComponent.tStop = None
     thisComponent.tStartRefresh = None
@@ -679,14 +683,14 @@ for thisComponent in ThanksComponents:
 # reset timers
 t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-ThanksClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+Thanks305Clock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
 
-# -------Run Routine "Thanks"-------
+# -------Run Routine "Thanks305"-------
 while continueRoutine and routineTimer.getTime() > 0:
     # get current time
-    t = ThanksClock.getTime()
-    tThisFlip = win.getFutureFlipTime(clock=ThanksClock)
+    t = Thanks305Clock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=Thanks305Clock)
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
@@ -716,7 +720,7 @@ while continueRoutine and routineTimer.getTime() > 0:
     if not continueRoutine:  # a component has requested a forced-end of Routine
         break
     continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in ThanksComponents:
+    for thisComponent in Thanks305Components:
         if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
             continueRoutine = True
             break  # at least one component has not yet finished
@@ -725,8 +729,8 @@ while continueRoutine and routineTimer.getTime() > 0:
     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
         win.flip()
 
-# -------Ending Routine "Thanks"-------
-for thisComponent in ThanksComponents:
+# -------Ending Routine "Thanks305"-------
+for thisComponent in Thanks305Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
 thisExp.addData('ThanksText.started', ThanksText.tStartRefresh)
