@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Wed Feb 23 21:58:30 2022
+    on Wed Feb 23 21:53:37 2022
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -53,7 +53,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/jmt/GitHub/cbic-psychopy/SoundCheck/SoundCheck_lastrun.py',
+    originPath='/Users/jmt/GitHub/cbic-psychopy/SoundCheck/SoundCheck.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -93,7 +93,7 @@ WaitForTriggerClock = core.Clock()
 
 # Initialize components for Routine "PlayAndAdjust"
 PlayAndAdjustClock = core.Clock()
-sound_clip = sound.Sound('A', secs=-1, stereo=True, hamming=False,
+sound_clip = sound.Sound('A', secs=-1, stereo=True, hamming=True,
     name='sound_clip')
 sound_clip.setVolume(1.0)
 volume = visual.Slider(win=win, name='volume',
@@ -214,8 +214,8 @@ routineTimer.reset()
 # ------Prepare to start Routine "PlayAndAdjust"-------
 continueRoutine = True
 # update component parameters for each repeat
-sound_clip.setSound('A', hamming=False)
-sound_clip.setVolume(volume.getRating()/100.0, log=False)
+sound_clip.setSound('A', hamming=True)
+sound_clip.setVolume(volume.value, log=False)
 volume.reset()
 adjust.keys = []
 adjust.rt = []
@@ -245,7 +245,7 @@ while continueRoutine:
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
     # start/stop sound_clip
-    sound_clip.setVolume(volume.getRating()/100.0, log=False)
+    sound_clip.setVolume(volume.value, log=False)
     if sound_clip.status == NOT_STARTED and t >= 0.0-frameTolerance:
         # keep track of start time/frame for later
         sound_clip.frameNStart = frameN  # exact frame index
@@ -300,7 +300,7 @@ while continueRoutine:
                 volume.draw()
                 
             if adjust.keys == '4':
-                continueRoutine = False
+                adjust.status = 'COMPLETE'
     
         last_rt = this_rt
     
