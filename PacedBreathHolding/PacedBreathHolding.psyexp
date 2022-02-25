@@ -238,7 +238,7 @@
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="16" valType="code"/>
+        <Param name="stopVal" updates="constant" val="60" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="units" updates="None" val="cm" valType="str"/>
         <Param name="vertices" updates="constant" val="" valType="list"/>
@@ -251,8 +251,8 @@
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="tt = t/16.0&amp;#10;&amp;#10;# Hue in range 0 (red) to 120 (green)&amp;#10;# Stop color slide at 80 (green-yellow)&amp;#10;h = int(tt * 90.0)&amp;#10;&amp;#10;s = 1 # Fully saturated&amp;#10;v = 1 # Fully bright&amp;#10;HoldCircle.color = (h, s, v)" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="tt = (t / 16.0);&amp;#10;h = Number.parseInt((tt * 90.0));&amp;#10;s = 1;&amp;#10;v = 1;&amp;#10;HoldCircle.color = [h, s, v];&amp;#10;" valType="extendedCode"/>
+        <Param name="Each Frame" updates="constant" val="tt = t/60&amp;#10;&amp;#10;# Hue in range 0 (red) to 120 (green)&amp;#10;# Stop color slide at 80 (green-yellow)&amp;#10;h = int(tt * 90.0)&amp;#10;&amp;#10;s = 1 # Fully saturated&amp;#10;v = 1 # Fully bright&amp;#10;HoldCircle.color = (h, s, v)" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="tt = (t / 60);&amp;#10;h = Number.parseInt((tt * 90.0));&amp;#10;s = 1;&amp;#10;v = 1;&amp;#10;HoldCircle.color = [h, s, v];&amp;#10;" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
@@ -281,7 +281,7 @@
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.5" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="15.5" valType="code"/>
+        <Param name="stopVal" updates="constant" val="29.5" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="text" updates="constant" val="Breath normally again" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>

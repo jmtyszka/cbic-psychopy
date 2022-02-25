@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on February 17, 2022, at 16:42
+    on February 24, 2022, at 17:16
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -88,7 +88,7 @@ InstructionsClock = core.Clock()
 InstructionsText = visual.TextStim(win=win, name='InstructionsText',
     text='BREATHOLDING INSTRUCTIONS\n\nFollow the size of the green circle with your breathing\n\nHold your breath when the circle turns RED\n\nThe circle will fade slowly from RED back to GREEN\n\nYou will be told when you can breath normally again\n\nThis will repeat five times\n\nPRESS ANY BUTTON TO CONTINUE',
     font='Arial',
-    units='norm', pos=(0, 0), height=0.1, wrapWidth=1.5, ori=0.0, 
+    units='norm', pos=(0, 0), height=0.1, wrapWidth=1.8, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -518,7 +518,7 @@ for thisBreathHoldTrial in BreathHoldTrials:
     
     # ------Prepare to start Routine "HoldBreath"-------
     continueRoutine = True
-    routineTimer.add(16.000000)
+    routineTimer.add(60.000000)
     # update component parameters for each repeat
     # keep track of which components have finished
     HoldBreathComponents = [HoldCircle]
@@ -554,13 +554,13 @@ for thisBreathHoldTrial in BreathHoldTrials:
             HoldCircle.setAutoDraw(True)
         if HoldCircle.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > HoldCircle.tStartRefresh + 16-frameTolerance:
+            if tThisFlipGlobal > HoldCircle.tStartRefresh + 60-frameTolerance:
                 # keep track of stop time/frame for later
                 HoldCircle.tStop = t  # not accounting for scr refresh
                 HoldCircle.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(HoldCircle, 'tStopRefresh')  # time at next scr refresh
                 HoldCircle.setAutoDraw(False)
-        tt = t/16.0
+        tt = t/60
         
         # Hue in range 0 (red) to 120 (green)
         # Stop color slide at 80 (green-yellow)
@@ -596,7 +596,7 @@ for thisBreathHoldTrial in BreathHoldTrials:
     
     # ------Prepare to start Routine "FreeBreath"-------
     continueRoutine = True
-    routineTimer.add(16.000000)
+    routineTimer.add(30.000000)
     # update component parameters for each repeat
     # keep track of which components have finished
     FreeBreathComponents = [FreeBreathText]
@@ -632,7 +632,7 @@ for thisBreathHoldTrial in BreathHoldTrials:
             FreeBreathText.setAutoDraw(True)
         if FreeBreathText.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > FreeBreathText.tStartRefresh + 15.5-frameTolerance:
+            if tThisFlipGlobal > FreeBreathText.tStartRefresh + 29.5-frameTolerance:
                 # keep track of stop time/frame for later
                 FreeBreathText.tStop = t  # not accounting for scr refresh
                 FreeBreathText.frameNStop = frameN  # exact frame index
