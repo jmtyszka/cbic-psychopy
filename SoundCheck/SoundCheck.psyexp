@@ -123,7 +123,7 @@
       <SoundComponent name="sound_clip">
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="hamming" updates="constant" val="True" valType="bool"/>
+        <Param name="hamming" updates="constant" val="False" valType="bool"/>
         <Param name="name" updates="None" val="sound_clip" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="sound" updates="constant" val="A" valType="str"/>
@@ -133,7 +133,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="constant" val="False" valType="bool"/>
-        <Param name="volume" updates="set every frame" val="volume.value" valType="num"/>
+        <Param name="volume" updates="set every frame" val="volume.getRating()/100.0" valType="num"/>
       </SoundComponent>
       <SliderComponent name="volume">
         <Param name="borderColor" updates="constant" val="White" valType="color"/>
@@ -146,16 +146,16 @@
         <Param name="flip" updates="constant" val="False" valType="bool"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="forceEndRoutine" updates="constant" val="False" valType="bool"/>
-        <Param name="granularity" updates="constant" val="10" valType="num"/>
+        <Param name="granularity" updates="constant" val="0.1" valType="num"/>
         <Param name="initVal" updates="None" val="50" valType="code"/>
         <Param name="labels" updates="constant" val="(&quot;0%&quot;, &quot;50%&quot;, &quot;100%&quot;)" valType="list"/>
         <Param name="letterHeight" updates="constant" val="0.05" valType="num"/>
         <Param name="name" updates="None" val="volume" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(0, -0.0)" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, -0.1)" valType="list"/>
         <Param name="readOnly" updates="constant" val="False" valType="bool"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="size" updates="constant" val="(1.0, 0.1)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -164,46 +164,28 @@
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="storeHistory" updates="constant" val="False" valType="bool"/>
         <Param name="storeRating" updates="constant" val="True" valType="bool"/>
-        <Param name="storeRatingTime" updates="constant" val="True" valType="bool"/>
+        <Param name="storeRatingTime" updates="constant" val="False" valType="bool"/>
         <Param name="styleTweaks" updates="constant" val="()" valType="list"/>
         <Param name="styles" updates="constant" val="rating" valType="str"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="ticks" updates="constant" val="(0, 50, 100)" valType="list"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
       </SliderComponent>
-      <KeyboardComponent name="exit_key">
-        <Param name="allowedKeys" updates="constant" val="'4'" valType="list"/>
-        <Param name="correctAns" updates="constant" val="" valType="str"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
-        <Param name="name" updates="None" val="exit_key" valType="code"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="store" updates="constant" val="last key" valType="str"/>
-        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
-        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
-      </KeyboardComponent>
       <KeyboardComponent name="adjust">
-        <Param name="allowedKeys" updates="constant" val="'1', '2'" valType="list"/>
+        <Param name="allowedKeys" updates="constant" val="'1', '2', '4'" valType="list"/>
         <Param name="correctAns" updates="constant" val="" valType="str"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="discard previous" updates="constant" val="True" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="forceEndRoutine" updates="constant" val="False" valType="bool"/>
         <Param name="name" updates="None" val="adjust" valType="code"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
         <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
@@ -213,10 +195,10 @@
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="keys = event.getKeys()&amp;#10;if keys:&amp;#10;    print(keys)" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="keys = psychoJS.eventManager.getKeys();&amp;#10;if (keys) {&amp;#10;    console.log(keys);&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="last_rt = -1.0" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Py" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="if adjust.rt:&amp;#10;&amp;#10;    this_rt = adjust.rt&amp;#10;&amp;#10;    if this_rt - last_rt &gt; 0.1:&amp;#10;&amp;#10;        if adjust.keys == '1':&amp;#10;            volume.rating = volume.rating - 10&amp;#10;            if volume.rating &lt; 0:&amp;#10;                volume.rating = 0&amp;#10;            volume.draw()&amp;#10;            &amp;#10;        if adjust.keys == '2':&amp;#10;            volume.rating = volume.rating + 10&amp;#10;            if volume.rating &gt; 100:&amp;#10;                volume.rating = 100&amp;#10;            volume.draw()&amp;#10;            &amp;#10;        if adjust.keys == '4':&amp;#10;            continueRoutine = False&amp;#10;&amp;#10;    last_rt = this_rt" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="if ((adjust.keys === &quot;1&quot;)) {&amp;#10;    volume.rating = (volume.rating - 0.1);&amp;#10;    if ((volume.rating &lt; 0)) {&amp;#10;        volume.rating = 0;&amp;#10;    }&amp;#10;    volume.draw();&amp;#10;}&amp;#10;if ((adjust.keys === &quot;2&quot;)) {&amp;#10;    volume.rating = (volume.rating + 0.1);&amp;#10;    if ((volume.rating &gt; 100)) {&amp;#10;        volume.rating = 100;&amp;#10;    }&amp;#10;    volume.draw();&amp;#10;}&amp;#10;" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on February 18, 2022, at 13:26
+    on Thu Feb 24 13:08:50 2022
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -53,7 +53,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\SoundCheck\\SoundCheck_lastrun.py',
+    originPath='/Users/jmt/GitHub/cbic-pyschopy/SoundCheck/SoundCheck_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -93,17 +93,16 @@ WaitForTriggerClock = core.Clock()
 
 # Initialize components for Routine "PlayAndAdjust"
 PlayAndAdjustClock = core.Clock()
-sound_clip = sound.Sound('A', secs=-1, stereo=True, hamming=True,
+sound_clip = sound.Sound('A', secs=-1, stereo=True, hamming=False,
     name='sound_clip')
 sound_clip.setVolume(1.0)
 volume = visual.Slider(win=win, name='volume',
-    startValue=50, size=(1.0, 0.1), pos=(0, -0.0), units=None,
-    labels=("0%", "50%", "100%"), ticks=(0, 50, 100), granularity=10.0,
+    startValue=50, size=(1.0, 0.1), pos=(0, -0.1), units=None,
+    labels=("0%", "50%", "100%"), ticks=(0, 50, 100), granularity=0.1,
     style='rating', styleTweaks=(), opacity=None,
     color='LightGray', fillColor='Red', borderColor='White', colorSpace='rgb',
     font='Open Sans', labelHeight=0.05,
     flip=False, depth=-1, readOnly=False)
-exit_key = keyboard.Keyboard()
 adjust = keyboard.Keyboard()
 
 # Create some handy timers
@@ -215,17 +214,15 @@ routineTimer.reset()
 # ------Prepare to start Routine "PlayAndAdjust"-------
 continueRoutine = True
 # update component parameters for each repeat
-sound_clip.setSound('A', hamming=True)
-sound_clip.setVolume(volume.value, log=False)
+sound_clip.setSound('A', hamming=False)
+sound_clip.setVolume(volume.getRating()/100.0, log=False)
 volume.reset()
-exit_key.keys = []
-exit_key.rt = []
-_exit_key_allKeys = []
 adjust.keys = []
 adjust.rt = []
 _adjust_allKeys = []
+last_rt = -1.0
 # keep track of which components have finished
-PlayAndAdjustComponents = [sound_clip, volume, exit_key, adjust]
+PlayAndAdjustComponents = [sound_clip, volume, adjust]
 for thisComponent in PlayAndAdjustComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -248,7 +245,7 @@ while continueRoutine:
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
     # start/stop sound_clip
-    sound_clip.setVolume(volume.value, log=False)
+    sound_clip.setVolume(volume.getRating()/100.0, log=False)
     if sound_clip.status == NOT_STARTED and t >= 0.0-frameTolerance:
         # keep track of start time/frame for later
         sound_clip.frameNStart = frameN  # exact frame index
@@ -265,28 +262,6 @@ while continueRoutine:
         win.timeOnFlip(volume, 'tStartRefresh')  # time at next scr refresh
         volume.setAutoDraw(True)
     
-    # *exit_key* updates
-    waitOnFlip = False
-    if exit_key.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        exit_key.frameNStart = frameN  # exact frame index
-        exit_key.tStart = t  # local t and not account for scr refresh
-        exit_key.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(exit_key, 'tStartRefresh')  # time at next scr refresh
-        exit_key.status = STARTED
-        # keyboard checking is just starting
-        waitOnFlip = True
-        win.callOnFlip(exit_key.clock.reset)  # t=0 on next screen flip
-        win.callOnFlip(exit_key.clearEvents, eventType='keyboard')  # clear events on next screen flip
-    if exit_key.status == STARTED and not waitOnFlip:
-        theseKeys = exit_key.getKeys(keyList=['4'], waitRelease=False)
-        _exit_key_allKeys.extend(theseKeys)
-        if len(_exit_key_allKeys):
-            exit_key.keys = _exit_key_allKeys[-1].name  # just the last key pressed
-            exit_key.rt = _exit_key_allKeys[-1].rt
-            # a response ends the routine
-            continueRoutine = False
-    
     # *adjust* updates
     waitOnFlip = False
     if adjust.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -301,14 +276,33 @@ while continueRoutine:
         win.callOnFlip(adjust.clock.reset)  # t=0 on next screen flip
         win.callOnFlip(adjust.clearEvents, eventType='keyboard')  # clear events on next screen flip
     if adjust.status == STARTED and not waitOnFlip:
-        theseKeys = adjust.getKeys(keyList=['1', '2'], waitRelease=False)
+        theseKeys = adjust.getKeys(keyList=['1', '2', '4'], waitRelease=False)
         _adjust_allKeys.extend(theseKeys)
         if len(_adjust_allKeys):
             adjust.keys = _adjust_allKeys[-1].name  # just the last key pressed
             adjust.rt = _adjust_allKeys[-1].rt
-    keys = event.getKeys()
-    if keys:
-        print(keys)
+    if adjust.rt:
+    
+        this_rt = adjust.rt
+    
+        if this_rt - last_rt > 0.1:
+    
+            if adjust.keys == '1':
+                volume.rating = volume.rating - 10
+                if volume.rating < 0:
+                    volume.rating = 0
+                volume.draw()
+                
+            if adjust.keys == '2':
+                volume.rating = volume.rating + 10
+                if volume.rating > 100:
+                    volume.rating = 100
+                volume.draw()
+                
+            if adjust.keys == '4':
+                continueRoutine = False
+    
+        last_rt = this_rt
     
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -335,27 +329,6 @@ sound_clip.stop()  # ensure sound has stopped at end of routine
 thisExp.addData('sound_clip.started', sound_clip.tStart)
 thisExp.addData('sound_clip.stopped', sound_clip.tStop)
 thisExp.addData('volume.response', volume.getRating())
-thisExp.addData('volume.rt', volume.getRT())
-thisExp.addData('volume.started', volume.tStartRefresh)
-thisExp.addData('volume.stopped', volume.tStopRefresh)
-# check responses
-if exit_key.keys in ['', [], None]:  # No response was made
-    exit_key.keys = None
-thisExp.addData('exit_key.keys',exit_key.keys)
-if exit_key.keys != None:  # we had a response
-    thisExp.addData('exit_key.rt', exit_key.rt)
-thisExp.addData('exit_key.started', exit_key.tStartRefresh)
-thisExp.addData('exit_key.stopped', exit_key.tStopRefresh)
-thisExp.nextEntry()
-# check responses
-if adjust.keys in ['', [], None]:  # No response was made
-    adjust.keys = None
-thisExp.addData('adjust.keys',adjust.keys)
-if adjust.keys != None:  # we had a response
-    thisExp.addData('adjust.rt', adjust.rt)
-thisExp.addData('adjust.started', adjust.tStartRefresh)
-thisExp.addData('adjust.stopped', adjust.tStopRefresh)
-thisExp.nextEntry()
 # the Routine "PlayAndAdjust" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
