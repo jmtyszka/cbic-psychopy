@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Thu Feb 24 13:08:50 2022
+    on Mon Mar  7 14:01:07 2022
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -93,7 +93,7 @@ WaitForTriggerClock = core.Clock()
 
 # Initialize components for Routine "PlayAndAdjust"
 PlayAndAdjustClock = core.Clock()
-sound_clip = sound.Sound('A', secs=-1, stereo=True, hamming=False,
+sound_clip = sound.Sound('budapest_soundcheck.wav', secs=-1, stereo=True, hamming=False,
     name='sound_clip')
 sound_clip.setVolume(1.0)
 volume = visual.Slider(win=win, name='volume',
@@ -214,7 +214,7 @@ routineTimer.reset()
 # ------Prepare to start Routine "PlayAndAdjust"-------
 continueRoutine = True
 # update component parameters for each repeat
-sound_clip.setSound('A', hamming=False)
+sound_clip.setSound('budapest_soundcheck.wav', hamming=False)
 sound_clip.setVolume(volume.getRating()/100.0, log=False)
 volume.reset()
 adjust.keys = []

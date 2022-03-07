@@ -126,7 +126,7 @@
         <Param name="hamming" updates="constant" val="False" valType="bool"/>
         <Param name="name" updates="None" val="sound_clip" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="sound" updates="constant" val="A" valType="str"/>
+        <Param name="sound" updates="constant" val="budapest_soundcheck.wav" valType="str"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
