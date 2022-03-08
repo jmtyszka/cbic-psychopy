@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Wed Feb 23 21:53:37 2022
+    on March 08, 2022, at 13:36
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -30,6 +30,8 @@ import sys  # to get file system encoding
 
 from psychopy.hardware import keyboard
 
+# Preload sound clip
+
 
 
 # Ensure that relative paths start from the same directory as this script
@@ -53,7 +55,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/jmt/GitHub/cbic-psychopy/SoundCheck/SoundCheck.py',
+    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\SoundCheck\\SoundCheck.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -87,13 +89,22 @@ defaultKeyboard = keyboard.Keyboard()
 
 # Initialize components for Routine "Instructions"
 InstructionsClock = core.Clock()
+instructions_text = visual.TextStim(win=win, name='instructions_text',
+    text='--- Sound Level Check ---\n\nAdjust the volume of the soundtrack until\nyou can hear it clearly above the scanner noise.\n\n1 : Quieter   2 : Louder   4 : Exit\n\nPress 1 to continue',
+    font='Open Sans',
+    units='cm', pos=(0, 0), height=1.5, wrapWidth=36.0, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+instructions_continue = keyboard.Keyboard()
 
 # Initialize components for Routine "WaitForTrigger"
 WaitForTriggerClock = core.Clock()
+trigger_key = keyboard.Keyboard()
 
 # Initialize components for Routine "PlayAndAdjust"
 PlayAndAdjustClock = core.Clock()
-sound_clip = sound.Sound('A', secs=-1, stereo=True, hamming=True,
+sound_clip = sound.Sound('budapest_soundcheck.wav', secs=-1, stereo=True, hamming=False,
     name='sound_clip')
 sound_clip.setVolume(1.0)
 volume = visual.Slider(win=win, name='volume',
@@ -112,8 +123,11 @@ routineTimer = core.CountdownTimer()  # to track time remaining of each (non-sli
 # ------Prepare to start Routine "Instructions"-------
 continueRoutine = True
 # update component parameters for each repeat
+instructions_continue.keys = []
+instructions_continue.rt = []
+_instructions_continue_allKeys = []
 # keep track of which components have finished
-InstructionsComponents = []
+InstructionsComponents = [instructions_text, instructions_continue]
 for thisComponent in InstructionsComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -136,6 +150,37 @@ while continueRoutine:
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
     
+    # *instructions_text* updates
+    if instructions_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        instructions_text.frameNStart = frameN  # exact frame index
+        instructions_text.tStart = t  # local t and not account for scr refresh
+        instructions_text.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(instructions_text, 'tStartRefresh')  # time at next scr refresh
+        instructions_text.setAutoDraw(True)
+    
+    # *instructions_continue* updates
+    waitOnFlip = False
+    if instructions_continue.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        instructions_continue.frameNStart = frameN  # exact frame index
+        instructions_continue.tStart = t  # local t and not account for scr refresh
+        instructions_continue.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(instructions_continue, 'tStartRefresh')  # time at next scr refresh
+        instructions_continue.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(instructions_continue.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(instructions_continue.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if instructions_continue.status == STARTED and not waitOnFlip:
+        theseKeys = instructions_continue.getKeys(keyList=['1'], waitRelease=False)
+        _instructions_continue_allKeys.extend(theseKeys)
+        if len(_instructions_continue_allKeys):
+            instructions_continue.keys = _instructions_continue_allKeys[-1].name  # just the last key pressed
+            instructions_continue.rt = _instructions_continue_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+    
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
         core.quit()
@@ -157,14 +202,28 @@ while continueRoutine:
 for thisComponent in InstructionsComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
+thisExp.addData('instructions_text.started', instructions_text.tStartRefresh)
+thisExp.addData('instructions_text.stopped', instructions_text.tStopRefresh)
+# check responses
+if instructions_continue.keys in ['', [], None]:  # No response was made
+    instructions_continue.keys = None
+thisExp.addData('instructions_continue.keys',instructions_continue.keys)
+if instructions_continue.keys != None:  # we had a response
+    thisExp.addData('instructions_continue.rt', instructions_continue.rt)
+thisExp.addData('instructions_continue.started', instructions_continue.tStartRefresh)
+thisExp.addData('instructions_continue.stopped', instructions_continue.tStopRefresh)
+thisExp.nextEntry()
 # the Routine "Instructions" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
 # ------Prepare to start Routine "WaitForTrigger"-------
 continueRoutine = True
 # update component parameters for each repeat
+trigger_key.keys = []
+trigger_key.rt = []
+_trigger_key_allKeys = []
 # keep track of which components have finished
-WaitForTriggerComponents = []
+WaitForTriggerComponents = [trigger_key]
 for thisComponent in WaitForTriggerComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -187,6 +246,28 @@ while continueRoutine:
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
     
+    # *trigger_key* updates
+    waitOnFlip = False
+    if trigger_key.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        trigger_key.frameNStart = frameN  # exact frame index
+        trigger_key.tStart = t  # local t and not account for scr refresh
+        trigger_key.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(trigger_key, 'tStartRefresh')  # time at next scr refresh
+        trigger_key.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(trigger_key.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(trigger_key.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if trigger_key.status == STARTED and not waitOnFlip:
+        theseKeys = trigger_key.getKeys(keyList=['5'], waitRelease=False)
+        _trigger_key_allKeys.extend(theseKeys)
+        if len(_trigger_key_allKeys):
+            trigger_key.keys = _trigger_key_allKeys[-1].name  # just the last key pressed
+            trigger_key.rt = _trigger_key_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+    
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
         core.quit()
@@ -208,14 +289,23 @@ while continueRoutine:
 for thisComponent in WaitForTriggerComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
+# check responses
+if trigger_key.keys in ['', [], None]:  # No response was made
+    trigger_key.keys = None
+thisExp.addData('trigger_key.keys',trigger_key.keys)
+if trigger_key.keys != None:  # we had a response
+    thisExp.addData('trigger_key.rt', trigger_key.rt)
+thisExp.addData('trigger_key.started', trigger_key.tStartRefresh)
+thisExp.addData('trigger_key.stopped', trigger_key.tStopRefresh)
+thisExp.nextEntry()
 # the Routine "WaitForTrigger" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
 # ------Prepare to start Routine "PlayAndAdjust"-------
 continueRoutine = True
 # update component parameters for each repeat
-sound_clip.setSound('A', hamming=True)
-sound_clip.setVolume(volume.value, log=False)
+sound_clip.setSound('budapest_soundcheck.wav', hamming=False)
+sound_clip.setVolume(volume.getRating()/100.0, log=False)
 volume.reset()
 adjust.keys = []
 adjust.rt = []
@@ -245,7 +335,7 @@ while continueRoutine:
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
     # start/stop sound_clip
-    sound_clip.setVolume(volume.value, log=False)
+    sound_clip.setVolume(volume.getRating()/100.0, log=False)
     if sound_clip.status == NOT_STARTED and t >= 0.0-frameTolerance:
         # keep track of start time/frame for later
         sound_clip.frameNStart = frameN  # exact frame index
@@ -300,7 +390,7 @@ while continueRoutine:
                 volume.draw()
                 
             if adjust.keys == '4':
-                adjust.status = 'COMPLETE'
+                continueRoutine = False
     
         last_rt = this_rt
     
