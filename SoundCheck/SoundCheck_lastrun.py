@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on March 08, 2022, at 13:37
+    on March 08, 2022, at 14:41
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -29,8 +29,6 @@ import os  # handy system and path functions
 import sys  # to get file system encoding
 
 from psychopy.hardware import keyboard
-
-# Preload sound clip
 
 
 
@@ -101,10 +99,17 @@ instructions_continue = keyboard.Keyboard()
 # Initialize components for Routine "WaitForTrigger"
 WaitForTriggerClock = core.Clock()
 trigger_key = keyboard.Keyboard()
+text = visual.TextStim(win=win, name='text',
+    text='Waiting for scanner ...',
+    font='Open Sans',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=-1.0);
 
 # Initialize components for Routine "PlayAndAdjust"
 PlayAndAdjustClock = core.Clock()
-sound_clip = sound.Sound('budapest_soundcheck.wav', secs=-1, stereo=True, hamming=False,
+sound_clip = sound.Sound('budapest_soundcheck_DRC.wav', secs=-1, stereo=True, hamming=False,
     name='sound_clip')
 sound_clip.setVolume(1.0)
 volume = visual.Slider(win=win, name='volume',
@@ -223,7 +228,7 @@ trigger_key.keys = []
 trigger_key.rt = []
 _trigger_key_allKeys = []
 # keep track of which components have finished
-WaitForTriggerComponents = [trigger_key]
+WaitForTriggerComponents = [trigger_key, text]
 for thisComponent in WaitForTriggerComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -268,6 +273,15 @@ while continueRoutine:
             # a response ends the routine
             continueRoutine = False
     
+    # *text* updates
+    if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        text.frameNStart = frameN  # exact frame index
+        text.tStart = t  # local t and not account for scr refresh
+        text.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
+        text.setAutoDraw(True)
+    
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
         core.quit()
@@ -298,13 +312,15 @@ if trigger_key.keys != None:  # we had a response
 thisExp.addData('trigger_key.started', trigger_key.tStartRefresh)
 thisExp.addData('trigger_key.stopped', trigger_key.tStopRefresh)
 thisExp.nextEntry()
+thisExp.addData('text.started', text.tStartRefresh)
+thisExp.addData('text.stopped', text.tStopRefresh)
 # the Routine "WaitForTrigger" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
 # ------Prepare to start Routine "PlayAndAdjust"-------
 continueRoutine = True
 # update component parameters for each repeat
-sound_clip.setSound('budapest_soundcheck.wav', hamming=False)
+sound_clip.setSound('budapest_soundcheck_DRC.wav', hamming=False)
 sound_clip.setVolume(volume.getRating()/100.0, log=False)
 volume.reset()
 adjust.keys = []

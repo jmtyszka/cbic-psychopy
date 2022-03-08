@@ -1,0 +1,4 @@
+﻿instructions_text.started,instructions_text.stopped,instructions_continue.keys,instructions_continue.rt,instructions_continue.started,instructions_continue.stopped,trigger_key.keys,trigger_key.rt,trigger_key.started,trigger_key.stopped,text.started,text.stopped,participant,session,date,expName,psychopyVersion,frameRate,
+12.821586651050893,None,1,4.321882241303683,12.821586651050893,None,,,,,,,,001,2022_Mar_08_1411,SoundCheck,2021.2.3,60.08312660255228,
+,,,,,,5,3.038838154367113,17.16058145651914,None,,,,001,2022_Mar_08_1411,SoundCheck,2021.2.3,60.08312660255228,
+,,,,,,,,,,17.16058145651914,None,,,,,,,
