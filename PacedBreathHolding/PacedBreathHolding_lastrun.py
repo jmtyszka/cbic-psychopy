@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on February 24, 2022, at 17:16
+    on March 03, 2022, at 14:58
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -518,7 +518,7 @@ for thisBreathHoldTrial in BreathHoldTrials:
     
     # ------Prepare to start Routine "HoldBreath"-------
     continueRoutine = True
-    routineTimer.add(60.000000)
+    routineTimer.add(30.000000)
     # update component parameters for each repeat
     # keep track of which components have finished
     HoldBreathComponents = [HoldCircle]
@@ -554,13 +554,13 @@ for thisBreathHoldTrial in BreathHoldTrials:
             HoldCircle.setAutoDraw(True)
         if HoldCircle.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > HoldCircle.tStartRefresh + 60-frameTolerance:
+            if tThisFlipGlobal > HoldCircle.tStartRefresh + 30-frameTolerance:
                 # keep track of stop time/frame for later
                 HoldCircle.tStop = t  # not accounting for scr refresh
                 HoldCircle.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(HoldCircle, 'tStopRefresh')  # time at next scr refresh
                 HoldCircle.setAutoDraw(False)
-        tt = t/60
+        tt = t/30
         
         # Hue in range 0 (red) to 120 (green)
         # Stop color slide at 80 (green-yellow)

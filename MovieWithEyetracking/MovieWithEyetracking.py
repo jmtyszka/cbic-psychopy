@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Tue Mar  8 11:20:47 2022
+    on March 08, 2022, at 12:53
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -58,7 +58,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s_%s' % (expInfo['participant'], ex
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/jmt/GitHub/cbic-psychopy/MovieWithEyetracking/MovieWithEyetracking.py',
+    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\MovieWithEyetracking\\MovieWithEyetracking.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -72,7 +72,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=[2560, 1080], fullscr=True, screen=0, 
+    size=[1920, 1080], fullscr=True, screen=0, 
     winType='pyglet', allowGUI=False, allowStencil=False,
     monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
@@ -94,7 +94,7 @@ ioConfig = {
         'network_settings': '100.1.1.1',
         'default_native_data_file_name': 'EXPFILE',
         'runtime_settings': {
-            'sampling_rate': 500.0,
+            'sampling_rate': 1000.0,
             'track_eyes': 'RIGHT_EYE',
             'sample_filtering': {
                 'sample_filtering': 'FILTER_LEVEL_2',
@@ -184,7 +184,7 @@ calibration = hardware.eyetracker.EyetrackerCalibration(win,
     eyetracker, calibrationTarget,
     units=None, colorSpace='rgb',
     progressMode='time', targetDur=1.5, expandScale=1.25,
-    targetLayout='NINE_POINTS', randomisePos=True,
+    targetLayout='THREE_POINTS', randomisePos=True,
     movementAnimation=True, targetDelay=1.0
 )
 # run calibration
@@ -207,7 +207,7 @@ validationTarget = visual.TargetStim(win,
 validation = iohub.ValidationProcedure(win,
     target=validationTarget,
     gaze_cursor='green', 
-    positions='NINE_POINTS', randomize_positions=True,
+    positions='THREE_POINTS', randomize_positions=True,
     expand_scale=1.25, target_duration=1.5,
     enable_position_animation=True, target_delay=1.0,
     progress_on_key=None,

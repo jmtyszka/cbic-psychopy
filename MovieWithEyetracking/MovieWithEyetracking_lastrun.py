@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Tue Mar  8 11:12:14 2022
+    on March 08, 2022, at 13:25
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -58,7 +58,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s_%s' % (expInfo['participant'], ex
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/jmt/GitHub/cbic-psychopy/MovieWithEyetracking/MovieWithEyetracking_lastrun.py',
+    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\MovieWithEyetracking\\MovieWithEyetracking_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -72,9 +72,9 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=[2560, 1080], fullscr=True, screen=0, 
+    size=[1920, 1080], fullscr=True, screen=1, 
     winType='pyglet', allowGUI=False, allowStencil=False,
-    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor='hPrisma Projector', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
     units='height')
 # store frame rate of monitor if we can measure it
@@ -85,14 +85,26 @@ else:
     frameDur = 1.0 / 60.0  # could not measure, so guess
 
 # Setup eyetracking
-ioDevice = 'eyetracker.hw.mouse.EyeTracker'
+ioDevice = 'eyetracker.hw.sr_research.eyelink.EyeTracker'
 ioConfig = {
     ioDevice: {
         'name': 'tracker',
-        'controls': {
-            'move': [],
-            'blink':('MIDDLE_BUTTON',),
-            'saccade_threshold': 0.5,
+        'model_name': 'EYELINK 1000 LONG RANGE',
+        'simulation_mode': False,
+        'network_settings': '100.1.1.1',
+        'default_native_data_file_name': 'EXPFILE',
+        'runtime_settings': {
+            'sampling_rate': 500.0,
+            'track_eyes': 'RIGHT_EYE',
+            'sample_filtering': {
+                'sample_filtering': 'FILTER_LEVEL_2',
+                'elLiveFiltering': 'FILTER_LEVEL_OFF',
+            },
+            'vog_settings': {
+                'pupil_measure_types': 'PUPIL_AREA',
+                'tracking_mode': 'PUPIL_CR_TRACKING',
+                'pupil_center_algorithm': 'ELLIPSE_FIT',
+            }
         }
     }
 }
@@ -104,6 +116,17 @@ eyetracker = ioServer.getDevice('tracker')
 
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard()
+
+# Initialize components for Routine "et_instructions"
+et_instructionsClock = core.Clock()
+text = visual.TextStim(win=win, name='text',
+    text='We will be setting up the eye tracker.\n\nPlease stare at the moving dots when they appear.',
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+et_continue = keyboard.Keyboard()
 
 # Initialize components for Routine "instr"
 instrClock = core.Clock()
@@ -158,6 +181,102 @@ gazeCursor = visual.ShapeStim(
 globalClock = core.Clock()  # to track the time since experiment started
 routineTimer = core.CountdownTimer()  # to track time remaining of each (non-slip) routine 
 
+# ------Prepare to start Routine "et_instructions"-------
+continueRoutine = True
+# update component parameters for each repeat
+et_continue.keys = []
+et_continue.rt = []
+_et_continue_allKeys = []
+# keep track of which components have finished
+et_instructionsComponents = [text, et_continue]
+for thisComponent in et_instructionsComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+et_instructionsClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "et_instructions"-------
+while continueRoutine:
+    # get current time
+    t = et_instructionsClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=et_instructionsClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *text* updates
+    if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        text.frameNStart = frameN  # exact frame index
+        text.tStart = t  # local t and not account for scr refresh
+        text.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
+        text.setAutoDraw(True)
+    
+    # *et_continue* updates
+    waitOnFlip = False
+    if et_continue.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        et_continue.frameNStart = frameN  # exact frame index
+        et_continue.tStart = t  # local t and not account for scr refresh
+        et_continue.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(et_continue, 'tStartRefresh')  # time at next scr refresh
+        et_continue.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(et_continue.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(et_continue.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if et_continue.status == STARTED and not waitOnFlip:
+        theseKeys = et_continue.getKeys(keyList=['space'], waitRelease=False)
+        _et_continue_allKeys.extend(theseKeys)
+        if len(_et_continue_allKeys):
+            et_continue.keys = _et_continue_allKeys[-1].name  # just the last key pressed
+            et_continue.rt = _et_continue_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in et_instructionsComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "et_instructions"-------
+for thisComponent in et_instructionsComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+thisExp.addData('text.started', text.tStartRefresh)
+thisExp.addData('text.stopped', text.tStopRefresh)
+# check responses
+if et_continue.keys in ['', [], None]:  # No response was made
+    et_continue.keys = None
+thisExp.addData('et_continue.keys',et_continue.keys)
+if et_continue.keys != None:  # we had a response
+    thisExp.addData('et_continue.rt', et_continue.rt)
+thisExp.addData('et_continue.started', et_continue.tStartRefresh)
+thisExp.addData('et_continue.stopped', et_continue.tStopRefresh)
+thisExp.nextEntry()
+# the Routine "et_instructions" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
 # -------Run Routine 'calibration'-------
 
 # define target for calibration
@@ -172,7 +291,7 @@ calibration = hardware.eyetracker.EyetrackerCalibration(win,
     eyetracker, calibrationTarget,
     units=None, colorSpace='rgb',
     progressMode='time', targetDur=1.5, expandScale=1.25,
-    targetLayout='NINE_POINTS', randomisePos=True,
+    targetLayout='THREE_POINTS', randomisePos=True,
     movementAnimation=True, targetDelay=1.0
 )
 # run calibration
@@ -195,7 +314,7 @@ validationTarget = visual.TargetStim(win,
 validation = iohub.ValidationProcedure(win,
     target=validationTarget,
     gaze_cursor='green', 
-    positions='NINE_POINTS', randomize_positions=True,
+    positions='THREE_POINTS', randomize_positions=True,
     expand_scale=1.25, target_duration=1.5,
     enable_position_animation=True, target_delay=1.0,
     progress_on_key=None,
