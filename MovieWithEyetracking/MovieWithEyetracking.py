@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on March 09, 2022, at 17:41
+    on Thu Mar 10 12:37:34 2022
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -58,7 +58,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s_%s' % (expInfo['participant'], ex
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\MovieWithEyetracking\\MovieWithEyetracking.py',
+    originPath='/Users/jmt/GitHub/cbic-pyschopy/MovieWithEyetracking/MovieWithEyetracking.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -142,6 +142,18 @@ et_record = hardware.eyetracker.EyetrackerControl(
     server=ioServer,
     tracker=eyetracker
 )
+movie_player = visual.MovieStim3(
+    win=win, name='movie_player',units='cm', 
+    noAudio = False,
+    filename="expInfo['movie']" + ".mp4",
+    ori=0.0, pos=(0, 0), opacity=None,
+    loop=False,
+    size=[36.0, 20.3],
+    depth=-1.0,
+    )
+
+# JMT : Movie duration
+
 
 # Initialize components for Routine "post_movie"
 post_movieClock = core.Clock()
@@ -354,9 +366,8 @@ routineTimer.reset()
 continueRoutine = True
 routineTimer.add(5.000000)
 # update component parameters for each repeat
-t_prev = -1
 # keep track of which components have finished
-play_movieComponents = [et_record]
+play_movieComponents = [et_record, movie_player]
 for thisComponent in play_movieComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -394,9 +405,25 @@ while continueRoutine and routineTimer.getTime() > 0:
             et_record.frameNStop = frameN  # exact frame index
             win.timeOnFlip(et_record, 'tStopRefresh')  # time at next scr refresh
             et_record.status = FINISHED
-    if t - t_prev > 0.1:
-        pos = etRecord.getPos()
-        print(pos)
+    
+    # *movie_player* updates
+    if movie_player.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        movie_player.frameNStart = frameN  # exact frame index
+        movie_player.tStart = t  # local t and not account for scr refresh
+        movie_player.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(movie_player, 'tStartRefresh')  # time at next scr refresh
+        movie_player.setAutoDraw(True)
+    if movie_player.status == STARTED:
+        # is it time to stop? (based on global clock, using actual start)
+        if tThisFlipGlobal > movie_player.tStartRefresh + 5-frameTolerance:
+            # keep track of stop time/frame for later
+            movie_player.tStop = t  # not accounting for scr refresh
+            movie_player.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(movie_player, 'tStopRefresh')  # time at next scr refresh
+            movie_player.setAutoDraw(False)
+    if movie_player.status == FINISHED:  # force-end the routine
+        continueRoutine = False
     
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -422,6 +449,7 @@ for thisComponent in play_movieComponents:
 # make sure the eyetracker recording stops
 if et_record.status != FINISHED:
     et_record.status = FINISHED
+movie_player.stop()
 
 # ------Prepare to start Routine "post_movie"-------
 continueRoutine = True

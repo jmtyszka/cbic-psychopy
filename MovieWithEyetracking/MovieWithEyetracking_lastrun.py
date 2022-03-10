@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on March 09, 2022, at 17:44
+    on Thu Mar 10 13:42:40 2022
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -19,8 +19,7 @@ psychopy.useVersion('2021.2.3')
 
 from psychopy import locale_setup
 from psychopy import prefs
-prefs.hardware['audioLib'] = 'ptb'
-prefs.hardware['audioLatencyMode'] = '3'
+prefs.hardware['audioLatencyMode'] = '0'
 from psychopy import sound, gui, visual, core, data, event, logging, clock, colors, iohub, hardware
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
@@ -44,7 +43,7 @@ os.chdir(_thisDir)
 # Store info about the experiment session
 psychopyVersion = '2021.2.3'
 expName = 'MovieWithEyetracking'  # from the Builder filename that created this script
-expInfo = {'participant': 'Damy001', 'movie': 'budapest_trailer_DRC', 'volume': '50'}
+expInfo = {'participant': 'Damy001', 'movie': 'budapest_trailer_10s'}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
 if dlg.OK == False:
     core.quit()  # user pressed cancel
@@ -58,8 +57,8 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s_%s' % (expInfo['participant'], ex
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\MovieWithEyetracking\\MovieWithEyetracking_lastrun.py',
-    savePickle=True, saveWideText=True,
+    originPath='/Users/jmt/GitHub/cbic-pyschopy/MovieWithEyetracking/MovieWithEyetracking_lastrun.py',
+    savePickle=True, saveWideText=False,
     dataFileName=filename)
 # save a log file for detail verbose info
 logFile = logging.LogFile(filename+'.log', level=logging.EXP)
@@ -72,7 +71,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=[1280, 960], fullscr=True, screen=1, 
+    size=[2560, 1440], fullscr=True, screen=0, 
     winType='pyglet', allowGUI=False, allowStencil=False,
     monitor='hPrisma Projector', color='black', colorSpace='rgb',
     blendMode='avg', useFBO=True, 
@@ -107,14 +106,6 @@ defaultKeyboard = keyboard.Keyboard()
 
 # Initialize components for Routine "et_instructions"
 et_instructionsClock = core.Clock()
-text = visual.TextStim(win=win, name='text',
-    text='- Eye Tracker Setup -\n\nPlease stare at the moving dots when they appear\n\nPress Button 1 to continue',
-    font='Open Sans',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-    color='white', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
-et_continue = keyboard.Keyboard()
 
 # Initialize components for Routine "instr"
 instrClock = core.Clock()
@@ -142,6 +133,15 @@ et_record = hardware.eyetracker.EyetrackerControl(
     server=ioServer,
     tracker=eyetracker
 )
+movie_player = visual.MovieStim3(
+    win=win, name='movie_player',units='cm', 
+    noAudio = False,
+    filename=expInfo['movie']+'.mp4',
+    ori=0.0, pos=(0, 0), opacity=None,
+    loop=False,
+    size=[36.0, 20.3],
+    depth=-1.0,
+    )
 
 # Initialize components for Routine "post_movie"
 post_movieClock = core.Clock()
@@ -160,11 +160,8 @@ routineTimer = core.CountdownTimer()  # to track time remaining of each (non-sli
 # ------Prepare to start Routine "et_instructions"-------
 continueRoutine = True
 # update component parameters for each repeat
-et_continue.keys = []
-et_continue.rt = []
-_et_continue_allKeys = []
 # keep track of which components have finished
-et_instructionsComponents = [text, et_continue]
+et_instructionsComponents = []
 for thisComponent in et_instructionsComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -187,37 +184,6 @@ while continueRoutine:
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
     
-    # *text* updates
-    if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        text.frameNStart = frameN  # exact frame index
-        text.tStart = t  # local t and not account for scr refresh
-        text.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
-        text.setAutoDraw(True)
-    
-    # *et_continue* updates
-    waitOnFlip = False
-    if et_continue.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        et_continue.frameNStart = frameN  # exact frame index
-        et_continue.tStart = t  # local t and not account for scr refresh
-        et_continue.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(et_continue, 'tStartRefresh')  # time at next scr refresh
-        et_continue.status = STARTED
-        # keyboard checking is just starting
-        waitOnFlip = True
-        win.callOnFlip(et_continue.clock.reset)  # t=0 on next screen flip
-        win.callOnFlip(et_continue.clearEvents, eventType='keyboard')  # clear events on next screen flip
-    if et_continue.status == STARTED and not waitOnFlip:
-        theseKeys = et_continue.getKeys(keyList=['1'], waitRelease=False)
-        _et_continue_allKeys.extend(theseKeys)
-        if len(_et_continue_allKeys):
-            et_continue.keys = _et_continue_allKeys[-1].name  # just the last key pressed
-            et_continue.rt = _et_continue_allKeys[-1].rt
-            # a response ends the routine
-            continueRoutine = False
-    
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
         core.quit()
@@ -239,17 +205,6 @@ while continueRoutine:
 for thisComponent in et_instructionsComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-thisExp.addData('text.started', text.tStartRefresh)
-thisExp.addData('text.stopped', text.tStopRefresh)
-# check responses
-if et_continue.keys in ['', [], None]:  # No response was made
-    et_continue.keys = None
-thisExp.addData('et_continue.keys',et_continue.keys)
-if et_continue.keys != None:  # we had a response
-    thisExp.addData('et_continue.rt', et_continue.rt)
-thisExp.addData('et_continue.started', et_continue.tStartRefresh)
-thisExp.addData('et_continue.stopped', et_continue.tStopRefresh)
-thisExp.nextEntry()
 # the Routine "et_instructions" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -352,11 +307,9 @@ routineTimer.reset()
 
 # ------Prepare to start Routine "play_movie"-------
 continueRoutine = True
-routineTimer.add(5.000000)
 # update component parameters for each repeat
-t_prev = -1
 # keep track of which components have finished
-play_movieComponents = [et_record]
+play_movieComponents = [et_record, movie_player]
 for thisComponent in play_movieComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -371,7 +324,7 @@ play_movieClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
 
 # -------Run Routine "play_movie"-------
-while continueRoutine and routineTimer.getTime() > 0:
+while continueRoutine:
     # get current time
     t = play_movieClock.getTime()
     tThisFlip = win.getFutureFlipTime(clock=play_movieClock)
@@ -386,17 +339,17 @@ while continueRoutine and routineTimer.getTime() > 0:
         et_record.tStartRefresh = tThisFlipGlobal  # on global time
         win.timeOnFlip(et_record, 'tStartRefresh')  # time at next scr refresh
         et_record.status = STARTED
-    if et_record.status == STARTED:
-        # is it time to stop? (based on global clock, using actual start)
-        if tThisFlipGlobal > et_record.tStartRefresh + 5-frameTolerance:
-            # keep track of stop time/frame for later
-            et_record.tStop = t  # not accounting for scr refresh
-            et_record.frameNStop = frameN  # exact frame index
-            win.timeOnFlip(et_record, 'tStopRefresh')  # time at next scr refresh
-            et_record.status = FINISHED
-    if t - t_prev > 0.1:
-        print(f"{t} : {et_record.pos}")
-        t_prev = t
+    
+    # *movie_player* updates
+    if movie_player.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        movie_player.frameNStart = frameN  # exact frame index
+        movie_player.tStart = t  # local t and not account for scr refresh
+        movie_player.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(movie_player, 'tStartRefresh')  # time at next scr refresh
+        movie_player.setAutoDraw(True)
+    if movie_player.status == FINISHED:  # force-end the routine
+        continueRoutine = False
     
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -422,6 +375,9 @@ for thisComponent in play_movieComponents:
 # make sure the eyetracker recording stops
 if et_record.status != FINISHED:
     et_record.status = FINISHED
+movie_player.stop()
+# the Routine "play_movie" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
 
 # ------Prepare to start Routine "post_movie"-------
 continueRoutine = True
@@ -497,7 +453,6 @@ thisExp.addData('thanks_text.stopped', thanks_text.tStopRefresh)
 win.flip()
 
 # these shouldn't be strictly necessary (should auto-save)
-thisExp.saveAsWideText(filename+'.csv', delim='auto')
 thisExp.saveAsPickle(filename)
 logging.flush()
 # make sure everything is closed down

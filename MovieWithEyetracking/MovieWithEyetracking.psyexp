@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" ?>
 <PsychoPy2experiment encoding="utf-8" version="2021.2.3">
   <Settings>
-    <Param name="Audio latency priority" updates="None" val="3" valType="str"/>
-    <Param name="Audio lib" updates="None" val="ptb" valType="str"/>
+    <Param name="Audio latency priority" updates="None" val="0" valType="str"/>
+    <Param name="Audio lib" updates="None" val="use prefs" valType="str"/>
     <Param name="Completed URL" updates="None" val="" valType="str"/>
     <Param name="Data file delimiter" updates="None" val="auto" valType="str"/>
-    <Param name="Data filename" updates="None" val="u'data/%s_%s_%s_%s' % (expInfo['participant'], expInfo['movie'], expName, expInfo['date'])" valType="code"/>
+    <Param name="Data filename" updates="None" val="u'data/%s_%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])" valType="code"/>
     <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
-    <Param name="Experiment info" updates="None" val="{'participant': 'Damy001', 'movie': 'budapest_trailer_DRC', 'volume': '50'}" valType="code"/>
+    <Param name="Experiment info" updates="None" val="{'participant': 'Damy001', 'movie': 'budapest_trailer_10s'}" valType="code"/>
     <Param name="Force stereo" updates="None" val="True" valType="bool"/>
     <Param name="Full-screen window" updates="None" val="True" valType="bool"/>
     <Param name="HTML path" updates="None" val="" valType="str"/>
@@ -19,13 +19,13 @@
     <Param name="Save hdf5 file" updates="None" val="True" valType="bool"/>
     <Param name="Save log file" updates="None" val="True" valType="bool"/>
     <Param name="Save psydat file" updates="None" val="True" valType="bool"/>
-    <Param name="Save wide csv file" updates="None" val="True" valType="bool"/>
-    <Param name="Screen" updates="None" val="2" valType="num"/>
+    <Param name="Save wide csv file" updates="None" val="False" valType="bool"/>
+    <Param name="Screen" updates="None" val="1 " valType="num"/>
     <Param name="Show info dlg" updates="None" val="True" valType="bool"/>
     <Param name="Show mouse" updates="None" val="False" valType="bool"/>
     <Param name="Units" updates="None" val="height" valType="str"/>
     <Param name="Use version" updates="None" val="2021.2.3" valType="str"/>
-    <Param name="Window size (pixels)" updates="None" val="[1280, 960]" valType="list"/>
+    <Param name="Window size (pixels)" updates="None" val="[2560, 1440]" valType="list"/>
     <Param name="blendMode" updates="None" val="avg" valType="str"/>
     <Param name="color" updates="None" val="black" valType="color"/>
     <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
@@ -165,18 +165,18 @@
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="5" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="False" valType="bool"/>
       </EyetrackerRecordComponent>
       <MovieComponent name="movie_player">
         <Param name="No audio" updates="None" val="False" valType="bool"/>
         <Param name="backend" updates="None" val="moviepy" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
-        <Param name="disabled" updates="None" val="True" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="900" valType="code"/>
         <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
         <Param name="loop" updates="None" val="False" valType="bool"/>
-        <Param name="movie" updates="constant" val="$&quot;expInfo['movie']&quot; + &quot;.mp4&quot;" valType="file"/>
+        <Param name="movie" updates="constant" val="$expInfo['movie']+'.mp4'" valType="file"/>
         <Param name="name" updates="None" val="movie_player" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -186,28 +186,11 @@
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="5" valType="code"/>
+        <Param name="stopType" updates="None" val="condition" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="units" updates="None" val="cm" valType="str"/>
       </MovieComponent>
-      <CodeComponent name="et_pos">
-        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="console.log(tracker.getPos());&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="t_prev = -1" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Py" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="if t - t_prev &gt; 0.1:&amp;#10;    print(f&quot;{t} : {et_record.pos}&quot;)&amp;#10;    t_prev = t" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="et_pos" valType="code"/>
-      </CodeComponent>
     </Routine>
     <Routine name="post_movie">
       <TextComponent name="thanks_text">
@@ -240,7 +223,7 @@
       <Param name="borderColor" updates="None" val="black" valType="color"/>
       <Param name="borderWidth" updates="None" val="2" valType="num"/>
       <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
-      <Param name="disabled" updates="None" val="True" valType="bool"/>
+      <Param name="disabled" updates="None" val="False" valType="bool"/>
       <Param name="expandDur" updates="None" val="1" valType="num"/>
       <Param name="expandScale" updates="None" val="1.25" valType="num"/>
       <Param name="fillColor" updates="None" val="" valType="color"/>
@@ -264,7 +247,7 @@
       <Param name="borderWidth" updates="None" val="2" valType="num"/>
       <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
       <Param name="cursorFillColor" updates="None" val="green" valType="color"/>
-      <Param name="disabled" updates="None" val="True" valType="bool"/>
+      <Param name="disabled" updates="None" val="False" valType="bool"/>
       <Param name="expandDur" updates="None" val="1" valType="num"/>
       <Param name="expandScale" updates="None" val="1.25" valType="num"/>
       <Param name="fillColor" updates="None" val="" valType="color"/>
