@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on March 08, 2022, at 14:48
+    on March 09, 2022, at 17:44
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -44,7 +44,7 @@ os.chdir(_thisDir)
 # Store info about the experiment session
 psychopyVersion = '2021.2.3'
 expName = 'MovieWithEyetracking'  # from the Builder filename that created this script
-expInfo = {'participant': 'Damy002', 'movie': 'budapest_trailer.mp4'}
+expInfo = {'participant': 'Damy001', 'movie': 'budapest_trailer_DRC', 'volume': '50'}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
 if dlg.OK == False:
     core.quit()  # user pressed cancel
@@ -85,33 +85,21 @@ else:
     frameDur = 1.0 / 60.0  # could not measure, so guess
 
 # Setup eyetracking
-ioDevice = 'eyetracker.hw.sr_research.eyelink.EyeTracker'
+ioDevice = 'eyetracker.hw.mouse.EyeTracker'
 ioConfig = {
     ioDevice: {
         'name': 'tracker',
-        'model_name': 'EYELINK 1000 LONG RANGE',
-        'simulation_mode': False,
-        'network_settings': '100.1.1.1',
-        'default_native_data_file_name': 'EXPFILE',
-        'runtime_settings': {
-            'sampling_rate': 500.0,
-            'track_eyes': 'RIGHT_EYE',
-            'sample_filtering': {
-                'sample_filtering': 'FILTER_LEVEL_2',
-                'elLiveFiltering': 'FILTER_LEVEL_OFF',
-            },
-            'vog_settings': {
-                'pupil_measure_types': 'PUPIL_AREA',
-                'tracking_mode': 'PUPIL_CR_TRACKING',
-                'pupil_center_algorithm': 'ELLIPSE_FIT',
-            }
+        'controls': {
+            'move': [],
+            'blink':('MIDDLE_BUTTON',),
+            'saccade_threshold': 0.5,
         }
     }
 }
 ioSession = '1'
 if 'session' in expInfo:
     ioSession = str(expInfo['session'])
-ioServer = io.launchHubServer(window=win, **ioConfig)
+ioServer = io.launchHubServer(window=win, experiment_code='MovieWithEyetracking', session_code=ioSession, datastore_name=filename, **ioConfig)
 eyetracker = ioServer.getDevice('tracker')
 
 # create a default keyboard (e.g. to check for escape)
@@ -120,7 +108,7 @@ defaultKeyboard = keyboard.Keyboard()
 # Initialize components for Routine "et_instructions"
 et_instructionsClock = core.Clock()
 text = visual.TextStim(win=win, name='text',
-    text='We will be setting up the eye tracker.\n\nPlease stare at the moving dots when they appear.',
+    text='- Eye Tracker Setup -\n\nPlease stare at the moving dots when they appear\n\nPress Button 1 to continue',
     font='Open Sans',
     pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -150,19 +138,10 @@ key_resp = keyboard.Keyboard()
 
 # Initialize components for Routine "play_movie"
 play_movieClock = core.Clock()
-etRecord = hardware.eyetracker.EyetrackerControl(
+et_record = hardware.eyetracker.EyetrackerControl(
     server=ioServer,
     tracker=eyetracker
 )
-movie = visual.MovieStim3(
-    win=win, name='movie',units='cm', 
-    noAudio = False,
-    filename=expInfo['movie'],
-    ori=0.0, pos=(0, 0), opacity=None,
-    loop=False,
-    size=[36.0, 20.3],
-    depth=-1.0,
-    )
 
 # Initialize components for Routine "post_movie"
 post_movieClock = core.Clock()
@@ -231,7 +210,7 @@ while continueRoutine:
         win.callOnFlip(et_continue.clock.reset)  # t=0 on next screen flip
         win.callOnFlip(et_continue.clearEvents, eventType='keyboard')  # clear events on next screen flip
     if et_continue.status == STARTED and not waitOnFlip:
-        theseKeys = et_continue.getKeys(keyList=['space'], waitRelease=False)
+        theseKeys = et_continue.getKeys(keyList=['1'], waitRelease=False)
         _et_continue_allKeys.extend(theseKeys)
         if len(_et_continue_allKeys):
             et_continue.keys = _et_continue_allKeys[-1].name  # just the last key pressed
@@ -272,57 +251,6 @@ thisExp.addData('et_continue.started', et_continue.tStartRefresh)
 thisExp.addData('et_continue.stopped', et_continue.tStopRefresh)
 thisExp.nextEntry()
 # the Routine "et_instructions" was not non-slip safe, so reset the non-slip timer
-routineTimer.reset()
-
-# -------Run Routine 'calibration'-------
-
-# define target for calibration
-calibrationTarget = visual.TargetStim(win, 
-    name='calibrationTarget',
-    radius=0.01, fillColor='', borderColor='black', lineWidth=2.0,
-    innerRadius=0.0035, innerFillColor='green', innerBorderColor='black', innerLineWidth=2.0,
-    colorSpace='rgb', units=None
-)
-# define parameters for calibration
-calibration = hardware.eyetracker.EyetrackerCalibration(win, 
-    eyetracker, calibrationTarget,
-    units=None, colorSpace='rgb',
-    progressMode='time', targetDur=1.5, expandScale=1.25,
-    targetLayout='FIVE_POINTS', randomisePos=True,
-    movementAnimation=True, targetDelay=1.0
-)
-# run calibration
-calibration.run()
-# clear any keypresses from during calibration so they don't interfere with the experiment
-defaultKeyboard.clearEvents()
-# the Routine "calibration" was not non-slip safe, so reset the non-slip timer
-routineTimer.reset()
-
-# -------Run Routine 'validation'-------
-
-# define target for validation
-validationTarget = visual.TargetStim(win, 
-    name='validationTarget',
-    radius=0.01, fillColor='', borderColor='black', lineWidth=2.0,
-    innerRadius=0.0035, innerFillColor='green', innerBorderColor='black', innerLineWidth=2.0,
-    colorSpace='rgb', units=None
-)
-# define parameters for validation
-validation = iohub.ValidationProcedure(win,
-    target=validationTarget,
-    gaze_cursor='green', 
-    positions='FIVE_POINTS', randomize_positions=True,
-    expand_scale=1.25, target_duration=1.5,
-    enable_position_animation=True, target_delay=1.0,
-    progress_on_key=None,
-    show_results_screen=True, save_results_screen=False,
-    color_space='rgb', unit_type=None
-)
-# run validation
-validation.run()
-# clear any keypresses from during validation so they don't interfere with the experiment
-defaultKeyboard.clearEvents()
-# the Routine "validation" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
 # ------Prepare to start Routine "instr"-------
@@ -424,9 +352,11 @@ routineTimer.reset()
 
 # ------Prepare to start Routine "play_movie"-------
 continueRoutine = True
+routineTimer.add(5.000000)
 # update component parameters for each repeat
+t_prev = -1
 # keep track of which components have finished
-play_movieComponents = [etRecord, movie]
+play_movieComponents = [et_record]
 for thisComponent in play_movieComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -441,30 +371,32 @@ play_movieClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
 
 # -------Run Routine "play_movie"-------
-while continueRoutine:
+while continueRoutine and routineTimer.getTime() > 0:
     # get current time
     t = play_movieClock.getTime()
     tThisFlip = win.getFutureFlipTime(clock=play_movieClock)
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
-    # *etRecord* updates
-    if etRecord.status == NOT_STARTED and t >= 0.0-frameTolerance:
+    # *et_record* updates
+    if et_record.status == NOT_STARTED and t >= 0.0-frameTolerance:
         # keep track of start time/frame for later
-        etRecord.frameNStart = frameN  # exact frame index
-        etRecord.tStart = t  # local t and not account for scr refresh
-        etRecord.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(etRecord, 'tStartRefresh')  # time at next scr refresh
-        etRecord.status = STARTED
-    
-    # *movie* updates
-    if movie.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        movie.frameNStart = frameN  # exact frame index
-        movie.tStart = t  # local t and not account for scr refresh
-        movie.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(movie, 'tStartRefresh')  # time at next scr refresh
-        movie.setAutoDraw(True)
+        et_record.frameNStart = frameN  # exact frame index
+        et_record.tStart = t  # local t and not account for scr refresh
+        et_record.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(et_record, 'tStartRefresh')  # time at next scr refresh
+        et_record.status = STARTED
+    if et_record.status == STARTED:
+        # is it time to stop? (based on global clock, using actual start)
+        if tThisFlipGlobal > et_record.tStartRefresh + 5-frameTolerance:
+            # keep track of stop time/frame for later
+            et_record.tStop = t  # not accounting for scr refresh
+            et_record.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(et_record, 'tStopRefresh')  # time at next scr refresh
+            et_record.status = FINISHED
+    if t - t_prev > 0.1:
+        print(f"{t} : {et_record.pos}")
+        t_prev = t
     
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -488,11 +420,8 @@ for thisComponent in play_movieComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
 # make sure the eyetracker recording stops
-if etRecord.status != FINISHED:
-    etRecord.status = FINISHED
-movie.stop()
-# the Routine "play_movie" was not non-slip safe, so reset the non-slip timer
-routineTimer.reset()
+if et_record.status != FINISHED:
+    et_record.status = FINISHED
 
 # ------Prepare to start Routine "post_movie"-------
 continueRoutine = True
