@@ -112,3 +112,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# psychopy data files
+*/data/*
+
+# Video files
+*.mp4
+*.mkv
