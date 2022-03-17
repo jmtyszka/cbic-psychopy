@@ -171,7 +171,7 @@ End_ScreenClock = core.Clock()
 text_3 = visual.TextStim(win=win, name='text_3',
     text='Thank you for completing the face memory task!!\n\nPlease press any bottom to exit.',
     font='Open Sans',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
