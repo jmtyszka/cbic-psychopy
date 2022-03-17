@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on March 16, 2022, at 14:22
+    on March 17, 2022, at 14:55
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='D:\\Adolphslab\\psychopy\\Repetetive Face Familiarization\\RFF.py',
+    originPath='D:\\Adolphslab\\psychopy\\cbic-psychopy\\RepetitiveFaceFamiliarization\\RFF_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -135,25 +135,14 @@ text_2 = visual.TextStim(win=win, name='text_2',
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
-if int(expInfo['session'])%4==2:
-    image_2 = visual.ImageStim(
-        win=win,
-        name='image_2', 
-            image='icons/newold buttons odd.bmp', mask=None,
-        ori=0.0, pos=(0, -0.1), size=(1.4, 0.65),
-        color=[1,1,1], colorSpace='rgb', opacity=None,
-        flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=False, depth=-1.0)
-if int(expInfo['session'])%4==0:
-     image_2 = visual.ImageStim(
-        win=win,
-        name='image_2', 
-            image = 'icons/newold buttons even.bmp', mask=None,
-        ori=0.0, pos=(0, -0.1), size=(1.4, 0.65),
-        color=[1,1,1], colorSpace='rgb', opacity=None,
-        flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=False, depth=-1.0)
-            
+image_2 = visual.ImageStim(
+    win=win,
+    name='image_2', 
+    image='icons\\newold buttons even.bmp' if int(expInfo['session']) %4==2 else 'icons\\newold buttons odd.bmp', mask=None,
+    ori=0.0, pos=(0, -0.1), size=(1.4, 0.6),
+    color=[1,1,1], colorSpace='rgb', opacity=None,
+    flipHoriz=False, flipVert=False,
+    texRes=128.0, interpolate=False, depth=-1.0)
 key_resp_2 = keyboard.Keyboard()
 
 # Initialize components for Routine "ITI_2"
@@ -171,7 +160,7 @@ End_ScreenClock = core.Clock()
 text_3 = visual.TextStim(win=win, name='text_3',
     text='Thank you for completing the face memory task!!\n\nPlease press any bottom to exit.',
     font='Open Sans',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -612,19 +601,20 @@ for thisRepeat in repeat:
             win.callOnFlip(key_resp_2.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if key_resp_2.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > key_resp_2.tStartRefresh + 2.0-frameTolerance :
+            if tThisFlipGlobal > key_resp_2.tStartRefresh + 2.0-frameTolerance:
                 # keep track of stop time/frame for later
                 key_resp_2.tStop = t  # not accounting for scr refresh
                 key_resp_2.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(key_resp_2, 'tStopRefresh')  # time at next scr refresh
                 key_resp_2.status = FINISHED
-            theseKeys = key_resp_2.getKeys(keyList=['1', '2', '3', '4'], waitRelease=False)
         if key_resp_2.status == STARTED and not waitOnFlip:
+            theseKeys = key_resp_2.getKeys(keyList=['1', '2', '3', '4'], waitRelease=False)
             _key_resp_2_allKeys.extend(theseKeys)
             if len(_key_resp_2_allKeys):
                 key_resp_2.keys = [key.name for key in _key_resp_2_allKeys]  # storing all keys
-                continueRoutine = False
                 key_resp_2.rt = [key.rt for key in _key_resp_2_allKeys]
+                # a response ends the routine
+                continueRoutine = False
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):

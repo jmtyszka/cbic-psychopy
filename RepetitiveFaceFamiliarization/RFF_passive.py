@@ -1,8 +1,8 @@
-﻿#!/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on March 17, 2022, at 12:31
+    on March 16, 2022, at 20:24
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='D:\\Adolphslab\\psychopy\\Repetetive Face Familiarization\\RFF_passive_lastrun.py',
+    originPath='D:\\Adolphslab\\psychopy\\Repetetive Face Familiarization\\RFF_passive.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -88,7 +88,7 @@ Wait_for_TriggerClock = core.Clock()
 TriggerText = visual.TextStim(win=win, name='TriggerText',
     text='Waiting for trigger...',
     font='Open Sans',
-    pos=(0, 0), height=0.15, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -129,9 +129,9 @@ text_5 = visual.TextStim(win=win, name='text_5',
 # Initialize components for Routine "End_Screen"
 End_ScreenClock = core.Clock()
 text_3 = visual.TextStim(win=win, name='text_3',
-    text='Thank you for completing the face memory task!!\n\nPlease press any bottom to exit.',
+    text='Thank you for completing the passive face viewing task!!\n\nPlease press any bottom to exit.',
     font='Open Sans',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -336,7 +336,7 @@ routineTimer.reset()
 # set up handler to look after randomisation of conditions etc
 repeat = data.TrialHandler(nReps=1.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('stimfile.csv'),
+    trialList=data.importConditions('stimfiles/stimfiles_'+str(expInfo['session'])+'.csv'),
     seed=None, name='repeat')
 thisExp.addLoop(repeat)  # add the loop to the experiment
 thisRepeat = repeat.trialList[0]  # so we can initialise stimuli with some values
