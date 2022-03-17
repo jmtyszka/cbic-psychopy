@@ -12,7 +12,7 @@
     <Param name="Full-screen window" updates="None" val="True" valType="bool"/>
     <Param name="HTML path" updates="None" val="" valType="str"/>
     <Param name="Incomplete URL" updates="None" val="" valType="str"/>
-    <Param name="Monitor" updates="None" val="testMonitor" valType="str"/>
+    <Param name="Monitor" updates="None" val="hPrisma Projector" valType="str"/>
     <Param name="Resources" updates="None" val="[]" valType="list"/>
     <Param name="Save csv file" updates="None" val="False" valType="bool"/>
     <Param name="Save excel file" updates="None" val="False" valType="bool"/>
@@ -20,12 +20,12 @@
     <Param name="Save log file" updates="None" val="True" valType="bool"/>
     <Param name="Save psydat file" updates="None" val="True" valType="bool"/>
     <Param name="Save wide csv file" updates="None" val="True" valType="bool"/>
-    <Param name="Screen" updates="None" val="1" valType="num"/>
+    <Param name="Screen" updates="None" val="2" valType="num"/>
     <Param name="Show info dlg" updates="None" val="True" valType="bool"/>
     <Param name="Show mouse" updates="None" val="False" valType="bool"/>
     <Param name="Units" updates="None" val="height" valType="str"/>
     <Param name="Use version" updates="None" val="" valType="str"/>
-    <Param name="Window size (pixels)" updates="None" val="[1536, 864]" valType="list"/>
+    <Param name="Window size (pixels)" updates="None" val="[1280, 960]" valType="list"/>
     <Param name="blendMode" updates="None" val="avg" valType="str"/>
     <Param name="color" updates="None" val="$[0,0,0]" valType="color"/>
     <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
@@ -78,7 +78,7 @@
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="text" updates="constant" val="This is the start of face memory task. In this session, 120 pictures of different faces will be presented to you. Some of the pictures have occurred in previous scanning sessions, and some are completely new.&amp;#10;&amp;#10;Please use the response box to indicate whether a face is NEW (keys 1-2) or OLD (keys 3-4) , and how confident you are of the choice. Please respond as fast as possible, as for each new/old judgement, the maximal response time allowed is 2 seconds.&amp;#10;&amp;#10;Please press any key to continue when you are ready and understand the instructions" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="wrapWidth" updates="constant" val="1.5" valType="num"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
       <KeyboardComponent name="task_start">
         <Param name="allowedKeys" updates="constant" val="['1', '2', '3', '4']" valType="list"/>
@@ -196,7 +196,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, -0.1)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="size" updates="constant" val="(1.4, 0.6)" valType="list"/>
+        <Param name="size" updates="constant" val="(1.12, 0.48)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>

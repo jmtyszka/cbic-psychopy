@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on March 17, 2022, at 14:55
+    on March 17, 2022, at 15:20
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='D:\\Adolphslab\\psychopy\\cbic-psychopy\\RepetitiveFaceFamiliarization\\RFF_lastrun.py',
+    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\RepetitiveFaceFamiliarization\\RFF_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -65,9 +65,9 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=[1536, 864], fullscr=True, screen=0, 
+    size=[1280, 960], fullscr=True, screen=1, 
     winType='pyglet', allowGUI=False, allowStencil=False,
-    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor='hPrisma Projector', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
     units='height')
 # store frame rate of monitor if we can measure it
@@ -99,7 +99,7 @@ Introduction_ScreenClock = core.Clock()
 text = visual.TextStim(win=win, name='text',
     text='This is the start of face memory task. In this session, 120 pictures of different faces will be presented to you. Some of the pictures have occurred in previous scanning sessions, and some are completely new.\n\nPlease use the response box to indicate whether a face is NEW (keys 1-2) or OLD (keys 3-4) , and how confident you are of the choice. Please respond as fast as possible, as for each new/old judgement, the maximal response time allowed is 2 seconds.\n\nPlease press any key to continue when you are ready and understand the instructions',
     font='Open Sans',
-    pos=(0, 0), height=0.04, wrapWidth=1.5, ori=0.0, 
+    pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -139,7 +139,7 @@ image_2 = visual.ImageStim(
     win=win,
     name='image_2', 
     image='icons\\newold buttons even.bmp' if int(expInfo['session']) %4==2 else 'icons\\newold buttons odd.bmp', mask=None,
-    ori=0.0, pos=(0, -0.1), size=(1.4, 0.6),
+    ori=0.0, pos=(0, -0.1), size=(1.12, 0.48),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=False, depth=-1.0)
