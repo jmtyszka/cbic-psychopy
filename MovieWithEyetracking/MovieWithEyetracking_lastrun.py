@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on March 15, 2022, at 15:09
+    on March 22, 2022, at 16:26
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -19,6 +19,7 @@ psychopy.useVersion('2021.2.3')
 
 from psychopy import locale_setup
 from psychopy import prefs
+prefs.hardware['audioLib'] = 'ptb'
 prefs.hardware['audioLatencyMode'] = '0'
 from psychopy import sound, gui, visual, core, data, event, logging, clock, colors, iohub, hardware
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
@@ -84,14 +85,26 @@ else:
     frameDur = 1.0 / 60.0  # could not measure, so guess
 
 # Setup eyetracking
-ioDevice = 'eyetracker.hw.mouse.EyeTracker'
+ioDevice = 'eyetracker.hw.sr_research.eyelink.EyeTracker'
 ioConfig = {
     ioDevice: {
         'name': 'tracker',
-        'controls': {
-            'move': [],
-            'blink':('MIDDLE_BUTTON',),
-            'saccade_threshold': 0.5,
+        'model_name': 'EYELINK 1000 LONG RANGE',
+        'simulation_mode': False,
+        'network_settings': '100.1.1.1',
+        'default_native_data_file_name': 'EXPFILE',
+        'runtime_settings': {
+            'sampling_rate': 500.0,
+            'track_eyes': 'RIGHT_EYE',
+            'sample_filtering': {
+                'sample_filtering': 'FILTER_LEVEL_2',
+                'elLiveFiltering': 'FILTER_LEVEL_OFF',
+            },
+            'vog_settings': {
+                'pupil_measure_types': 'PUPIL_AREA',
+                'tracking_mode': 'PUPIL_CR_TRACKING',
+                'pupil_center_algorithm': 'ELLIPSE_FIT',
+            }
         }
     }
 }
@@ -152,7 +165,7 @@ adjust = keyboard.Keyboard()
 # Initialize components for Routine "play_movie_instr"
 play_movie_instrClock = core.Clock()
 play_movie_instr_text = visual.TextStim(win=win, name='play_movie_instr_text',
-    text='The movie is about to start\n\nWaiting for scanner ...',
+    text='The sound check is complete!\n\nPress 1 to continue',
     font='Open Sans',
     pos=(0, 0), height=0.03, wrapWidth=0.9, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -160,8 +173,23 @@ play_movie_instr_text = visual.TextStim(win=win, name='play_movie_instr_text',
     depth=0.0);
 play_movie_trigger = keyboard.Keyboard()
 
+# Initialize components for Routine "trigger_wait"
+trigger_waitClock = core.Clock()
+trigger_detect = keyboard.Keyboard()
+trigger_wait_text = visual.TextStim(win=win, name='trigger_wait_text',
+    text='Waiting for scanner ...',
+    font='Open Sans',
+    pos=(0, 0), height=0.03, wrapWidth=0.9, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=-1.0);
+
 # Initialize components for Routine "play_movie"
 play_movieClock = core.Clock()
+et_record = hardware.eyetracker.EyetrackerControl(
+    server=ioServer,
+    tracker=eyetracker
+)
 movie_player = visual.MovieStim3(
     win=win, name='movie_player',units='cm', 
     noAudio = False,
@@ -169,7 +197,7 @@ movie_player = visual.MovieStim3(
     ori=0.0, pos=(0, 0), opacity=None,
     loop=False,
     size=[36.0, 20.3],
-    depth=0.0,
+    depth=-1.0,
     )
 # Get movie duration from
 t_movie = movie_player.duration
@@ -282,6 +310,57 @@ thisExp.addData('et_continue.started', et_continue.tStartRefresh)
 thisExp.addData('et_continue.stopped', et_continue.tStopRefresh)
 thisExp.nextEntry()
 # the Routine "et_instructions" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# -------Run Routine 'calibration'-------
+
+# define target for calibration
+calibrationTarget = visual.TargetStim(win, 
+    name='calibrationTarget',
+    radius=0.01, fillColor='', borderColor='black', lineWidth=2.0,
+    innerRadius=0.0035, innerFillColor='green', innerBorderColor='black', innerLineWidth=2.0,
+    colorSpace='rgb', units=None
+)
+# define parameters for calibration
+calibration = hardware.eyetracker.EyetrackerCalibration(win, 
+    eyetracker, calibrationTarget,
+    units=None, colorSpace='rgb',
+    progressMode='time', targetDur=1.5, expandScale=1.25,
+    targetLayout='FIVE_POINTS', randomisePos=True,
+    movementAnimation=True, targetDelay=1.0
+)
+# run calibration
+calibration.run()
+# clear any keypresses from during calibration so they don't interfere with the experiment
+defaultKeyboard.clearEvents()
+# the Routine "calibration" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# -------Run Routine 'validation'-------
+
+# define target for validation
+validationTarget = visual.TargetStim(win, 
+    name='validationTarget',
+    radius=0.01, fillColor='', borderColor='black', lineWidth=2.0,
+    innerRadius=0.0035, innerFillColor='green', innerBorderColor='black', innerLineWidth=2.0,
+    colorSpace='rgb', units=None
+)
+# define parameters for validation
+validation = iohub.ValidationProcedure(win,
+    target=validationTarget,
+    gaze_cursor='green', 
+    positions='FIVE_POINTS', randomize_positions=True,
+    expand_scale=1.25, target_duration=1.5,
+    enable_position_animation=True, target_delay=1.0,
+    progress_on_key=None,
+    show_results_screen=True, save_results_screen=False,
+    color_space='rgb', unit_type=None
+)
+# run validation
+validation.run()
+# clear any keypresses from during validation so they don't interfere with the experiment
+defaultKeyboard.clearEvents()
+# the Routine "validation" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
 # ------Prepare to start Routine "sound_check_instr"-------
@@ -640,7 +719,7 @@ while continueRoutine:
         win.callOnFlip(play_movie_trigger.clock.reset)  # t=0 on next screen flip
         win.callOnFlip(play_movie_trigger.clearEvents, eventType='keyboard')  # clear events on next screen flip
     if play_movie_trigger.status == STARTED and not waitOnFlip:
-        theseKeys = play_movie_trigger.getKeys(keyList=['5'], waitRelease=False)
+        theseKeys = play_movie_trigger.getKeys(keyList=['1'], waitRelease=False)
         _play_movie_trigger_allKeys.extend(theseKeys)
         if len(_play_movie_trigger_allKeys):
             play_movie_trigger.keys = _play_movie_trigger_allKeys[-1].name  # just the last key pressed
@@ -683,12 +762,108 @@ thisExp.nextEntry()
 # the Routine "play_movie_instr" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
+# ------Prepare to start Routine "trigger_wait"-------
+continueRoutine = True
+# update component parameters for each repeat
+trigger_detect.keys = []
+trigger_detect.rt = []
+_trigger_detect_allKeys = []
+# keep track of which components have finished
+trigger_waitComponents = [trigger_detect, trigger_wait_text]
+for thisComponent in trigger_waitComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+trigger_waitClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "trigger_wait"-------
+while continueRoutine:
+    # get current time
+    t = trigger_waitClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=trigger_waitClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *trigger_detect* updates
+    waitOnFlip = False
+    if trigger_detect.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        trigger_detect.frameNStart = frameN  # exact frame index
+        trigger_detect.tStart = t  # local t and not account for scr refresh
+        trigger_detect.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(trigger_detect, 'tStartRefresh')  # time at next scr refresh
+        trigger_detect.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(trigger_detect.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(trigger_detect.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if trigger_detect.status == STARTED and not waitOnFlip:
+        theseKeys = trigger_detect.getKeys(keyList=['5'], waitRelease=False)
+        _trigger_detect_allKeys.extend(theseKeys)
+        if len(_trigger_detect_allKeys):
+            trigger_detect.keys = _trigger_detect_allKeys[-1].name  # just the last key pressed
+            trigger_detect.rt = _trigger_detect_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+    
+    # *trigger_wait_text* updates
+    if trigger_wait_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        trigger_wait_text.frameNStart = frameN  # exact frame index
+        trigger_wait_text.tStart = t  # local t and not account for scr refresh
+        trigger_wait_text.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(trigger_wait_text, 'tStartRefresh')  # time at next scr refresh
+        trigger_wait_text.setAutoDraw(True)
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in trigger_waitComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "trigger_wait"-------
+for thisComponent in trigger_waitComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+# check responses
+if trigger_detect.keys in ['', [], None]:  # No response was made
+    trigger_detect.keys = None
+thisExp.addData('trigger_detect.keys',trigger_detect.keys)
+if trigger_detect.keys != None:  # we had a response
+    thisExp.addData('trigger_detect.rt', trigger_detect.rt)
+thisExp.addData('trigger_detect.started', trigger_detect.tStartRefresh)
+thisExp.addData('trigger_detect.stopped', trigger_detect.tStopRefresh)
+thisExp.nextEntry()
+thisExp.addData('trigger_wait_text.started', trigger_wait_text.tStartRefresh)
+thisExp.addData('trigger_wait_text.stopped', trigger_wait_text.tStopRefresh)
+# the Routine "trigger_wait" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
 # ------Prepare to start Routine "play_movie"-------
 continueRoutine = True
 # update component parameters for each repeat
 # Set et_record and movie_player durations
 # keep track of which components have finished
-play_movieComponents = [movie_player]
+play_movieComponents = [et_record, movie_player]
 for thisComponent in play_movieComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -710,6 +885,14 @@ while continueRoutine:
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
+    # *et_record* updates
+    if et_record.status == NOT_STARTED and t >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        et_record.frameNStart = frameN  # exact frame index
+        et_record.tStart = t  # local t and not account for scr refresh
+        et_record.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(et_record, 'tStartRefresh')  # time at next scr refresh
+        et_record.status = STARTED
     
     # *movie_player* updates
     if movie_player.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -743,6 +926,9 @@ while continueRoutine:
 for thisComponent in play_movieComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
+# make sure the eyetracker recording stops
+if et_record.status != FINISHED:
+    et_record.status = FINISHED
 movie_player.stop()
 # the Routine "play_movie" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
