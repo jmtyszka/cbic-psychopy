@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on March 22, 2022, at 16:26
+    on March 24, 2022, at 15:56
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -35,6 +35,31 @@ import sys  # to get file system encoding
 import psychopy.iohub as io
 from psychopy.hardware import keyboard
 
+expInfo = {
+    'participant': 'Unknown',
+    'date': data.getDateStr(),
+    'movie': ''
+}
+
+dlg = gui.Dlg(title="Movie with Eyetracking")
+dlg.addField('Subject ID', choices=['Damy001', 'Damy002', 'Damy003'])
+
+subj_info = dlg.show()
+
+if dlg.OK:
+    print(subj_info)
+else:
+    print('User cancelled - exiting')
+    
+# Movie file selector
+dlg = gui.fileOpenDlg(prompt='Select Movie', allowed='*.mp4')
+
+mp4_fname = dlg.show()
+
+if dlg.OK:
+    print(f'Selected {mp4_fname}')
+else:
+    print('User cancelled - exiting') 
 
 
 # Ensure that relative paths start from the same directory as this script
@@ -44,10 +69,7 @@ os.chdir(_thisDir)
 # Store info about the experiment session
 psychopyVersion = '2021.2.3'
 expName = 'MovieWithEyetracking'  # from the Builder filename that created this script
-expInfo = {'participant': 'Damy001', 'movie': 'Nature_Trail_DRC_30fps'}
-dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
-if dlg.OK == False:
-    core.quit()  # user pressed cancel
+expInfo = {}
 expInfo['date'] = data.getDateStr()  # add a simple timestamp
 expInfo['expName'] = expName
 expInfo['psychopyVersion'] = psychopyVersion
@@ -58,7 +80,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\MovieWithEyetracking\\MovieWithEyetracking_lastrun.py',
+    originPath='C:\\Users\\jmt\\Documents\\GitHub\\cbic-psychopy\\MovieWithEyetracking\\MovieWithEyetracking_lastrun.py',
     savePickle=True, saveWideText=False,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -72,7 +94,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=[1280, 960], fullscr=True, screen=1, 
+    size=[2560, 1440], fullscr=True, screen=1, 
     winType='pyglet', allowGUI=False, allowStencil=False,
     monitor='hPrisma Projector', color='black', colorSpace='rgb',
     blendMode='avg', useFBO=True, 
@@ -85,26 +107,14 @@ else:
     frameDur = 1.0 / 60.0  # could not measure, so guess
 
 # Setup eyetracking
-ioDevice = 'eyetracker.hw.sr_research.eyelink.EyeTracker'
+ioDevice = 'eyetracker.hw.mouse.EyeTracker'
 ioConfig = {
     ioDevice: {
         'name': 'tracker',
-        'model_name': 'EYELINK 1000 LONG RANGE',
-        'simulation_mode': False,
-        'network_settings': '100.1.1.1',
-        'default_native_data_file_name': 'EXPFILE',
-        'runtime_settings': {
-            'sampling_rate': 500.0,
-            'track_eyes': 'RIGHT_EYE',
-            'sample_filtering': {
-                'sample_filtering': 'FILTER_LEVEL_2',
-                'elLiveFiltering': 'FILTER_LEVEL_OFF',
-            },
-            'vog_settings': {
-                'pupil_measure_types': 'PUPIL_AREA',
-                'tracking_mode': 'PUPIL_CR_TRACKING',
-                'pupil_center_algorithm': 'ELLIPSE_FIT',
-            }
+        'controls': {
+            'move': [],
+            'blink':('MIDDLE_BUTTON',),
+            'saccade_threshold': 0.5,
         }
     }
 }
@@ -165,7 +175,7 @@ adjust = keyboard.Keyboard()
 # Initialize components for Routine "play_movie_instr"
 play_movie_instrClock = core.Clock()
 play_movie_instr_text = visual.TextStim(win=win, name='play_movie_instr_text',
-    text='The sound check is complete!\n\nPress 1 to continue',
+    text='The sound check is complete!\n\nWaiting for operator ...',
     font='Open Sans',
     pos=(0, 0), height=0.03, wrapWidth=0.9, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -327,7 +337,7 @@ calibration = hardware.eyetracker.EyetrackerCalibration(win,
     units=None, colorSpace='rgb',
     progressMode='time', targetDur=1.5, expandScale=1.25,
     targetLayout='FIVE_POINTS', randomisePos=True,
-    movementAnimation=True, targetDelay=1.0
+    movementAnimation=False, targetDelay=1.0
 )
 # run calibration
 calibration.run()
@@ -351,9 +361,9 @@ validation = iohub.ValidationProcedure(win,
     gaze_cursor='green', 
     positions='FIVE_POINTS', randomize_positions=True,
     expand_scale=1.25, target_duration=1.5,
-    enable_position_animation=True, target_delay=1.0,
+    enable_position_animation=False, target_delay=1.0,
     progress_on_key=None,
-    show_results_screen=True, save_results_screen=False,
+    show_results_screen=True, save_results_screen=True,
     color_space='rgb', unit_type=None
 )
 # run validation
@@ -719,7 +729,7 @@ while continueRoutine:
         win.callOnFlip(play_movie_trigger.clock.reset)  # t=0 on next screen flip
         win.callOnFlip(play_movie_trigger.clearEvents, eventType='keyboard')  # clear events on next screen flip
     if play_movie_trigger.status == STARTED and not waitOnFlip:
-        theseKeys = play_movie_trigger.getKeys(keyList=['1'], waitRelease=False)
+        theseKeys = play_movie_trigger.getKeys(keyList=['space'], waitRelease=False)
         _play_movie_trigger_allKeys.extend(theseKeys)
         if len(_play_movie_trigger_allKeys):
             play_movie_trigger.keys = _play_movie_trigger_allKeys[-1].name  # just the last key pressed
