@@ -521,9 +521,9 @@
     </Routine>
   </Routines>
   <Flow>
-    <Routine name="Wait_for_Trigger"/>
     <Routine name="Introduction_Screen_Memory"/>
     <Routine name="button_scheme"/>
+    <Routine name="Wait_for_Trigger"/>
     <LoopInitiator loopType="TrialHandler" name="repeat">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="None" valType="str"/>
@@ -541,8 +541,8 @@
     <Routine name="ITI_2"/>
     <LoopTerminator name="repeat"/>
     <Routine name="End_Screen_Memory"/>
-    <Routine name="Wait_for_Trigger"/>
     <Routine name="Introduction_Screen_Passive"/>
+    <Routine name="Wait_for_Trigger"/>
     <LoopInitiator loopType="TrialHandler" name="trials">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="None" valType="str"/>
