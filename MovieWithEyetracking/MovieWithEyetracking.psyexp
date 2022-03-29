@@ -2,12 +2,12 @@
 <PsychoPy2experiment encoding="utf-8" version="2021.2.3">
   <Settings>
     <Param name="Audio latency priority" updates="None" val="0" valType="str"/>
-    <Param name="Audio lib" updates="None" val="use prefs" valType="str"/>
+    <Param name="Audio lib" updates="None" val="ptb" valType="str"/>
     <Param name="Completed URL" updates="None" val="" valType="str"/>
     <Param name="Data file delimiter" updates="None" val="auto" valType="str"/>
     <Param name="Data filename" updates="None" val="u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])" valType="code"/>
     <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
-    <Param name="Experiment info" updates="None" val="{'participant': 'Damy001', 'movie': 'Nature_Trail_DRC_30fps'}" valType="code"/>
+    <Param name="Experiment info" updates="None" val="{}" valType="code"/>
     <Param name="Force stereo" updates="None" val="True" valType="bool"/>
     <Param name="Full-screen window" updates="None" val="True" valType="bool"/>
     <Param name="HTML path" updates="None" val="" valType="str"/>
@@ -21,11 +21,11 @@
     <Param name="Save psydat file" updates="None" val="True" valType="bool"/>
     <Param name="Save wide csv file" updates="None" val="False" valType="bool"/>
     <Param name="Screen" updates="None" val="2" valType="num"/>
-    <Param name="Show info dlg" updates="None" val="True" valType="bool"/>
+    <Param name="Show info dlg" updates="None" val="False" valType="bool"/>
     <Param name="Show mouse" updates="None" val="False" valType="bool"/>
     <Param name="Units" updates="None" val="height" valType="str"/>
     <Param name="Use version" updates="None" val="2021.2.3" valType="str"/>
-    <Param name="Window size (pixels)" updates="None" val="[1280, 960]" valType="list"/>
+    <Param name="Window size (pixels)" updates="None" val="[2560, 1440]" valType="list"/>
     <Param name="blendMode" updates="None" val="avg" valType="str"/>
     <Param name="color" updates="None" val="black" valType="color"/>
     <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
@@ -157,7 +157,7 @@
     </Routine>
     <Routine name="play_movie">
       <EyetrackerRecordComponent name="et_record">
-        <Param name="disabled" updates="None" val="True" valType="bool"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="name" updates="None" val="et_record" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
@@ -207,6 +207,23 @@
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="movie_dur" valType="code"/>
+      </CodeComponent>
+      <CodeComponent name="select_movie">
+        <Param name="Before Experiment" updates="constant" val="expInfo = {&amp;#10;    'participant': 'Unknown',&amp;#10;    'date': data.getDateStr(),&amp;#10;    'movie': ''&amp;#10;}&amp;#10;&amp;#10;dlg = gui.Dlg(title=&quot;Movie with Eyetracking&quot;)&amp;#10;dlg.addField('Subject ID', choices=['Damy001', 'Damy002', 'Damy003'])&amp;#10;&amp;#10;subj_info = dlg.show()&amp;#10;&amp;#10;if dlg.OK:&amp;#10;    print(subj_info)&amp;#10;else:&amp;#10;    print('User cancelled - exiting')&amp;#10;    &amp;#10;# Movie file selector&amp;#10;mp4_fname = gui.fileOpenDlg(prompt='Select Movie', allowed='*.mp4')&amp;#10;&amp;#10;if mp4_fname:&amp;#10;    print(f'Selected {mp4_fname}')&amp;#10;    expInfo['movie'] = mp4_fname&amp;#10;else:&amp;#10;    print('User cancelled - exiting')" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="myDlg = new gui.Dlg({&quot;title&quot;: &quot;JWP's experiment&quot;});&amp;#10;myDlg.addText(&quot;Subject info&quot;);&amp;#10;myDlg.addField(&quot;Name:&quot;);&amp;#10;myDlg.addField(&quot;Age:&quot;, 21);&amp;#10;myDlg.addText(&quot;Experiment Info&quot;);&amp;#10;myDlg.addField(&quot;Grating Ori:&quot;, 45);&amp;#10;myDlg.addField(&quot;Group:&quot;, {&quot;choices&quot;: [&quot;Test&quot;, &quot;Control&quot;]});&amp;#10;ok_data = myDlg.show();&amp;#10;if (myDlg.OK) {&amp;#10;    console.log(ok_data);&amp;#10;} else {&amp;#10;    console.log(&quot;user cancelled&quot;);&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Py" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="select_movie" valType="code"/>
       </CodeComponent>
     </Routine>
     <Routine name="post_movie">
@@ -408,12 +425,12 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="The movie is about to start&amp;#10;&amp;#10;Waiting for scanner ..." valType="str"/>
+        <Param name="text" updates="constant" val="The sound check is complete!&amp;#10;&amp;#10;Waiting for operator ..." valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="0.9" valType="num"/>
       </TextComponent>
       <KeyboardComponent name="play_movie_trigger">
-        <Param name="allowedKeys" updates="constant" val="'5'" valType="list"/>
+        <Param name="allowedKeys" updates="constant" val="'space'" valType="list"/>
         <Param name="correctAns" updates="constant" val="" valType="str"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="discard previous" updates="constant" val="True" valType="bool"/>
@@ -431,38 +448,11 @@
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
-    <EyetrackerValidationRoutine name="validation">
-      <Param name="borderColor" updates="None" val="black" valType="color"/>
-      <Param name="borderWidth" updates="None" val="2" valType="num"/>
-      <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
-      <Param name="cursorFillColor" updates="None" val="green" valType="color"/>
-      <Param name="disabled" updates="None" val="True" valType="bool"/>
-      <Param name="expandDur" updates="None" val="1" valType="num"/>
-      <Param name="expandScale" updates="None" val="1.25" valType="num"/>
-      <Param name="fillColor" updates="None" val="" valType="color"/>
-      <Param name="innerBorderColor" updates="None" val="black" valType="color"/>
-      <Param name="innerBorderWidth" updates="None" val="2" valType="num"/>
-      <Param name="innerFillColor" updates="None" val="green" valType="color"/>
-      <Param name="innerRadius" updates="None" val="0.0035" valType="num"/>
-      <Param name="movementAnimation" updates="None" val="True" valType="bool"/>
-      <Param name="movementDur" updates="None" val="1.0" valType="num"/>
-      <Param name="name" updates="None" val="validation" valType="code"/>
-      <Param name="outerRadius" updates="None" val="0.01" valType="num"/>
-      <Param name="progressMode" updates="None" val="time" valType="str"/>
-      <Param name="randomisePos" updates="None" val="True" valType="bool"/>
-      <Param name="saveAsImg" updates="None" val="False" valType="bool"/>
-      <Param name="showResults" updates="None" val="True" valType="bool"/>
-      <Param name="targetDelay" updates="None" val="1.0" valType="num"/>
-      <Param name="targetDur" updates="None" val="1.5" valType="num"/>
-      <Param name="targetLayout" updates="None" val="FIVE_POINTS" valType="str"/>
-      <Param name="targetPositions" updates="None" val="NINE_POINTS" valType="list"/>
-      <Param name="units" updates="None" val="from exp settings" valType="str"/>
-    </EyetrackerValidationRoutine>
     <EyetrackerCalibrationRoutine name="calibration">
       <Param name="borderColor" updates="None" val="black" valType="color"/>
       <Param name="borderWidth" updates="None" val="2" valType="num"/>
       <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
-      <Param name="disabled" updates="None" val="True" valType="bool"/>
+      <Param name="disabled" updates="None" val="False" valType="bool"/>
       <Param name="expandDur" updates="None" val="1" valType="num"/>
       <Param name="expandScale" updates="None" val="1.25" valType="num"/>
       <Param name="fillColor" updates="None" val="" valType="color"/>
@@ -470,7 +460,7 @@
       <Param name="innerBorderWidth" updates="None" val="2" valType="num"/>
       <Param name="innerFillColor" updates="None" val="green" valType="color"/>
       <Param name="innerRadius" updates="None" val="0.0035" valType="num"/>
-      <Param name="movementAnimation" updates="None" val="True" valType="bool"/>
+      <Param name="movementAnimation" updates="None" val="False" valType="bool"/>
       <Param name="movementDur" updates="None" val="1.0" valType="num"/>
       <Param name="name" updates="None" val="calibration" valType="code"/>
       <Param name="outerRadius" updates="None" val="0.01" valType="num"/>
@@ -481,6 +471,33 @@
       <Param name="targetLayout" updates="None" val="FIVE_POINTS" valType="str"/>
       <Param name="units" updates="None" val="from exp settings" valType="str"/>
     </EyetrackerCalibrationRoutine>
+    <EyetrackerValidationRoutine name="validation">
+      <Param name="borderColor" updates="None" val="black" valType="color"/>
+      <Param name="borderWidth" updates="None" val="2" valType="num"/>
+      <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
+      <Param name="cursorFillColor" updates="None" val="green" valType="color"/>
+      <Param name="disabled" updates="None" val="False" valType="bool"/>
+      <Param name="expandDur" updates="None" val="1" valType="num"/>
+      <Param name="expandScale" updates="None" val="1.25" valType="num"/>
+      <Param name="fillColor" updates="None" val="" valType="color"/>
+      <Param name="innerBorderColor" updates="None" val="black" valType="color"/>
+      <Param name="innerBorderWidth" updates="None" val="2" valType="num"/>
+      <Param name="innerFillColor" updates="None" val="green" valType="color"/>
+      <Param name="innerRadius" updates="None" val="0.0035" valType="num"/>
+      <Param name="movementAnimation" updates="None" val="False" valType="bool"/>
+      <Param name="movementDur" updates="None" val="1.0" valType="num"/>
+      <Param name="name" updates="None" val="validation" valType="code"/>
+      <Param name="outerRadius" updates="None" val="0.01" valType="num"/>
+      <Param name="progressMode" updates="None" val="time" valType="str"/>
+      <Param name="randomisePos" updates="None" val="True" valType="bool"/>
+      <Param name="saveAsImg" updates="None" val="True" valType="bool"/>
+      <Param name="showResults" updates="None" val="True" valType="bool"/>
+      <Param name="targetDelay" updates="None" val="1.0" valType="num"/>
+      <Param name="targetDur" updates="None" val="1.5" valType="num"/>
+      <Param name="targetLayout" updates="None" val="FIVE_POINTS" valType="str"/>
+      <Param name="targetPositions" updates="None" val="NINE_POINTS" valType="list"/>
+      <Param name="units" updates="None" val="from exp settings" valType="str"/>
+    </EyetrackerValidationRoutine>
   </Routines>
   <Flow>
     <Routine name="et_instructions"/>
@@ -490,6 +507,7 @@
     <Routine name="trigger_wait"/>
     <Routine name="sound_check"/>
     <Routine name="play_movie_instr"/>
+    <Routine name="trigger_wait"/>
     <Routine name="play_movie"/>
     <Routine name="post_movie"/>
   </Flow>
