@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on March 17, 2022, at 14:57
+    on March 29, 2022, at 13:26
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -88,7 +88,7 @@ Wait_for_TriggerClock = core.Clock()
 TriggerText = visual.TextStim(win=win, name='TriggerText',
     text='Waiting for trigger...',
     font='Open Sans',
-    pos=(0, 0), height=0.15, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -97,7 +97,7 @@ TriggerCatcher = keyboard.Keyboard()
 # Initialize components for Routine "Introduction_Screen"
 Introduction_ScreenClock = core.Clock()
 text = visual.TextStim(win=win, name='text',
-    text='This is the start of face passive viewing task. In this session, 120 pictures of different faces will be presented to you. Some of the pictures have occurred in previous scanning sessions, and some are completely new.\n\nPlease pay close attention to these faces, and think about the potential personality traits that the people in these images might have.\n\nPlease press any key to continue when you are ready and understand the instructions',
+    text='This is the start of face passive viewing task. In this session, 96 pictures of different faces will be presented to you, twice in total.\n\nPlease pay close attention to these faces, and think about the potential personality traits that the people in these images might have.\n\nPlease press any key to continue when you are ready and understand the instructions',
     font='Open Sans',
     pos=(0, 0), height=0.04, wrapWidth=1.5, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -131,7 +131,7 @@ End_ScreenClock = core.Clock()
 text_3 = visual.TextStim(win=win, name='text_3',
     text='Thank you for completing the face memory task!!\n\nPlease press any bottom to exit.',
     font='Open Sans',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -336,7 +336,7 @@ routineTimer.reset()
 # set up handler to look after randomisation of conditions etc
 repeat = data.TrialHandler(nReps=1.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('stimfiles/stimfiles_'+str(expInfo['session'])+'.csv'),
+    trialList=data.importConditions('stimfiles/stimfiles_passive_'+str(expInfo['session'])+'.csv'),
     seed=None, name='repeat')
 thisExp.addLoop(repeat)  # add the loop to the experiment
 thisRepeat = repeat.trialList[0]  # so we can initialise stimuli with some values
