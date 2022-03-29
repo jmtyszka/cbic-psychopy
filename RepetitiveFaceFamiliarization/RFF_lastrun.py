@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on March 29, 2022, at 13:06
+    on March 29, 2022, at 14:57
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='D:\\Adolphslab\\psychopy\\cbic-psychopy\\RepetitiveFaceFamiliarization\\RFF_lastrun.py',
+    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\RepetitiveFaceFamiliarization\\RFF_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -65,9 +65,9 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=[1536, 864], fullscr=True, screen=0, 
+    size=[1920, 1080], fullscr=True, screen=1, 
     winType='pyglet', allowGUI=False, allowStencil=False,
-    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor='hPrisma Projector', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
     units='height')
 # store frame rate of monitor if we can measure it
@@ -83,23 +83,12 @@ ioDevice = ioConfig = ioSession = ioServer = eyetracker = None
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard()
 
-# Initialize components for Routine "Wait_for_Trigger"
-Wait_for_TriggerClock = core.Clock()
-TriggerText = visual.TextStim(win=win, name='TriggerText',
-    text='Waiting for trigger...',
-    font='Open Sans',
-    pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
-    color='white', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
-TriggerCatcher = keyboard.Keyboard()
-
 # Initialize components for Routine "Introduction_Screen_Memory"
 Introduction_Screen_MemoryClock = core.Clock()
 introduction_memory = visual.TextStim(win=win, name='introduction_memory',
-    text='This is the start of face memory task. In this session, 96 pictures of different faces will be presented to you. Some of the pictures have occurred in previous scanning sessions, and some are completely new.\n\nPlease use the response box to indicate whether a face is OLD (key mappings will be shown on the next screen) , and how confident you are of the choice. Please respond as fast as possible, as for each new/old judgement, the maximal response time allowed is 2 seconds.\n\nPlease press any key to continue when you are ready and understand the instructions',
+    text='This is the start of face memory task. In this session, 96 pictures of different faces will be presented to you. Some of the pictures have occurred in previous scanning sessions, and some are completely new.\n\nPlease use the response box to indicate whether a face is OLD (key mappings will be shown on the next screen), and how confident you are of the choice. Please respond as fast as possible, as for each new/old judgement, the maximal response time allowed is 2 seconds.\n\nPlease press any key to continue when you are ready and understand the instructions',
     font='Open Sans',
-    pos=(0, 0), height=0.04, wrapWidth=1.5, ori=0.0, 
+    pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -108,7 +97,7 @@ start_memory = keyboard.Keyboard()
 # Initialize components for Routine "button_scheme"
 button_schemeClock = core.Clock()
 text = visual.TextStim(win=win, name='text',
-    text='Shown above is the button press scheme to be used for this task. For each image, you will be asked whether it is an OLD image that has appeared during previous sessions.\n\nOnce you are familiarized with the scheme, pleas press any keys to start the test.',
+    text='Shown above is the button press scheme to be used for this task. For each image, you will be asked whether it is an OLD image that has appeared during previous sessions.\n\nOnce you are familiarized with the scheme, pleas press any key to start the test.',
     font='Open Sans',
     pos=(0, -0.3), height=0.04, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -119,10 +108,21 @@ scheme_image = visual.ImageStim(
     win=win,
     name='scheme_image', 
     image='icons\\newold buttons even.bmp' if int(expInfo['session']) %2==0 else 'icons\\newold buttons odd.bmp', mask=None,
-    ori=0.0, pos=(0, 0.2), size=(1.3, 0.5),
+    ori=0.0, pos=(0, 0.2), size=(1.2, 0.5),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-2.0)
+
+# Initialize components for Routine "Wait_for_Trigger"
+Wait_for_TriggerClock = core.Clock()
+TriggerText = visual.TextStim(win=win, name='TriggerText',
+    text='Waiting for trigger...',
+    font='Open Sans',
+    pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+TriggerCatcher = keyboard.Keyboard()
 
 # Initialize components for Routine "Face_Presentation"
 Face_PresentationClock = core.Clock()
@@ -138,7 +138,7 @@ image = visual.ImageStim(
 # Initialize components for Routine "ITI"
 ITIClock = core.Clock()
 ITI_1_text = visual.TextStim(win=win, name='ITI_1_text',
-    text='  ',
+    text='+  ',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -174,7 +174,7 @@ time_holder = visual.TextStim(win=win, name='time_holder',
 # Initialize components for Routine "ITI_2"
 ITI_2Clock = core.Clock()
 ITI_2_text = visual.TextStim(win=win, name='ITI_2_text',
-    text='  ',
+    text='+  ',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -183,24 +183,13 @@ ITI_2_text = visual.TextStim(win=win, name='ITI_2_text',
 
 # Initialize components for Routine "End_Screen_Memory"
 End_Screen_MemoryClock = core.Clock()
-text_3 = visual.TextStim(win=win, name='text_3',
-    text='Thank you for completing the face memory task!!\n\nIn five seconds, we will proceed to the passive viewing block.',
+end_memory = visual.TextStim(win=win, name='end_memory',
+    text='Thank you for completing the face memory task!!\n\nIn ten seconds, we will proceed to the passive viewing block.',
     font='Open Sans',
     pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
-
-# Initialize components for Routine "Wait_for_Trigger"
-Wait_for_TriggerClock = core.Clock()
-TriggerText = visual.TextStim(win=win, name='TriggerText',
-    text='Waiting for trigger...',
-    font='Open Sans',
-    pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
-    color='white', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
-TriggerCatcher = keyboard.Keyboard()
 
 # Initialize components for Routine "Introduction_Screen_Passive"
 Introduction_Screen_PassiveClock = core.Clock()
@@ -212,6 +201,17 @@ introduction_passive = visual.TextStim(win=win, name='introduction_passive',
     languageStyle='LTR',
     depth=0.0);
 start_passive = keyboard.Keyboard()
+
+# Initialize components for Routine "Wait_for_Trigger"
+Wait_for_TriggerClock = core.Clock()
+TriggerText = visual.TextStim(win=win, name='TriggerText',
+    text='Waiting for trigger...',
+    font='Open Sans',
+    pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+TriggerCatcher = keyboard.Keyboard()
 
 # Initialize components for Routine "Face_Presentation"
 Face_PresentationClock = core.Clock()
@@ -227,7 +227,7 @@ image = visual.ImageStim(
 # Initialize components for Routine "ITI_2"
 ITI_2Clock = core.Clock()
 ITI_2_text = visual.TextStim(win=win, name='ITI_2_text',
-    text='  ',
+    text='+  ',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -237,9 +237,9 @@ ITI_2_text = visual.TextStim(win=win, name='ITI_2_text',
 # Initialize components for Routine "End_Screen_Passive"
 End_Screen_PassiveClock = core.Clock()
 end_screen_passive = visual.TextStim(win=win, name='end_screen_passive',
-    text='Thank you for completing the passive viewing task!!\n\nPlease wait for 5 seconds, and the task will exit on its own.',
+    text='Thank you for completing the passive viewing task!!\n\nPlease wait for 10 seconds, and the task will exit on its own.',
     font='Open Sans',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -247,102 +247,6 @@ end_screen_passive = visual.TextStim(win=win, name='end_screen_passive',
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
 routineTimer = core.CountdownTimer()  # to track time remaining of each (non-slip) routine 
-
-# ------Prepare to start Routine "Wait_for_Trigger"-------
-continueRoutine = True
-# update component parameters for each repeat
-TriggerCatcher.keys = []
-TriggerCatcher.rt = []
-_TriggerCatcher_allKeys = []
-# keep track of which components have finished
-Wait_for_TriggerComponents = [TriggerText, TriggerCatcher]
-for thisComponent in Wait_for_TriggerComponents:
-    thisComponent.tStart = None
-    thisComponent.tStop = None
-    thisComponent.tStartRefresh = None
-    thisComponent.tStopRefresh = None
-    if hasattr(thisComponent, 'status'):
-        thisComponent.status = NOT_STARTED
-# reset timers
-t = 0
-_timeToFirstFrame = win.getFutureFlipTime(clock="now")
-Wait_for_TriggerClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-frameN = -1
-
-# -------Run Routine "Wait_for_Trigger"-------
-while continueRoutine:
-    # get current time
-    t = Wait_for_TriggerClock.getTime()
-    tThisFlip = win.getFutureFlipTime(clock=Wait_for_TriggerClock)
-    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-    # update/draw components on each frame
-    
-    # *TriggerText* updates
-    if TriggerText.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
-        # keep track of start time/frame for later
-        TriggerText.frameNStart = frameN  # exact frame index
-        TriggerText.tStart = t  # local t and not account for scr refresh
-        TriggerText.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(TriggerText, 'tStartRefresh')  # time at next scr refresh
-        TriggerText.setAutoDraw(True)
-    
-    # *TriggerCatcher* updates
-    waitOnFlip = False
-    if TriggerCatcher.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        TriggerCatcher.frameNStart = frameN  # exact frame index
-        TriggerCatcher.tStart = t  # local t and not account for scr refresh
-        TriggerCatcher.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(TriggerCatcher, 'tStartRefresh')  # time at next scr refresh
-        TriggerCatcher.status = STARTED
-        # keyboard checking is just starting
-        waitOnFlip = True
-        win.callOnFlip(TriggerCatcher.clock.reset)  # t=0 on next screen flip
-        win.callOnFlip(TriggerCatcher.clearEvents, eventType='keyboard')  # clear events on next screen flip
-    if TriggerCatcher.status == STARTED and not waitOnFlip:
-        theseKeys = TriggerCatcher.getKeys(keyList=['5'], waitRelease=False)
-        _TriggerCatcher_allKeys.extend(theseKeys)
-        if len(_TriggerCatcher_allKeys):
-            TriggerCatcher.keys = _TriggerCatcher_allKeys[-1].name  # just the last key pressed
-            TriggerCatcher.rt = _TriggerCatcher_allKeys[-1].rt
-            # a response ends the routine
-            continueRoutine = False
-    
-    # check for quit (typically the Esc key)
-    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-        core.quit()
-    
-    # check if all components have finished
-    if not continueRoutine:  # a component has requested a forced-end of Routine
-        break
-    continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in Wait_for_TriggerComponents:
-        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-            continueRoutine = True
-            break  # at least one component has not yet finished
-    
-    # refresh the screen
-    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-        win.flip()
-
-# -------Ending Routine "Wait_for_Trigger"-------
-for thisComponent in Wait_for_TriggerComponents:
-    if hasattr(thisComponent, "setAutoDraw"):
-        thisComponent.setAutoDraw(False)
-thisExp.addData('TriggerText.started', TriggerText.tStartRefresh)
-thisExp.addData('TriggerText.stopped', TriggerText.tStopRefresh)
-# check responses
-if TriggerCatcher.keys in ['', [], None]:  # No response was made
-    TriggerCatcher.keys = None
-thisExp.addData('TriggerCatcher.keys',TriggerCatcher.keys)
-if TriggerCatcher.keys != None:  # we had a response
-    thisExp.addData('TriggerCatcher.rt', TriggerCatcher.rt)
-thisExp.addData('TriggerCatcher.started', TriggerCatcher.tStartRefresh)
-thisExp.addData('TriggerCatcher.stopped', TriggerCatcher.tStopRefresh)
-thisExp.nextEntry()
-# the Routine "Wait_for_Trigger" was not non-slip safe, so reset the non-slip timer
-routineTimer.reset()
 
 # ------Prepare to start Routine "Introduction_Screen_Memory"-------
 continueRoutine = True
@@ -545,6 +449,102 @@ thisExp.nextEntry()
 thisExp.addData('scheme_image.started', scheme_image.tStartRefresh)
 thisExp.addData('scheme_image.stopped', scheme_image.tStopRefresh)
 # the Routine "button_scheme" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# ------Prepare to start Routine "Wait_for_Trigger"-------
+continueRoutine = True
+# update component parameters for each repeat
+TriggerCatcher.keys = []
+TriggerCatcher.rt = []
+_TriggerCatcher_allKeys = []
+# keep track of which components have finished
+Wait_for_TriggerComponents = [TriggerText, TriggerCatcher]
+for thisComponent in Wait_for_TriggerComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+Wait_for_TriggerClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "Wait_for_Trigger"-------
+while continueRoutine:
+    # get current time
+    t = Wait_for_TriggerClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=Wait_for_TriggerClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *TriggerText* updates
+    if TriggerText.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
+        # keep track of start time/frame for later
+        TriggerText.frameNStart = frameN  # exact frame index
+        TriggerText.tStart = t  # local t and not account for scr refresh
+        TriggerText.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(TriggerText, 'tStartRefresh')  # time at next scr refresh
+        TriggerText.setAutoDraw(True)
+    
+    # *TriggerCatcher* updates
+    waitOnFlip = False
+    if TriggerCatcher.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        TriggerCatcher.frameNStart = frameN  # exact frame index
+        TriggerCatcher.tStart = t  # local t and not account for scr refresh
+        TriggerCatcher.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(TriggerCatcher, 'tStartRefresh')  # time at next scr refresh
+        TriggerCatcher.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(TriggerCatcher.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(TriggerCatcher.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if TriggerCatcher.status == STARTED and not waitOnFlip:
+        theseKeys = TriggerCatcher.getKeys(keyList=['5'], waitRelease=False)
+        _TriggerCatcher_allKeys.extend(theseKeys)
+        if len(_TriggerCatcher_allKeys):
+            TriggerCatcher.keys = [key.name for key in _TriggerCatcher_allKeys]  # storing all keys
+            TriggerCatcher.rt = [key.rt for key in _TriggerCatcher_allKeys]
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in Wait_for_TriggerComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "Wait_for_Trigger"-------
+for thisComponent in Wait_for_TriggerComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+thisExp.addData('TriggerText.started', TriggerText.tStartRefresh)
+thisExp.addData('TriggerText.stopped', TriggerText.tStopRefresh)
+# check responses
+if TriggerCatcher.keys in ['', [], None]:  # No response was made
+    TriggerCatcher.keys = None
+thisExp.addData('TriggerCatcher.keys',TriggerCatcher.keys)
+if TriggerCatcher.keys != None:  # we had a response
+    thisExp.addData('TriggerCatcher.rt', TriggerCatcher.rt)
+thisExp.addData('TriggerCatcher.started', TriggerCatcher.tStartRefresh)
+thisExp.addData('TriggerCatcher.stopped', TriggerCatcher.tStopRefresh)
+thisExp.nextEntry()
+# the Routine "Wait_for_Trigger" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
@@ -926,10 +926,10 @@ for thisRepeat in repeat:
 
 # ------Prepare to start Routine "End_Screen_Memory"-------
 continueRoutine = True
-routineTimer.add(5.000000)
+routineTimer.add(10.000000)
 # update component parameters for each repeat
 # keep track of which components have finished
-End_Screen_MemoryComponents = [text_3]
+End_Screen_MemoryComponents = [end_memory]
 for thisComponent in End_Screen_MemoryComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -952,22 +952,22 @@ while continueRoutine and routineTimer.getTime() > 0:
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
     
-    # *text_3* updates
-    if text_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+    # *end_memory* updates
+    if end_memory.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
         # keep track of start time/frame for later
-        text_3.frameNStart = frameN  # exact frame index
-        text_3.tStart = t  # local t and not account for scr refresh
-        text_3.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(text_3, 'tStartRefresh')  # time at next scr refresh
-        text_3.setAutoDraw(True)
-    if text_3.status == STARTED:
+        end_memory.frameNStart = frameN  # exact frame index
+        end_memory.tStart = t  # local t and not account for scr refresh
+        end_memory.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(end_memory, 'tStartRefresh')  # time at next scr refresh
+        end_memory.setAutoDraw(True)
+    if end_memory.status == STARTED:
         # is it time to stop? (based on global clock, using actual start)
-        if tThisFlipGlobal > text_3.tStartRefresh + 5.0-frameTolerance:
+        if tThisFlipGlobal > end_memory.tStartRefresh + 10.0-frameTolerance:
             # keep track of stop time/frame for later
-            text_3.tStop = t  # not accounting for scr refresh
-            text_3.frameNStop = frameN  # exact frame index
-            win.timeOnFlip(text_3, 'tStopRefresh')  # time at next scr refresh
-            text_3.setAutoDraw(False)
+            end_memory.tStop = t  # not accounting for scr refresh
+            end_memory.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(end_memory, 'tStopRefresh')  # time at next scr refresh
+            end_memory.setAutoDraw(False)
     
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -990,104 +990,8 @@ while continueRoutine and routineTimer.getTime() > 0:
 for thisComponent in End_Screen_MemoryComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-thisExp.addData('text_3.started', text_3.tStartRefresh)
-thisExp.addData('text_3.stopped', text_3.tStopRefresh)
-
-# ------Prepare to start Routine "Wait_for_Trigger"-------
-continueRoutine = True
-# update component parameters for each repeat
-TriggerCatcher.keys = []
-TriggerCatcher.rt = []
-_TriggerCatcher_allKeys = []
-# keep track of which components have finished
-Wait_for_TriggerComponents = [TriggerText, TriggerCatcher]
-for thisComponent in Wait_for_TriggerComponents:
-    thisComponent.tStart = None
-    thisComponent.tStop = None
-    thisComponent.tStartRefresh = None
-    thisComponent.tStopRefresh = None
-    if hasattr(thisComponent, 'status'):
-        thisComponent.status = NOT_STARTED
-# reset timers
-t = 0
-_timeToFirstFrame = win.getFutureFlipTime(clock="now")
-Wait_for_TriggerClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-frameN = -1
-
-# -------Run Routine "Wait_for_Trigger"-------
-while continueRoutine:
-    # get current time
-    t = Wait_for_TriggerClock.getTime()
-    tThisFlip = win.getFutureFlipTime(clock=Wait_for_TriggerClock)
-    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-    # update/draw components on each frame
-    
-    # *TriggerText* updates
-    if TriggerText.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
-        # keep track of start time/frame for later
-        TriggerText.frameNStart = frameN  # exact frame index
-        TriggerText.tStart = t  # local t and not account for scr refresh
-        TriggerText.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(TriggerText, 'tStartRefresh')  # time at next scr refresh
-        TriggerText.setAutoDraw(True)
-    
-    # *TriggerCatcher* updates
-    waitOnFlip = False
-    if TriggerCatcher.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        TriggerCatcher.frameNStart = frameN  # exact frame index
-        TriggerCatcher.tStart = t  # local t and not account for scr refresh
-        TriggerCatcher.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(TriggerCatcher, 'tStartRefresh')  # time at next scr refresh
-        TriggerCatcher.status = STARTED
-        # keyboard checking is just starting
-        waitOnFlip = True
-        win.callOnFlip(TriggerCatcher.clock.reset)  # t=0 on next screen flip
-        win.callOnFlip(TriggerCatcher.clearEvents, eventType='keyboard')  # clear events on next screen flip
-    if TriggerCatcher.status == STARTED and not waitOnFlip:
-        theseKeys = TriggerCatcher.getKeys(keyList=['5'], waitRelease=False)
-        _TriggerCatcher_allKeys.extend(theseKeys)
-        if len(_TriggerCatcher_allKeys):
-            TriggerCatcher.keys = _TriggerCatcher_allKeys[-1].name  # just the last key pressed
-            TriggerCatcher.rt = _TriggerCatcher_allKeys[-1].rt
-            # a response ends the routine
-            continueRoutine = False
-    
-    # check for quit (typically the Esc key)
-    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-        core.quit()
-    
-    # check if all components have finished
-    if not continueRoutine:  # a component has requested a forced-end of Routine
-        break
-    continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in Wait_for_TriggerComponents:
-        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-            continueRoutine = True
-            break  # at least one component has not yet finished
-    
-    # refresh the screen
-    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-        win.flip()
-
-# -------Ending Routine "Wait_for_Trigger"-------
-for thisComponent in Wait_for_TriggerComponents:
-    if hasattr(thisComponent, "setAutoDraw"):
-        thisComponent.setAutoDraw(False)
-thisExp.addData('TriggerText.started', TriggerText.tStartRefresh)
-thisExp.addData('TriggerText.stopped', TriggerText.tStopRefresh)
-# check responses
-if TriggerCatcher.keys in ['', [], None]:  # No response was made
-    TriggerCatcher.keys = None
-thisExp.addData('TriggerCatcher.keys',TriggerCatcher.keys)
-if TriggerCatcher.keys != None:  # we had a response
-    thisExp.addData('TriggerCatcher.rt', TriggerCatcher.rt)
-thisExp.addData('TriggerCatcher.started', TriggerCatcher.tStartRefresh)
-thisExp.addData('TriggerCatcher.stopped', TriggerCatcher.tStopRefresh)
-thisExp.nextEntry()
-# the Routine "Wait_for_Trigger" was not non-slip safe, so reset the non-slip timer
-routineTimer.reset()
+thisExp.addData('end_memory.started', end_memory.tStartRefresh)
+thisExp.addData('end_memory.stopped', end_memory.tStopRefresh)
 
 # ------Prepare to start Routine "Introduction_Screen_Passive"-------
 continueRoutine = True
@@ -1183,6 +1087,102 @@ thisExp.addData('start_passive.started', start_passive.tStartRefresh)
 thisExp.addData('start_passive.stopped', start_passive.tStopRefresh)
 thisExp.nextEntry()
 # the Routine "Introduction_Screen_Passive" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# ------Prepare to start Routine "Wait_for_Trigger"-------
+continueRoutine = True
+# update component parameters for each repeat
+TriggerCatcher.keys = []
+TriggerCatcher.rt = []
+_TriggerCatcher_allKeys = []
+# keep track of which components have finished
+Wait_for_TriggerComponents = [TriggerText, TriggerCatcher]
+for thisComponent in Wait_for_TriggerComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+Wait_for_TriggerClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "Wait_for_Trigger"-------
+while continueRoutine:
+    # get current time
+    t = Wait_for_TriggerClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=Wait_for_TriggerClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *TriggerText* updates
+    if TriggerText.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
+        # keep track of start time/frame for later
+        TriggerText.frameNStart = frameN  # exact frame index
+        TriggerText.tStart = t  # local t and not account for scr refresh
+        TriggerText.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(TriggerText, 'tStartRefresh')  # time at next scr refresh
+        TriggerText.setAutoDraw(True)
+    
+    # *TriggerCatcher* updates
+    waitOnFlip = False
+    if TriggerCatcher.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        TriggerCatcher.frameNStart = frameN  # exact frame index
+        TriggerCatcher.tStart = t  # local t and not account for scr refresh
+        TriggerCatcher.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(TriggerCatcher, 'tStartRefresh')  # time at next scr refresh
+        TriggerCatcher.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(TriggerCatcher.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(TriggerCatcher.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if TriggerCatcher.status == STARTED and not waitOnFlip:
+        theseKeys = TriggerCatcher.getKeys(keyList=['5'], waitRelease=False)
+        _TriggerCatcher_allKeys.extend(theseKeys)
+        if len(_TriggerCatcher_allKeys):
+            TriggerCatcher.keys = [key.name for key in _TriggerCatcher_allKeys]  # storing all keys
+            TriggerCatcher.rt = [key.rt for key in _TriggerCatcher_allKeys]
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in Wait_for_TriggerComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "Wait_for_Trigger"-------
+for thisComponent in Wait_for_TriggerComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+thisExp.addData('TriggerText.started', TriggerText.tStartRefresh)
+thisExp.addData('TriggerText.stopped', TriggerText.tStopRefresh)
+# check responses
+if TriggerCatcher.keys in ['', [], None]:  # No response was made
+    TriggerCatcher.keys = None
+thisExp.addData('TriggerCatcher.keys',TriggerCatcher.keys)
+if TriggerCatcher.keys != None:  # we had a response
+    thisExp.addData('TriggerCatcher.rt', TriggerCatcher.rt)
+thisExp.addData('TriggerCatcher.started', TriggerCatcher.tStartRefresh)
+thisExp.addData('TriggerCatcher.stopped', TriggerCatcher.tStopRefresh)
+thisExp.nextEntry()
+# the Routine "Wait_for_Trigger" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
@@ -1350,7 +1350,7 @@ for thisTrial in trials:
 
 # ------Prepare to start Routine "End_Screen_Passive"-------
 continueRoutine = True
-routineTimer.add(5.000000)
+routineTimer.add(10.000000)
 # update component parameters for each repeat
 # keep track of which components have finished
 End_Screen_PassiveComponents = [end_screen_passive]
@@ -1386,7 +1386,7 @@ while continueRoutine and routineTimer.getTime() > 0:
         end_screen_passive.setAutoDraw(True)
     if end_screen_passive.status == STARTED:
         # is it time to stop? (based on global clock, using actual start)
-        if tThisFlipGlobal > end_screen_passive.tStartRefresh + 5.0-frameTolerance:
+        if tThisFlipGlobal > end_screen_passive.tStartRefresh + 10.0-frameTolerance:
             # keep track of stop time/frame for later
             end_screen_passive.tStop = t  # not accounting for scr refresh
             end_screen_passive.frameNStop = frameN  # exact frame index
