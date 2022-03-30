@@ -1,0 +1,14 @@
+Times to cut ~20 five segments at:
+00:00:00
+00:18:52
+00:40:18
+01:02:48
+01:20:48
+01:39:55
+
+Durations of each of those 5 segments would be
+00:18:52
+00:22:34
+00:22:30
+00:18:00
+00:19:07

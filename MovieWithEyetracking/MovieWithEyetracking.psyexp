@@ -19,13 +19,13 @@
     <Param name="Save hdf5 file" updates="None" val="True" valType="bool"/>
     <Param name="Save log file" updates="None" val="True" valType="bool"/>
     <Param name="Save psydat file" updates="None" val="True" valType="bool"/>
-    <Param name="Save wide csv file" updates="None" val="False" valType="bool"/>
+    <Param name="Save wide csv file" updates="None" val="True" valType="bool"/>
     <Param name="Screen" updates="None" val="2" valType="num"/>
     <Param name="Show info dlg" updates="None" val="True" valType="bool"/>
     <Param name="Show mouse" updates="None" val="False" valType="bool"/>
     <Param name="Units" updates="None" val="height" valType="str"/>
     <Param name="Use version" updates="None" val="2021.2.3" valType="str"/>
-    <Param name="Window size (pixels)" updates="None" val="[1280, 960]" valType="list"/>
+    <Param name="Window size (pixels)" updates="None" val="[2560, 1440]" valType="list"/>
     <Param name="blendMode" updates="None" val="avg" valType="str"/>
     <Param name="color" updates="None" val="black" valType="color"/>
     <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
@@ -44,7 +44,7 @@
     <Param name="eyetracker" updates="None" val="SR Research Ltd" valType="str"/>
     <Param name="gpAddress" updates="None" val="127.0.0.1" valType="str"/>
     <Param name="gpPort" updates="None" val="4242" valType="num"/>
-    <Param name="logging level" updates="None" val="exp" valType="code"/>
+    <Param name="logging level" updates="None" val="info" valType="code"/>
     <Param name="mgBlink" updates="None" val="('MIDDLE_BUTTON',)" valType="list"/>
     <Param name="mgMove" updates="None" val="CONTINUOUS" valType="str"/>
     <Param name="mgSaccade" updates="None" val="0.5" valType="num"/>
@@ -245,7 +245,7 @@
         <Param name="durationEstim" updates="None" val="20" valType="code"/>
         <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
         <Param name="loop" updates="None" val="False" valType="bool"/>
-        <Param name="movie" updates="constant" val="$mp4_fname.replace('.mp4', '_30sec.mp4')" valType="file"/>
+        <Param name="movie" updates="constant" val="$mp4_fname.replace('.mp4', '_soundcheck.mp4')" valType="file"/>
         <Param name="name" updates="None" val="movie_check" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -435,7 +435,7 @@
       <Param name="borderColor" updates="None" val="black" valType="color"/>
       <Param name="borderWidth" updates="None" val="2" valType="num"/>
       <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
-      <Param name="disabled" updates="None" val="True" valType="bool"/>
+      <Param name="disabled" updates="None" val="False" valType="bool"/>
       <Param name="expandDur" updates="None" val="1" valType="num"/>
       <Param name="expandScale" updates="None" val="1.25" valType="num"/>
       <Param name="fillColor" updates="None" val="" valType="color"/>
@@ -459,7 +459,7 @@
       <Param name="borderWidth" updates="None" val="2" valType="num"/>
       <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
       <Param name="cursorFillColor" updates="None" val="green" valType="color"/>
-      <Param name="disabled" updates="None" val="True" valType="bool"/>
+      <Param name="disabled" updates="None" val="False" valType="bool"/>
       <Param name="expandDur" updates="None" val="1" valType="num"/>
       <Param name="expandScale" updates="None" val="1.25" valType="num"/>
       <Param name="fillColor" updates="None" val="" valType="color"/>

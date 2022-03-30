@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on March 29, 2022, at 17:06
+    on Wed Mar 30 16:02:43 2022
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -66,11 +66,11 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\MovieWithEyetracking\\MovieWithEyetracking_lastrun.py',
-    savePickle=True, saveWideText=False,
+    originPath='/Users/jmt/GitHub/cbic-pyschopy/MovieWithEyetracking/MovieWithEyetracking_lastrun.py',
+    savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
-logFile = logging.LogFile(filename+'.log', level=logging.EXP)
+logFile = logging.LogFile(filename+'.log', level=logging.INFO)
 logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
 
 endExpNow = False  # flag for 'escape' or other condition => quit the exp
@@ -80,7 +80,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=[1280, 960], fullscr=True, screen=1, 
+    size=[2560, 1440], fullscr=True, screen=1, 
     winType='pyglet', allowGUI=False, allowStencil=False,
     monitor='hPrisma Projector', color='black', colorSpace='rgb',
     blendMode='avg', useFBO=True, 
@@ -163,7 +163,7 @@ sound_checkClock = core.Clock()
 movie_check = visual.MovieStim3(
     win=win, name='movie_check',
     noAudio = False,
-    filename=mp4_fname.replace('.mp4', '_30sec.mp4'),
+    filename=mp4_fname.replace('.mp4', '_soundcheck.mp4'),
     ori=0.0, pos=(0, 0), opacity=None,
     loop=False,
     depth=0.0,
@@ -194,10 +194,6 @@ trigger_wait_text = visual.TextStim(win=win, name='trigger_wait_text',
 
 # Initialize components for Routine "play_movie"
 play_movieClock = core.Clock()
-et_record = hardware.eyetracker.EyetrackerControl(
-    server=ioServer,
-    tracker=eyetracker
-)
 movie_player = visual.MovieStim3(
     win=win, name='movie_player',units='cm', 
     noAudio = False,
@@ -205,7 +201,7 @@ movie_player = visual.MovieStim3(
     ori=0.0, pos=(0, 0), opacity=None,
     loop=False,
     size=[36.0, 20.3],
-    depth=-1.0,
+    depth=0.0,
     )
 
 # Initialize components for Routine "post_movie"
@@ -549,6 +545,8 @@ while continueRoutine:
         movie_check.tStartRefresh = tThisFlipGlobal  # on global time
         win.timeOnFlip(movie_check, 'tStartRefresh')  # time at next scr refresh
         movie_check.setAutoDraw(True)
+    if movie_check.status == FINISHED:  # force-end the routine
+        continueRoutine = False
     
     # *adjust* updates
     waitOnFlip = False
@@ -817,7 +815,7 @@ routineTimer.reset()
 continueRoutine = True
 # update component parameters for each repeat
 # keep track of which components have finished
-play_movieComponents = [et_record, movie_player]
+play_movieComponents = [movie_player]
 for thisComponent in play_movieComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -839,14 +837,6 @@ while continueRoutine:
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
-    # *et_record* updates
-    if et_record.status == NOT_STARTED and t >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        et_record.frameNStart = frameN  # exact frame index
-        et_record.tStart = t  # local t and not account for scr refresh
-        et_record.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(et_record, 'tStartRefresh')  # time at next scr refresh
-        et_record.status = STARTED
     
     # *movie_player* updates
     if movie_player.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -880,9 +870,6 @@ while continueRoutine:
 for thisComponent in play_movieComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# make sure the eyetracker recording stops
-if et_record.status != FINISHED:
-    et_record.status = FINISHED
 movie_player.stop()
 # the Routine "play_movie" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
@@ -961,6 +948,7 @@ thisExp.addData('thanks_text.stopped', thanks_text.tStopRefresh)
 win.flip()
 
 # these shouldn't be strictly necessary (should auto-save)
+thisExp.saveAsWideText(filename+'.csv', delim='auto')
 thisExp.saveAsPickle(filename)
 logging.flush()
 # make sure everything is closed down
