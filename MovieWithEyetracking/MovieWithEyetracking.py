@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on March 24, 2022, at 15:48
+    on March 29, 2022, at 16:58
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -35,19 +35,14 @@ import sys  # to get file system encoding
 import psychopy.iohub as io
 from psychopy.hardware import keyboard
 
-expInfo = dict()
+# Movie file selector
+mp4_fname = gui.fileOpenDlg(prompt='Select Movie', allowed='*.mp4')
 
-dlg = gui.Dlg(title="Movie with Eyetracking")
-dlg.addField('Subject ID', choices=['Damy001', 'Damy002', 'Damy003'])
-dlg.addField('Movie:', choices=["Gump", "Budapest", "PlanetEarth", "Trailers"])
-dlg.addField('Clip:', choices=["NA", "1", "2", "3", "4", "5", "6", "7", "8"])
-
-subj_info = dlg.show()
-
-if dlg.OK:
-    expInfo['participant'] = subj_info['Subject ID']
+if mp4_fname:
+    print(f'Selected {mp4_fname}')
 else:
     print('User cancelled - exiting')
+    endExpNow = True
 
 
 # Ensure that relative paths start from the same directory as this script
@@ -68,7 +63,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\jmt\\Documents\\GitHub\\cbic-psychopy\\MovieWithEyetracking\\MovieWithEyetracking.py',
+    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\MovieWithEyetracking\\MovieWithEyetracking.py',
     savePickle=True, saveWideText=False,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -82,7 +77,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=[2560, 1440], fullscr=True, screen=1, 
+    size=[1280, 960], fullscr=True, screen=1, 
     winType='pyglet', allowGUI=False, allowStencil=False,
     monitor='hPrisma Projector', color='black', colorSpace='rgb',
     blendMode='avg', useFBO=True, 
@@ -191,14 +186,12 @@ et_record = hardware.eyetracker.EyetrackerControl(
 movie_player = visual.MovieStim3(
     win=win, name='movie_player',units='cm', 
     noAudio = False,
-    filename=os.path.join('movies', expInfo['movie']+'.mp4'),
+    filename=mp4_fname,
     ori=0.0, pos=(0, 0), opacity=None,
     loop=False,
     size=[36.0, 20.3],
     depth=-1.0,
     )
-# Get movie duration from
-t_movie = movie_player.duration
 
 # Initialize components for Routine "post_movie"
 post_movieClock = core.Clock()
@@ -859,7 +852,6 @@ routineTimer.reset()
 # ------Prepare to start Routine "play_movie"-------
 continueRoutine = True
 # update component parameters for each repeat
-# Set et_record and movie_player durations
 # keep track of which components have finished
 play_movieComponents = [et_record, movie_player]
 for thisComponent in play_movieComponents:

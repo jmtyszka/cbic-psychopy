@@ -7,7 +7,7 @@
     <Param name="Data file delimiter" updates="None" val="auto" valType="str"/>
     <Param name="Data filename" updates="None" val="u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])" valType="code"/>
     <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
-    <Param name="Experiment info" updates="None" val="{}" valType="code"/>
+    <Param name="Experiment info" updates="None" val="{'participant': 'Damy001'}" valType="code"/>
     <Param name="Force stereo" updates="None" val="True" valType="bool"/>
     <Param name="Full-screen window" updates="None" val="True" valType="bool"/>
     <Param name="HTML path" updates="None" val="" valType="str"/>
@@ -21,11 +21,11 @@
     <Param name="Save psydat file" updates="None" val="True" valType="bool"/>
     <Param name="Save wide csv file" updates="None" val="False" valType="bool"/>
     <Param name="Screen" updates="None" val="2" valType="num"/>
-    <Param name="Show info dlg" updates="None" val="False" valType="bool"/>
+    <Param name="Show info dlg" updates="None" val="True" valType="bool"/>
     <Param name="Show mouse" updates="None" val="False" valType="bool"/>
     <Param name="Units" updates="None" val="height" valType="str"/>
     <Param name="Use version" updates="None" val="2021.2.3" valType="str"/>
-    <Param name="Window size (pixels)" updates="None" val="[2560, 1440]" valType="list"/>
+    <Param name="Window size (pixels)" updates="None" val="[1280, 960]" valType="list"/>
     <Param name="blendMode" updates="None" val="avg" valType="str"/>
     <Param name="color" updates="None" val="black" valType="color"/>
     <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
@@ -41,7 +41,7 @@
     <Param name="elTrackingMode" updates="None" val="PUPIL_CR_TRACKING" valType="str"/>
     <Param name="expName" updates="None" val="MovieWithEyetracking" valType="str"/>
     <Param name="exportHTML" updates="None" val="on Sync" valType="str"/>
-    <Param name="eyetracker" updates="None" val="MouseGaze" valType="str"/>
+    <Param name="eyetracker" updates="None" val="SR Research Ltd" valType="str"/>
     <Param name="gpAddress" updates="None" val="127.0.0.1" valType="str"/>
     <Param name="gpPort" updates="None" val="4242" valType="num"/>
     <Param name="logging level" updates="None" val="exp" valType="code"/>
@@ -173,10 +173,10 @@
         <Param name="backend" updates="None" val="moviepy" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="900" valType="code"/>
+        <Param name="durationEstim" updates="None" val="1200" valType="code"/>
         <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
         <Param name="loop" updates="None" val="False" valType="bool"/>
-        <Param name="movie" updates="constant" val="$os.path.join('movies', expInfo['movie']+'.mp4')" valType="file"/>
+        <Param name="movie" updates="constant" val="$mp4_fname" valType="file"/>
         <Param name="name" updates="None" val="movie_player" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -191,25 +191,8 @@
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="units" updates="None" val="cm" valType="str"/>
       </MovieComponent>
-      <CodeComponent name="movie_dur">
-        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="# Get movie duration from&amp;#10;t_movie = movie_player.duration" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="t_movie = movie_player.duration;&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="/* Syntax Error: Fix Python code */" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="# Set et_record and movie_player durations" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="movie_dur" valType="code"/>
-      </CodeComponent>
       <CodeComponent name="select_movie">
-        <Param name="Before Experiment" updates="constant" val="expInfo = {&amp;#10;    'participant': 'Unknown',&amp;#10;    'date': data.getDateStr(),&amp;#10;    'movie': ''&amp;#10;}&amp;#10;&amp;#10;dlg = gui.Dlg(title=&quot;Movie with Eyetracking&quot;)&amp;#10;dlg.addField('Subject ID', choices=['Damy001', 'Damy002', 'Damy003'])&amp;#10;&amp;#10;subj_info = dlg.show()&amp;#10;&amp;#10;if dlg.OK:&amp;#10;    print(subj_info)&amp;#10;else:&amp;#10;    print('User cancelled - exiting')&amp;#10;    &amp;#10;# Movie file selector&amp;#10;mp4_fname = gui.fileOpenDlg(prompt='Select Movie', allowed='*.mp4')&amp;#10;&amp;#10;if mp4_fname:&amp;#10;    print(f'Selected {mp4_fname}')&amp;#10;    expInfo['movie'] = mp4_fname&amp;#10;else:&amp;#10;    print('User cancelled - exiting')" valType="extendedCode"/>
+        <Param name="Before Experiment" updates="constant" val="# Movie file selector&amp;#10;mp4_fname = gui.fileOpenDlg(prompt='Select Movie', allowed='*.mp4')[0]&amp;#10;&amp;#10;if mp4_fname:&amp;#10;    print(f'Selected {mp4_fname}')&amp;#10;else:&amp;#10;    print('User cancelled - exiting')&amp;#10;    core.quit()" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="myDlg = new gui.Dlg({&quot;title&quot;: &quot;JWP's experiment&quot;});&amp;#10;myDlg.addText(&quot;Subject info&quot;);&amp;#10;myDlg.addField(&quot;Name:&quot;);&amp;#10;myDlg.addField(&quot;Age:&quot;, 21);&amp;#10;myDlg.addText(&quot;Experiment Info&quot;);&amp;#10;myDlg.addField(&quot;Grating Ori:&quot;, 45);&amp;#10;myDlg.addField(&quot;Group:&quot;, {&quot;choices&quot;: [&quot;Test&quot;, &quot;Control&quot;]});&amp;#10;ok_data = myDlg.show();&amp;#10;if (myDlg.OK) {&amp;#10;    console.log(ok_data);&amp;#10;} else {&amp;#10;    console.log(&quot;user cancelled&quot;);&amp;#10;}&amp;#10;" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
@@ -260,9 +243,9 @@
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="20" valType="code"/>
-        <Param name="forceEndRoutine" updates="constant" val="False" valType="bool"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
         <Param name="loop" updates="None" val="False" valType="bool"/>
-        <Param name="movie" updates="constant" val="$os.path.join('movies', expInfo['movie']+'_30sec.mp4')" valType="file"/>
+        <Param name="movie" updates="constant" val="$mp4_fname.replace('.mp4', '_30sec.mp4')" valType="file"/>
         <Param name="name" updates="None" val="movie_check" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -452,7 +435,7 @@
       <Param name="borderColor" updates="None" val="black" valType="color"/>
       <Param name="borderWidth" updates="None" val="2" valType="num"/>
       <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
-      <Param name="disabled" updates="None" val="False" valType="bool"/>
+      <Param name="disabled" updates="None" val="True" valType="bool"/>
       <Param name="expandDur" updates="None" val="1" valType="num"/>
       <Param name="expandScale" updates="None" val="1.25" valType="num"/>
       <Param name="fillColor" updates="None" val="" valType="color"/>
@@ -476,7 +459,7 @@
       <Param name="borderWidth" updates="None" val="2" valType="num"/>
       <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
       <Param name="cursorFillColor" updates="None" val="green" valType="color"/>
-      <Param name="disabled" updates="None" val="False" valType="bool"/>
+      <Param name="disabled" updates="None" val="True" valType="bool"/>
       <Param name="expandDur" updates="None" val="1" valType="num"/>
       <Param name="expandScale" updates="None" val="1.25" valType="num"/>
       <Param name="fillColor" updates="None" val="" valType="color"/>
