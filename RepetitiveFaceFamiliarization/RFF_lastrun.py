@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on April 04, 2022, at 19:58
+    on April 05, 2022, at 13:34
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='D:\\Adolphslab\\psychopy\\cbic-psychopy\\RepetitiveFaceFamiliarization\\RFF_lastrun.py',
+    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\RepetitiveFaceFamiliarization\\RFF_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -568,7 +568,6 @@ for thisRepeat in repeat:
     
     # ------Prepare to start Routine "Face_Presentation"-------
     continueRoutine = True
-    routineTimer.add(1.500000)
     # update component parameters for each repeat
     image.setImage(stimFile)
     # keep track of which components have finished
@@ -587,7 +586,7 @@ for thisRepeat in repeat:
     frameN = -1
     
     # -------Run Routine "Face_Presentation"-------
-    while continueRoutine and routineTimer.getTime() > 0:
+    while continueRoutine:
         # get current time
         t = Face_PresentationClock.getTime()
         tThisFlip = win.getFutureFlipTime(clock=Face_PresentationClock)
@@ -604,8 +603,7 @@ for thisRepeat in repeat:
             win.timeOnFlip(image, 'tStartRefresh')  # time at next scr refresh
             image.setAutoDraw(True)
         if image.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > image.tStartRefresh + 1.5-frameTolerance:
+            if frameN >= (image.frameNStart + 90):
                 # keep track of stop time/frame for later
                 image.tStop = t  # not accounting for scr refresh
                 image.frameNStop = frameN  # exact frame index
@@ -635,6 +633,8 @@ for thisRepeat in repeat:
             thisComponent.setAutoDraw(False)
     repeat.addData('image.started', image.tStartRefresh)
     repeat.addData('image.stopped', image.tStopRefresh)
+    # the Routine "Face_Presentation" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
     
     # ------Prepare to start Routine "ITI"-------
     continueRoutine = True
@@ -1206,7 +1206,6 @@ for thisTrial in trials:
     
     # ------Prepare to start Routine "Face_Presentation"-------
     continueRoutine = True
-    routineTimer.add(1.500000)
     # update component parameters for each repeat
     image.setImage(stimFile)
     # keep track of which components have finished
@@ -1225,7 +1224,7 @@ for thisTrial in trials:
     frameN = -1
     
     # -------Run Routine "Face_Presentation"-------
-    while continueRoutine and routineTimer.getTime() > 0:
+    while continueRoutine:
         # get current time
         t = Face_PresentationClock.getTime()
         tThisFlip = win.getFutureFlipTime(clock=Face_PresentationClock)
@@ -1242,8 +1241,7 @@ for thisTrial in trials:
             win.timeOnFlip(image, 'tStartRefresh')  # time at next scr refresh
             image.setAutoDraw(True)
         if image.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > image.tStartRefresh + 1.5-frameTolerance:
+            if frameN >= (image.frameNStart + 90):
                 # keep track of stop time/frame for later
                 image.tStop = t  # not accounting for scr refresh
                 image.frameNStop = frameN  # exact frame index
@@ -1273,6 +1271,8 @@ for thisTrial in trials:
             thisComponent.setAutoDraw(False)
     trials.addData('image.started', image.tStartRefresh)
     trials.addData('image.stopped', image.tStopRefresh)
+    # the Routine "Face_Presentation" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
     
     # ------Prepare to start Routine "ITI_2"-------
     continueRoutine = True
