@@ -151,7 +151,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, -0.1)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="size" updates="constant" val="(1.4, 0.6)" valType="list"/>
+        <Param name="size" updates="constant" val="(1.5, 0.6)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -162,7 +162,7 @@
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
       </ImageComponent>
       <KeyboardComponent name="key_resp_2">
-        <Param name="allowedKeys" updates="constant" val="'1','2','3','4'" valType="list"/>
+        <Param name="allowedKeys" updates="constant" val="'1','2','3','4','6','7','8','9'" valType="list"/>
         <Param name="correctAns" updates="constant" val="" valType="str"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="discard previous" updates="constant" val="True" valType="bool"/>
@@ -326,12 +326,12 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="This is the start of face memory task. In this session, 96 pictures of different faces will be presented to you. Some of the pictures have occurred in previous scanning sessions, and some are completely new.&amp;#10;&amp;#10;Please use the response box to indicate whether a face is OLD (key mappings will be shown on the next screen), and how confident you are of the choice. Please respond as fast as possible, as for each new/old judgement, the maximal response time allowed is 2 seconds.&amp;#10;&amp;#10;Please press any key to continue when you are ready and understand the instructions" valType="str"/>
+        <Param name="text" updates="constant" val="This is the start of face memory task. In this session, 96 pictures of different faces will be presented to you. Some of the pictures have occurred in previous scanning sessions, and some are completely new.&amp;#10;&amp;#10;Please use the response box to indicate whether a face is OLD (key mappings will be shown on the next screen), and how confident you are of the choice. Please respond as fast as possible, as for each new/old judgement, the maximal response time allowed is 2 seconds.&amp;#10;&amp;#10;Please press key '1' (right index finger) to continue when you are ready and understand the instructions" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
       <KeyboardComponent name="start_memory">
-        <Param name="allowedKeys" updates="constant" val="['1', '2', '3', '4']" valType="list"/>
+        <Param name="allowedKeys" updates="constant" val="['1']" valType="list"/>
         <Param name="correctAns" updates="constant" val="" valType="str"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="discard previous" updates="constant" val="True" valType="bool"/>
@@ -371,12 +371,12 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="This is the start of face memory task. In this session, 96 pictures of different faces will be presented to you. Please pay close attention to the faces, and think about what kind of personality that each person in the image might have.&amp;#10;&amp;#10;Once you are ready, please press any button to proceed." valType="str"/>
+        <Param name="text" updates="constant" val="This is the start of face memory task. In this session, 96 pictures of different faces will be presented to you. Please pay close attention to the faces, and think about what kind of personality that each person in the image might have.&amp;#10;&amp;#10;Once you are ready, please press key '1' (right index finger) to proceed." valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
       <KeyboardComponent name="start_passive">
-        <Param name="allowedKeys" updates="constant" val="['1', '2', '3', '4']" valType="list"/>
+        <Param name="allowedKeys" updates="constant" val="['1']" valType="list"/>
         <Param name="correctAns" updates="constant" val="" valType="str"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="discard previous" updates="constant" val="True" valType="bool"/>
@@ -462,7 +462,7 @@
         <Param name="name" updates="None" val="text" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(0, -0.3)" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, -0.35)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -470,12 +470,12 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="Shown above is the button press scheme to be used for this task. For each image, you will be asked whether it is an OLD image that has appeared during previous sessions.&amp;#10;&amp;#10;Once you are familiarized with the scheme, pleas press any key to start the test." valType="str"/>
+        <Param name="text" updates="constant" val="Shown above is the button press scheme to be used for this task. For each image, you will be asked whether it is an OLD image that has appeared during previous sessions.&amp;#10;Once you are familiarized with the scheme, pleas press key '6' (left index finger) to start the test." valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
       <KeyboardComponent name="button_confirmation">
-        <Param name="allowedKeys" updates="constant" val="['1', '2', '3', '4']" valType="list"/>
+        <Param name="allowedKeys" updates="constant" val="['6']" valType="list"/>
         <Param name="correctAns" updates="constant" val="" valType="str"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="discard previous" updates="constant" val="True" valType="bool"/>
@@ -506,9 +506,9 @@
         <Param name="name" updates="None" val="scheme_image" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(0, 0.2)" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0.1)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="size" updates="constant" val="(1.2, 0.5)" valType="list"/>
+        <Param name="size" updates="constant" val="(1.5, 0.6)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>

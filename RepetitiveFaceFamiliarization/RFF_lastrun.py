@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on March 29, 2022, at 14:57
+    on April 04, 2022, at 19:58
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\RepetitiveFaceFamiliarization\\RFF_lastrun.py',
+    originPath='D:\\Adolphslab\\psychopy\\cbic-psychopy\\RepetitiveFaceFamiliarization\\RFF_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -86,7 +86,7 @@ defaultKeyboard = keyboard.Keyboard()
 # Initialize components for Routine "Introduction_Screen_Memory"
 Introduction_Screen_MemoryClock = core.Clock()
 introduction_memory = visual.TextStim(win=win, name='introduction_memory',
-    text='This is the start of face memory task. In this session, 96 pictures of different faces will be presented to you. Some of the pictures have occurred in previous scanning sessions, and some are completely new.\n\nPlease use the response box to indicate whether a face is OLD (key mappings will be shown on the next screen), and how confident you are of the choice. Please respond as fast as possible, as for each new/old judgement, the maximal response time allowed is 2 seconds.\n\nPlease press any key to continue when you are ready and understand the instructions',
+    text="This is the start of face memory task. In this session, 96 pictures of different faces will be presented to you. Some of the pictures have occurred in previous scanning sessions, and some are completely new.\n\nPlease use the response box to indicate whether a face is OLD (key mappings will be shown on the next screen), and how confident you are of the choice. Please respond as fast as possible, as for each new/old judgement, the maximal response time allowed is 2 seconds.\n\nPlease press key '1' (right index finger) to continue when you are ready and understand the instructions",
     font='Open Sans',
     pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -97,9 +97,9 @@ start_memory = keyboard.Keyboard()
 # Initialize components for Routine "button_scheme"
 button_schemeClock = core.Clock()
 text = visual.TextStim(win=win, name='text',
-    text='Shown above is the button press scheme to be used for this task. For each image, you will be asked whether it is an OLD image that has appeared during previous sessions.\n\nOnce you are familiarized with the scheme, pleas press any key to start the test.',
+    text="Shown above is the button press scheme to be used for this task. For each image, you will be asked whether it is an OLD image that has appeared during previous sessions.\nOnce you are familiarized with the scheme, pleas press key '6' (left index finger) to start the test.",
     font='Open Sans',
-    pos=(0, -0.3), height=0.04, wrapWidth=None, ori=0.0, 
+    pos=(0, -0.35), height=0.04, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -108,7 +108,7 @@ scheme_image = visual.ImageStim(
     win=win,
     name='scheme_image', 
     image='icons\\newold buttons even.bmp' if int(expInfo['session']) %2==0 else 'icons\\newold buttons odd.bmp', mask=None,
-    ori=0.0, pos=(0, 0.2), size=(1.2, 0.5),
+    ori=0.0, pos=(0, 0.1), size=(1.5, 0.6),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-2.0)
@@ -138,7 +138,7 @@ image = visual.ImageStim(
 # Initialize components for Routine "ITI"
 ITIClock = core.Clock()
 ITI_1_text = visual.TextStim(win=win, name='ITI_1_text',
-    text='+  ',
+    text=None,
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -158,7 +158,7 @@ new_old_prompt = visual.ImageStim(
     win=win,
     name='new_old_prompt', 
     image='icons\\newold buttons even.bmp' if int(expInfo['session']) %2==0 else 'icons\\newold buttons odd.bmp', mask=None,
-    ori=0.0, pos=(0, -0.1), size=(1.4, 0.6),
+    ori=0.0, pos=(0, -0.1), size=(1.5, 0.6),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=False, depth=-1.0)
@@ -194,7 +194,7 @@ end_memory = visual.TextStim(win=win, name='end_memory',
 # Initialize components for Routine "Introduction_Screen_Passive"
 Introduction_Screen_PassiveClock = core.Clock()
 introduction_passive = visual.TextStim(win=win, name='introduction_passive',
-    text='This is the start of face memory task. In this session, 96 pictures of different faces will be presented to you. Please pay close attention to the faces, and think about what kind of personality that each person in the image might have.\n\nOnce you are ready, please press any button to proceed.',
+    text="This is the start of face memory task. In this session, 96 pictures of different faces will be presented to you. Please pay close attention to the faces, and think about what kind of personality that each person in the image might have.\n\nOnce you are ready, please press key '1' (right index finger) to proceed.",
     font='Open Sans',
     pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -301,7 +301,7 @@ while continueRoutine:
         win.callOnFlip(start_memory.clock.reset)  # t=0 on next screen flip
         win.callOnFlip(start_memory.clearEvents, eventType='keyboard')  # clear events on next screen flip
     if start_memory.status == STARTED and not waitOnFlip:
-        theseKeys = start_memory.getKeys(keyList=['1', '2', '3', '4'], waitRelease=False)
+        theseKeys = start_memory.getKeys(keyList=['1'], waitRelease=False)
         _start_memory_allKeys.extend(theseKeys)
         if len(_start_memory_allKeys):
             start_memory.keys = _start_memory_allKeys[0].name  # just the first key pressed
@@ -397,7 +397,7 @@ while continueRoutine:
         win.callOnFlip(button_confirmation.clock.reset)  # t=0 on next screen flip
         win.callOnFlip(button_confirmation.clearEvents, eventType='keyboard')  # clear events on next screen flip
     if button_confirmation.status == STARTED and not waitOnFlip:
-        theseKeys = button_confirmation.getKeys(keyList=['1', '2', '3', '4'], waitRelease=False)
+        theseKeys = button_confirmation.getKeys(keyList=['6'], waitRelease=False)
         _button_confirmation_allKeys.extend(theseKeys)
         if len(_button_confirmation_allKeys):
             button_confirmation.keys = _button_confirmation_allKeys[-1].name  # just the last key pressed
@@ -789,7 +789,7 @@ for thisRepeat in repeat:
                 win.timeOnFlip(key_resp_2, 'tStopRefresh')  # time at next scr refresh
                 key_resp_2.status = FINISHED
         if key_resp_2.status == STARTED and not waitOnFlip:
-            theseKeys = key_resp_2.getKeys(keyList=['1', '2', '3', '4'], waitRelease=False)
+            theseKeys = key_resp_2.getKeys(keyList=['1', '2', '3', '4', '6', '7', '8', '9'], waitRelease=False)
             _key_resp_2_allKeys.extend(theseKeys)
             if len(_key_resp_2_allKeys):
                 key_resp_2.keys = [key.name for key in _key_resp_2_allKeys]  # storing all keys
@@ -1046,7 +1046,7 @@ while continueRoutine:
         win.callOnFlip(start_passive.clock.reset)  # t=0 on next screen flip
         win.callOnFlip(start_passive.clearEvents, eventType='keyboard')  # clear events on next screen flip
     if start_passive.status == STARTED and not waitOnFlip:
-        theseKeys = start_passive.getKeys(keyList=['1', '2', '3', '4'], waitRelease=False)
+        theseKeys = start_passive.getKeys(keyList=['1'], waitRelease=False)
         _start_passive_allKeys.extend(theseKeys)
         if len(_start_passive_allKeys):
             start_passive.keys = _start_passive_allKeys[-1].name  # just the last key pressed
