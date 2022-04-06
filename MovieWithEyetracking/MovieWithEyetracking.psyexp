@@ -25,7 +25,7 @@
     <Param name="Show mouse" updates="None" val="False" valType="bool"/>
     <Param name="Units" updates="None" val="height" valType="str"/>
     <Param name="Use version" updates="None" val="2021.2.3" valType="str"/>
-    <Param name="Window size (pixels)" updates="None" val="[2560, 1440]" valType="list"/>
+    <Param name="Window size (pixels)" updates="None" val="[1280, 960]" valType="list"/>
     <Param name="blendMode" updates="None" val="avg" valType="str"/>
     <Param name="color" updates="None" val="black" valType="color"/>
     <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
@@ -242,7 +242,7 @@
         <Param name="backend" updates="None" val="moviepy" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="20" valType="code"/>
+        <Param name="durationEstim" updates="None" val="30" valType="code"/>
         <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
         <Param name="loop" updates="None" val="False" valType="bool"/>
         <Param name="movie" updates="constant" val="$mp4_fname.replace('.mp4', '_soundcheck.mp4')" valType="file"/>
@@ -286,7 +286,7 @@
         <Param name="Begin JS Routine" updates="constant" val="prev_rt = (- 1.0);&amp;#10;" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="last_rt = -1.0" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="if adjust.rt:&amp;#10;&amp;#10;    this_rt = adjust.rt&amp;#10;&amp;#10;    if this_rt - last_rt &gt; 0.1:&amp;#10;&amp;#10;        if adjust.keys == '1':&amp;#10;            print('LOUDER')&amp;#10;            &amp;#10;        if adjust.keys == '2':&amp;#10;            print('QUIETER')&amp;#10;            &amp;#10;        if adjust.keys == '4':&amp;#10;            continueRoutine = False&amp;#10;&amp;#10;    last_rt = this_rt&amp;#10;    " valType="extendedCode"/>
+        <Param name="Each Frame" updates="constant" val="if adjust.rt:&amp;#10;&amp;#10;    this_rt = adjust.rt&amp;#10;&amp;#10;    if this_rt - last_rt &gt; 0.1:&amp;#10;&amp;#10;        if adjust.keys == '1':&amp;#10;            print('LOUDER')&amp;#10;            sys.stdout.flush()&amp;#10;            &amp;#10;        if adjust.keys == '2':&amp;#10;            print('QUIETER')&amp;#10;            sys.stdout.flush() &amp;#10;            &amp;#10;        if adjust.keys == '4':&amp;#10;            continueRoutine = False&amp;#10;&amp;#10;    last_rt = this_rt&amp;#10;    " valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="/* Syntax Error: Fix Python code */" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
@@ -318,7 +318,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="SOUND LEVEL CHECK&amp;#10;&amp;#10;Press 1 for louder&amp;#10;Press 2 for quieter&amp;#10;Press 4 to accept&amp;#10;&amp;#10;PLEASE CLOSE YOUR EYES AND PRESS BUTTON 1" valType="str"/>
+        <Param name="text" updates="constant" val="SOUND LEVEL CHECK&amp;#10;&amp;#10;Press 1 for louder&amp;#10;Press 2 for quieter&amp;#10;Press 4 to accept&amp;#10;&amp;#10;CLOSE YOUR EYES then PRESS BUTTON 1" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="0.9" valType="num"/>
       </TextComponent>
@@ -408,7 +408,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="The sound check is complete!&amp;#10;&amp;#10;Waiting for operator ..." valType="str"/>
+        <Param name="text" updates="constant" val="The sound check is complete!&amp;#10;&amp;#10;The movie will start shortly.&amp;#10;&amp;#10;Waiting for operator ..." valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="0.9" valType="num"/>
       </TextComponent>
@@ -431,29 +431,6 @@
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
-    <EyetrackerCalibrationRoutine name="calibration">
-      <Param name="borderColor" updates="None" val="black" valType="color"/>
-      <Param name="borderWidth" updates="None" val="2" valType="num"/>
-      <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
-      <Param name="disabled" updates="None" val="False" valType="bool"/>
-      <Param name="expandDur" updates="None" val="1" valType="num"/>
-      <Param name="expandScale" updates="None" val="1.25" valType="num"/>
-      <Param name="fillColor" updates="None" val="" valType="color"/>
-      <Param name="innerBorderColor" updates="None" val="black" valType="color"/>
-      <Param name="innerBorderWidth" updates="None" val="2" valType="num"/>
-      <Param name="innerFillColor" updates="None" val="green" valType="color"/>
-      <Param name="innerRadius" updates="None" val="0.0035" valType="num"/>
-      <Param name="movementAnimation" updates="None" val="False" valType="bool"/>
-      <Param name="movementDur" updates="None" val="1.0" valType="num"/>
-      <Param name="name" updates="None" val="calibration" valType="code"/>
-      <Param name="outerRadius" updates="None" val="0.01" valType="num"/>
-      <Param name="progressMode" updates="None" val="time" valType="str"/>
-      <Param name="randomisePos" updates="None" val="True" valType="bool"/>
-      <Param name="targetDelay" updates="None" val="1.0" valType="num"/>
-      <Param name="targetDur" updates="None" val="1.5" valType="num"/>
-      <Param name="targetLayout" updates="None" val="FIVE_POINTS" valType="str"/>
-      <Param name="units" updates="None" val="from exp settings" valType="str"/>
-    </EyetrackerCalibrationRoutine>
     <EyetrackerValidationRoutine name="validation">
       <Param name="borderColor" updates="None" val="black" valType="color"/>
       <Param name="borderWidth" updates="None" val="2" valType="num"/>
@@ -481,6 +458,29 @@
       <Param name="targetPositions" updates="None" val="NINE_POINTS" valType="list"/>
       <Param name="units" updates="None" val="from exp settings" valType="str"/>
     </EyetrackerValidationRoutine>
+    <EyetrackerCalibrationRoutine name="calibration">
+      <Param name="borderColor" updates="None" val="black" valType="color"/>
+      <Param name="borderWidth" updates="None" val="2" valType="num"/>
+      <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
+      <Param name="disabled" updates="None" val="False" valType="bool"/>
+      <Param name="expandDur" updates="None" val="1" valType="num"/>
+      <Param name="expandScale" updates="None" val="1.25" valType="num"/>
+      <Param name="fillColor" updates="None" val="" valType="color"/>
+      <Param name="innerBorderColor" updates="None" val="black" valType="color"/>
+      <Param name="innerBorderWidth" updates="None" val="2" valType="num"/>
+      <Param name="innerFillColor" updates="None" val="green" valType="color"/>
+      <Param name="innerRadius" updates="None" val="0.0035" valType="num"/>
+      <Param name="movementAnimation" updates="None" val="False" valType="bool"/>
+      <Param name="movementDur" updates="None" val="1.0" valType="num"/>
+      <Param name="name" updates="None" val="calibration" valType="code"/>
+      <Param name="outerRadius" updates="None" val="0.01" valType="num"/>
+      <Param name="progressMode" updates="None" val="time" valType="str"/>
+      <Param name="randomisePos" updates="None" val="True" valType="bool"/>
+      <Param name="targetDelay" updates="None" val="1.0" valType="num"/>
+      <Param name="targetDur" updates="None" val="1.5" valType="num"/>
+      <Param name="targetLayout" updates="None" val="FIVE_POINTS" valType="str"/>
+      <Param name="units" updates="None" val="from exp settings" valType="str"/>
+    </EyetrackerCalibrationRoutine>
   </Routines>
   <Flow>
     <Routine name="et_instructions"/>

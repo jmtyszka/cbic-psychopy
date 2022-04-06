@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Wed Mar 30 16:02:43 2022
+    on April 05, 2022, at 18:35
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -66,7 +66,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/jmt/GitHub/cbic-pyschopy/MovieWithEyetracking/MovieWithEyetracking_lastrun.py',
+    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\MovieWithEyetracking\\MovieWithEyetracking_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -80,7 +80,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=[2560, 1440], fullscr=True, screen=1, 
+    size=[1280, 960], fullscr=True, screen=1, 
     winType='pyglet', allowGUI=False, allowStencil=False,
     monitor='hPrisma Projector', color='black', colorSpace='rgb',
     blendMode='avg', useFBO=True, 
@@ -139,7 +139,7 @@ et_continue = keyboard.Keyboard()
 # Initialize components for Routine "sound_check_instr"
 sound_check_instrClock = core.Clock()
 sound_check_text = visual.TextStim(win=win, name='sound_check_text',
-    text='SOUND LEVEL CHECK\n\nPress 1 for louder\nPress 2 for quieter\nPress 4 to accept\n\nPLEASE CLOSE YOUR EYES AND PRESS BUTTON 1',
+    text='SOUND LEVEL CHECK\n\nPress 1 for louder\nPress 2 for quieter\nPress 4 to accept\n\nCLOSE YOUR EYES then PRESS BUTTON 1',
     font='Open Sans',
     pos=(0, 0), height=0.03, wrapWidth=0.9, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -173,7 +173,7 @@ adjust = keyboard.Keyboard()
 # Initialize components for Routine "play_movie_instr"
 play_movie_instrClock = core.Clock()
 play_movie_instr_text = visual.TextStim(win=win, name='play_movie_instr_text',
-    text='The sound check is complete!\n\nWaiting for operator ...',
+    text='The sound check is complete!\n\nThe movie will start shortly.\n\nWaiting for operator ...',
     font='Open Sans',
     pos=(0, 0), height=0.03, wrapWidth=0.9, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -194,6 +194,10 @@ trigger_wait_text = visual.TextStim(win=win, name='trigger_wait_text',
 
 # Initialize components for Routine "play_movie"
 play_movieClock = core.Clock()
+et_record = hardware.eyetracker.EyetrackerControl(
+    server=ioServer,
+    tracker=eyetracker
+)
 movie_player = visual.MovieStim3(
     win=win, name='movie_player',units='cm', 
     noAudio = False,
@@ -201,7 +205,7 @@ movie_player = visual.MovieStim3(
     ori=0.0, pos=(0, 0), opacity=None,
     loop=False,
     size=[36.0, 20.3],
-    depth=0.0,
+    depth=-1.0,
     )
 
 # Initialize components for Routine "post_movie"
@@ -312,6 +316,57 @@ thisExp.addData('et_continue.started', et_continue.tStartRefresh)
 thisExp.addData('et_continue.stopped', et_continue.tStopRefresh)
 thisExp.nextEntry()
 # the Routine "et_instructions" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# -------Run Routine 'calibration'-------
+
+# define target for calibration
+calibrationTarget = visual.TargetStim(win, 
+    name='calibrationTarget',
+    radius=0.01, fillColor='', borderColor='black', lineWidth=2.0,
+    innerRadius=0.0035, innerFillColor='green', innerBorderColor='black', innerLineWidth=2.0,
+    colorSpace='rgb', units=None
+)
+# define parameters for calibration
+calibration = hardware.eyetracker.EyetrackerCalibration(win, 
+    eyetracker, calibrationTarget,
+    units=None, colorSpace='rgb',
+    progressMode='time', targetDur=1.5, expandScale=1.25,
+    targetLayout='FIVE_POINTS', randomisePos=True,
+    movementAnimation=False, targetDelay=1.0
+)
+# run calibration
+calibration.run()
+# clear any keypresses from during calibration so they don't interfere with the experiment
+defaultKeyboard.clearEvents()
+# the Routine "calibration" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# -------Run Routine 'validation'-------
+
+# define target for validation
+validationTarget = visual.TargetStim(win, 
+    name='validationTarget',
+    radius=0.01, fillColor='', borderColor='black', lineWidth=2.0,
+    innerRadius=0.0035, innerFillColor='green', innerBorderColor='black', innerLineWidth=2.0,
+    colorSpace='rgb', units=None
+)
+# define parameters for validation
+validation = iohub.ValidationProcedure(win,
+    target=validationTarget,
+    gaze_cursor='green', 
+    positions='FIVE_POINTS', randomize_positions=True,
+    expand_scale=1.25, target_duration=1.5,
+    enable_position_animation=False, target_delay=1.0,
+    progress_on_key=None,
+    show_results_screen=True, save_results_screen=True,
+    color_space='rgb', unit_type=None
+)
+# run validation
+validation.run()
+# clear any keypresses from during validation so they don't interfere with the experiment
+defaultKeyboard.clearEvents()
+# the Routine "validation" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
 # ------Prepare to start Routine "sound_check_instr"-------
@@ -575,9 +630,11 @@ while continueRoutine:
     
             if adjust.keys == '1':
                 print('LOUDER')
+                sys.stdout.flush()
                 
             if adjust.keys == '2':
                 print('QUIETER')
+                sys.stdout.flush() 
                 
             if adjust.keys == '4':
                 continueRoutine = False
@@ -815,7 +872,7 @@ routineTimer.reset()
 continueRoutine = True
 # update component parameters for each repeat
 # keep track of which components have finished
-play_movieComponents = [movie_player]
+play_movieComponents = [et_record, movie_player]
 for thisComponent in play_movieComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -837,6 +894,14 @@ while continueRoutine:
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
+    # *et_record* updates
+    if et_record.status == NOT_STARTED and t >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        et_record.frameNStart = frameN  # exact frame index
+        et_record.tStart = t  # local t and not account for scr refresh
+        et_record.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(et_record, 'tStartRefresh')  # time at next scr refresh
+        et_record.status = STARTED
     
     # *movie_player* updates
     if movie_player.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -870,6 +935,9 @@ while continueRoutine:
 for thisComponent in play_movieComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
+# make sure the eyetracker recording stops
+if et_record.status != FINISHED:
+    et_record.status = FINISHED
 movie_player.stop()
 # the Routine "play_movie" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
