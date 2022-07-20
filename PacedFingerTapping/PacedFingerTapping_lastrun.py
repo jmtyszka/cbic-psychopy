@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on July 19, 2022, at 17:04
+    on July 20, 2022, at 12:33
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -12,6 +12,10 @@ If you publish work using this script the most relevant publication is:
 """
 
 from __future__ import absolute_import, division
+
+import psychopy
+psychopy.useVersion('2021.2.3')
+
 
 from psychopy import locale_setup
 from psychopy import prefs
@@ -51,7 +55,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\jmt\\Documents\\GitHub\\cbic-psychopy\\PacedFingerTapping\\PacedFingerTapping_lastrun.py',
+    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\PacedFingerTapping\\PacedFingerTapping_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -65,9 +69,9 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=(1024, 768), fullscr=True, screen=0, 
+    size=[1920, 1080], fullscr=True, screen=1, 
     winType='pyglet', allowGUI=False, allowStencil=False,
-    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor='hPrisma Projector', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
     units='height')
 # store frame rate of monitor if we can measure it
@@ -86,7 +90,7 @@ defaultKeyboard = keyboard.Keyboard()
 # Initialize components for Routine "Instructions"
 InstructionsClock = core.Clock()
 InstructionsText = visual.TextStim(win=win, name='InstructionsText',
-    text='This is a finger tapping task using two fingers on either hand.\n\nYou will see two white circles on the left and two on the right.\n\nWhen any of the circles turn ORANGE get ready to tap the buttons on that hand.\n\nWhen the circles flash GREEN, tap the buttons on that side in time with the flashing.\n\nPlease keep your gaze on the central white cross.\n\nPRESS ANY BUTTON TO CONTINUE',
+    text='This is a finger tapping task using two fingers on either hand.\n\nYou will see two white circles on the left and two on the right.\n\nWhen any of the circles turn ORANGE\nget ready to tap the buttons on that hand.\n\nWhen the circles flash GREEN\ntap the buttons on that side in time with the flashing.\n\nPlease keep your gaze on the central white cross.\n\nPRESS ANY BUTTON TO CONTINUE',
     font='Open Sans',
     pos=(0, 0), height=0.03, wrapWidth=1.5, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -360,7 +364,7 @@ thisExp.addData('TriggerWaitText.stopped', TriggerWaitText.tStopRefresh)
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-trials = data.TrialHandler(nReps=4.0, method='random', 
+trials = data.TrialHandler(nReps=3.0, method='random', 
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions('handLoop.xlsx'),
     seed=None, name='trials')
@@ -555,7 +559,7 @@ for thisTrial in trials:
                 win.timeOnFlip(ButtonTaps, 'tStopRefresh')  # time at next scr refresh
                 ButtonTaps.status = FINISHED
         if ButtonTaps.status == STARTED and not waitOnFlip:
-            theseKeys = ButtonTaps.getKeys(keyList=['1', '2', '8', '9'], waitRelease=False)
+            theseKeys = ButtonTaps.getKeys(keyList=['1', '2', '3', '4', '6', '7', '8', '9'], waitRelease=False)
             _ButtonTaps_allKeys.extend(theseKeys)
             if len(_ButtonTaps_allKeys):
                 ButtonTaps.keys = _ButtonTaps_allKeys[-1].name  # just the last key pressed
@@ -604,7 +608,7 @@ for thisTrial in trials:
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 4.0 repeats of 'trials'
+# completed 3.0 repeats of 'trials'
 
 
 # ------Prepare to start Routine "FinalFixation"-------
