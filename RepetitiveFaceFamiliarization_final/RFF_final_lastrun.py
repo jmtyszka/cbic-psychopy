@@ -1,8 +1,8 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v2022.2.4),
-    on September 30, 2022, at 10:43
+This experiment was created using PsychoPy3 Experiment Builder (v2022.2.3),
+    on October 04, 2022, at 10:53
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -10,6 +10,10 @@ If you publish work using this script the most relevant publication is:
         https://doi.org/10.3758/s13428-018-01193-y
 
 """
+
+import psychopy
+psychopy.useVersion('latest')
+
 
 # --- Import packages ---
 from psychopy import locale_setup
@@ -34,7 +38,7 @@ from psychopy.hardware import keyboard
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
 # Store info about the experiment session
-psychopyVersion = '2022.2.4'
+psychopyVersion = '2022.2.3'
 expName = 'RFF_final'  # from the Builder filename that created this script
 expInfo = {
     'participant': '',
@@ -54,7 +58,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\Adolphslab\\Desktop\\cbic-psychopy\\RepetitiveFaceFamiliarization_final\\RFF_final_lastrun.py',
+    originPath='D:\\Adolphslab\\psychopy\\cbic-psychopy\\RepetitiveFaceFamiliarization_final\\RFF_final_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -68,7 +72,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # --- Setup the Window ---
 win = visual.Window(
-    size=[1280, 960], fullscr=True, screen=1, 
+    size=[1536, 864], fullscr=True, screen=1, 
     winType='pyglet', allowStencil=False,
     monitor='hPrisma Projector', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
@@ -129,17 +133,13 @@ et_needed = keyboard.Keyboard()
 
 # --- Initialize components for Routine "Introduction_Screen_Memory" ---
 introduction_memory = visual.TextStim(win=win, name='introduction_memory',
-    text='This is the start of  session '+str(expInfo['session'])+' out of a total of 4 face memory task. In this session, 96 pictures of different faces will be presented to you. Some of the pictures have occurred in previous scanning sessions, and some are completely new. \n Please use the numbers on the keyboard to indicate whether a face is OLD (key mappings will be shown on the next screen), and how confident you are of the choice. Please respond as fast as possible, as for each new/old judgement, the maximal response time allowed is 2 seconds.\n Please press key \'1\' to continue when you are ready and understand the instructions',
+    text='This is the start of  session '+str(expInfo['session'])+' out of a total of 3 face memory task. In this session, 124 pictures of different faces will be presented to you. Some of the pictures have occurred in previous scanning sessions, and some are completely new. \n Please use the numbers on the keyboard to indicate whether a face is OLD (key mappings will be shown on the next screen), and how confident you are of the choice. Please respond as fast as possible, as for each new/old judgement, the maximal response time allowed is 2 seconds.\n Please press key \'1\' to continue when you are ready and understand the instructions',
     font='Open Sans',
     pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
 start_memory = keyboard.Keyboard()
-etRecord = hardware.eyetracker.EyetrackerControl(
-    tracker=eyetracker,
-    actionType='Start Only'
-)
 
 # --- Initialize components for Routine "button_scheme" ---
 text = visual.TextStim(win=win, name='text',
@@ -153,7 +153,7 @@ button_confirmation = keyboard.Keyboard()
 scheme_image = visual.ImageStim(
     win=win,
     name='scheme_image', 
-    image='icons/newold buttons even.bmp', mask=None, anchor='center',
+    image='icons/newold buttons odd.bmp', mask=None, anchor='center',
     ori=0.0, pos=(0, 0.1), size=(1.5, 0.6),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
@@ -168,15 +168,6 @@ TriggerText = visual.TextStim(win=win, name='TriggerText',
     languageStyle='LTR',
     depth=0.0);
 TriggerCatcher = keyboard.Keyboard()
-
-# --- Initialize components for Routine "ITI_2" ---
-ITI_2_text = visual.TextStim(win=win, name='ITI_2_text',
-    text='+  ',
-    font='Open Sans',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
-    color='white', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
 
 # --- Initialize components for Routine "Face_Presentation" ---
 image = visual.ImageStim(
@@ -208,19 +199,28 @@ new_old_question = visual.TextStim(win=win, name='new_old_question',
 new_old_prompt = visual.ImageStim(
     win=win,
     name='new_old_prompt', 
-    image='icons\\newold buttons even.bmp' if int(expInfo['session']) %2==0 else 'icons\\newold buttons odd.bmp', mask=None, anchor='center',
+    image='icons/newold buttons odd.bmp', mask=None, anchor='center',
     ori=0.0, pos=(0, -0.1), size=(1.5, 0.6),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=False, depth=-1.0)
 key_resp_2 = keyboard.Keyboard()
 time_holder = visual.TextStim(win=win, name='time_holder',
-    text=' ',
+    text=None,
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=-3.0);
+
+# --- Initialize components for Routine "ITI_2" ---
+ITI_2_text = visual.TextStim(win=win, name='ITI_2_text',
+    text='+  ',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
-    depth=-3.0);
+    depth=0.0);
 
 # --- Initialize components for Routine "End_Screen_Memory" ---
 end_memory = visual.TextStim(win=win, name='end_memory',
@@ -398,8 +398,8 @@ for thisEyetracking_enabled in eyetracking_enabled:
     calibration = hardware.eyetracker.EyetrackerCalibration(win, 
         eyetracker, calibrationTarget,
         units=None, colorSpace='rgb',
-        progressMode='time', targetDur=1.5, expandScale=1.25,
-        targetLayout='FIVE_POINTS', randomisePos=True, textColor='white',
+        progressMode='time', targetDur=1.0, expandScale=1.25,
+        targetLayout='NINE_POINTS', randomisePos=True, textColor='white',
         movementAnimation=False, targetDelay=1.0
     )
     # run calibration
@@ -419,8 +419,8 @@ for thisEyetracking_enabled in eyetracking_enabled:
     validation = iohub.ValidationProcedure(win,
         target=validationTarget,
         gaze_cursor='green', 
-        positions='FIVE_POINTS', randomize_positions=True,
-        expand_scale=1.25, target_duration=1.5,
+        positions='NINE_POINTS', randomize_positions=False,
+        expand_scale=1.25, target_duration=1.0,
         enable_position_animation=False, target_delay=1.0,
         progress_on_key=None, text_color='auto',
         show_results_screen=True, save_results_screen=True,
@@ -445,7 +445,7 @@ start_memory.keys = []
 start_memory.rt = []
 _start_memory_allKeys = []
 # keep track of which components have finished
-Introduction_Screen_MemoryComponents = [introduction_memory, start_memory, etRecord]
+Introduction_Screen_MemoryComponents = [introduction_memory, start_memory]
 for thisComponent in Introduction_Screen_MemoryComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -501,25 +501,6 @@ while continueRoutine:
             start_memory.rt = _start_memory_allKeys[0].rt
             # a response ends the routine
             continueRoutine = False
-    # *etRecord* updates
-    if etRecord.status == NOT_STARTED and t >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        etRecord.frameNStart = frameN  # exact frame index
-        etRecord.tStart = t  # local t and not account for scr refresh
-        etRecord.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(etRecord, 'tStartRefresh')  # time at next scr refresh
-        # add timestamp to datafile
-        thisExp.addData('etRecord.started', t)
-        etRecord.status = STARTED
-    if etRecord.status == STARTED:
-        # is it time to stop? (based on global clock, using actual start)
-        if tThisFlipGlobal > etRecord.tStartRefresh + 0-frameTolerance:
-            # keep track of stop time/frame for later
-            etRecord.tStop = t  # not accounting for scr refresh
-            etRecord.frameNStop = frameN  # exact frame index
-            # add timestamp to datafile
-            thisExp.addData('etRecord.stopped', t)
-            etRecord.status = FINISHED
     
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -550,9 +531,6 @@ thisExp.addData('start_memory.keys',start_memory.keys)
 if start_memory.keys != None:  # we had a response
     thisExp.addData('start_memory.rt', start_memory.rt)
 thisExp.nextEntry()
-# make sure the eyetracker recording stops
-if etRecord.status != FINISHED:
-    etRecord.status = FINISHED
 # the Routine "Introduction_Screen_Memory" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -780,78 +758,6 @@ for thisRepeat in repeat:
         for paramName in thisRepeat:
             exec('{} = thisRepeat[paramName]'.format(paramName))
     
-    # --- Prepare to start Routine "ITI_2" ---
-    continueRoutine = True
-    routineForceEnded = False
-    # update component parameters for each repeat
-    # keep track of which components have finished
-    ITI_2Components = [ITI_2_text]
-    for thisComponent in ITI_2Components:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    frameN = -1
-    
-    # --- Run Routine "ITI_2" ---
-    while continueRoutine:
-        # get current time
-        t = routineTimer.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # *ITI_2_text* updates
-        if ITI_2_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            ITI_2_text.frameNStart = frameN  # exact frame index
-            ITI_2_text.tStart = t  # local t and not account for scr refresh
-            ITI_2_text.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(ITI_2_text, 'tStartRefresh')  # time at next scr refresh
-            # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'ITI_2_text.started')
-            ITI_2_text.setAutoDraw(True)
-        if ITI_2_text.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > ITI_2_text.tStartRefresh + ITI_2-frameTolerance:
-                # keep track of stop time/frame for later
-                ITI_2_text.tStop = t  # not accounting for scr refresh
-                ITI_2_text.frameNStop = frameN  # exact frame index
-                # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'ITI_2_text.stopped')
-                ITI_2_text.setAutoDraw(False)
-        
-        # check for quit (typically the Esc key)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            core.quit()
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            routineForceEnded = True
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in ITI_2Components:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # --- Ending Routine "ITI_2" ---
-    for thisComponent in ITI_2Components:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    # the Routine "ITI_2" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
-    
     # --- Prepare to start Routine "Face_Presentation" ---
     continueRoutine = True
     routineForceEnded = False
@@ -872,7 +778,7 @@ for thisRepeat in repeat:
     frameN = -1
     
     # --- Run Routine "Face_Presentation" ---
-    while continueRoutine:
+    while continueRoutine and routineTimer.getTime() < 1.5:
         # get current time
         t = routineTimer.getTime()
         tThisFlip = win.getFutureFlipTime(clock=routineTimer)
@@ -891,7 +797,8 @@ for thisRepeat in repeat:
             thisExp.timestampOnFlip(win, 'image.started')
             image.setAutoDraw(True)
         if image.status == STARTED:
-            if frameN >= (image.frameNStart + 90):
+            # is it time to stop? (based on local clock)
+            if tThisFlip > 1.5-frameTolerance:
                 # keep track of stop time/frame for later
                 image.tStop = t  # not accounting for scr refresh
                 image.frameNStop = frameN  # exact frame index
@@ -921,8 +828,11 @@ for thisRepeat in repeat:
     for thisComponent in Face_PresentationComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    # the Routine "Face_Presentation" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
+    # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
+    if routineForceEnded:
+        routineTimer.reset()
+    else:
+        routineTimer.addTime(-1.500000)
     
     # --- Prepare to start Routine "ITI" ---
     continueRoutine = True
@@ -1037,7 +947,7 @@ for thisRepeat in repeat:
             thisExp.timestampOnFlip(win, 'new_old_question.started')
             new_old_question.setAutoDraw(True)
         if new_old_question.status == STARTED:
-            if bool(len(key_resp_2.keys) != 0 or tThisFlipGlobal > new_old_question.tStartRefresh + 2-frameTolerance):
+            if bool(len(key_resp_2.keys) != 0 or tThisFlipGlobal > new_old_question.tStartRefresh + 2-frameTolerance*8):
                 # keep track of stop time/frame for later
                 new_old_question.tStop = t  # not accounting for scr refresh
                 new_old_question.frameNStop = frameN  # exact frame index
@@ -1056,7 +966,7 @@ for thisRepeat in repeat:
             thisExp.timestampOnFlip(win, 'new_old_prompt.started')
             new_old_prompt.setAutoDraw(True)
         if new_old_prompt.status == STARTED:
-            if bool(len(key_resp_2.keys) != 0  or tThisFlipGlobal > new_old_prompt.tStartRefresh + 2-frameTolerance):
+            if bool(len(key_resp_2.keys) != 0 or tThisFlipGlobal > new_old_question.tStartRefresh + 2-frameTolerance*8):
                 # keep track of stop time/frame for later
                 new_old_prompt.tStop = t  # not accounting for scr refresh
                 new_old_prompt.frameNStop = frameN  # exact frame index
@@ -1080,7 +990,7 @@ for thisRepeat in repeat:
             win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip
             win.callOnFlip(key_resp_2.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if key_resp_2.status == STARTED:
-            if bool(len(key_resp_2.keys) != 0 or tThisFlipGlobal > key_resp_2.tStartRefresh + 2-frameTolerance):
+            if bool(len(key_resp_2.keys) != 0 or tThisFlipGlobal > new_old_question.tStartRefresh + 2-frameTolerance*8):
                 # keep track of stop time/frame for later
                 key_resp_2.tStop = t  # not accounting for scr refresh
                 key_resp_2.frameNStop = frameN  # exact frame index
@@ -1088,7 +998,7 @@ for thisRepeat in repeat:
                 thisExp.timestampOnFlip(win, 'key_resp_2.stopped')
                 key_resp_2.status = FINISHED
         if key_resp_2.status == STARTED and not waitOnFlip:
-            theseKeys = key_resp_2.getKeys(keyList=['1','2','3','4','6','7','8','9'], waitRelease=False)
+            theseKeys = key_resp_2.getKeys(keyList=['1','2','3','6','7','8'], waitRelease=False)
             _key_resp_2_allKeys.extend(theseKeys)
             if len(_key_resp_2_allKeys):
                 key_resp_2.keys = [key.name for key in _key_resp_2_allKeys]  # storing all keys
@@ -1105,8 +1015,7 @@ for thisRepeat in repeat:
             thisExp.timestampOnFlip(win, 'time_holder.started')
             time_holder.setAutoDraw(True)
         if time_holder.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > time_holder.tStartRefresh + 2.0-frameTolerance:
+            if bool(tThisFlipGlobal > new_old_question.tStartRefresh + 2-frameTolerance*8):
                 # keep track of stop time/frame for later
                 time_holder.tStop = t  # not accounting for scr refresh
                 time_holder.frameNStop = frameN  # exact frame index
@@ -1143,6 +1052,78 @@ for thisRepeat in repeat:
     if key_resp_2.keys != None:  # we had a response
         repeat.addData('key_resp_2.rt', key_resp_2.rt)
     # the Routine "New_Old_Question" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
+    # --- Prepare to start Routine "ITI_2" ---
+    continueRoutine = True
+    routineForceEnded = False
+    # update component parameters for each repeat
+    # keep track of which components have finished
+    ITI_2Components = [ITI_2_text]
+    for thisComponent in ITI_2Components:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "ITI_2" ---
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *ITI_2_text* updates
+        if ITI_2_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            ITI_2_text.frameNStart = frameN  # exact frame index
+            ITI_2_text.tStart = t  # local t and not account for scr refresh
+            ITI_2_text.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(ITI_2_text, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'ITI_2_text.started')
+            ITI_2_text.setAutoDraw(True)
+        if ITI_2_text.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > ITI_2_text.tStartRefresh + ITI_2-frameTolerance:
+                # keep track of stop time/frame for later
+                ITI_2_text.tStop = t  # not accounting for scr refresh
+                ITI_2_text.frameNStop = frameN  # exact frame index
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'ITI_2_text.stopped')
+                ITI_2_text.setAutoDraw(False)
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            routineForceEnded = True
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in ITI_2Components:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "ITI_2" ---
+    for thisComponent in ITI_2Components:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    # the Routine "ITI_2" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
     
