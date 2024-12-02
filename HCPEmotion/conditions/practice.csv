@@ -1,0 +1,13 @@
+stimTop,stimLeft,stimRight,corrAns
+circle.bmp,circle.bmp,oval-vertical.bmp,left
+oval-vertical.bmp,oval-horizontal.bmp,oval-vertical.bmp,right
+oval-horizontal.bmp,oval-horizontal.bmp,circle.bmp,left
+oval-vertical.bmp,circle.bmp,oval-vertical.bmp,right
+circle.bmp,oval-horizontal.bmp,circle.bmp,right
+oval-horizontal.bmp,oval-horizontal.bmp,circle.bmp,left
+20M_FE_O.jpg,21M_FE_O.jpg,20M_FE_O.jpg,right
+11F_AN_O.jpg,12F_AN_O.jpg,11F_AN_O.jpg,right
+23M_AN_O.jpg,23M_AN_O.jpg,22M_AN_O.jpg,left
+15F_FE_O.jpg,15F_FE_O.jpg,16F_FE_O.jpg,left
+28M_AN_O.jpg,29M_AN_O.jpg,28M_AN_O.jpg,right
+FFZ_29.jpg,FFZ_18.jpg,FFZ_29.jpg,right

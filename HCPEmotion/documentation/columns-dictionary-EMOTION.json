@@ -1,0 +1,153 @@
+{
+    "trialNum": {
+        "LongName": "Trial Number",
+        "Description": "Trials are presentations of a target and matching stimuli on the left or right side; task is to indicate which stim matches."
+    },
+    "trialCondition": {
+        "LongName": "Trial Condition",
+        "Description": "Trial condition indicates the type of stimuli shown.",
+        "Levels": {
+            "shape": "Shape stims",
+            "face": "Face stims"
+        }
+    },
+    "countdownStartTime": {
+        "LongName": "Countdown Start Time",
+        "Description": "Start Time of countdown number display",
+        "Unit": "seconds"
+    },
+    "countdownLabel": {
+        "LongName": "Countdown Label",
+        "Description": "Number shown for start of task countdown"
+    },
+    "cueStartTime": {
+        "LongName": "Cue Start Time",
+        "Description": "Start time of block start indicator",
+        "Unit": "seconds"
+    },
+    "cueEndTime": {
+        "LongName": "Cue End Time",
+        "Description": "End time of block start indicator",
+        "Unit": "seconds"
+    },
+    "trialStartTime": {
+        "LongName": "Trial Start Time",
+        "Description": "Start time of trial",
+        "Unit": "seconds"
+    },
+    "trialEndTime": {
+        "LongName": "Trial End Time",
+        "Description": "End time of trial",
+        "Unit": "seconds"
+    },
+    "fixStartTime": {
+        "LongName": "Fixation Start Time",
+        "Description": "Start time of fixation between trials",
+        "Unit": "seconds"
+    },
+    "fixEndTime": {
+        "LongName": "Fixation End Time",
+        "Description": "End time of fixation between trials",
+        "Unit": "seconds"
+    },
+    "runEndTime": {
+        "LongName": "Run End Time",
+        "Description": "End time of MR acquisition (run) (total scan duration)",
+        "Unit": "seconds"
+    },
+    "stimLeft": {
+        "LongName": "Left Stimulus",
+        "Description": "Filename of image shown in \"left\" position (shape or face)"
+    },
+    "stimTop": {
+        "LongName": "Top Stimulus",
+        "Description": "Filename of image shown in \"top\" position (shape or face)"
+    },
+    "stimRight": {
+        "LongName": "Right Stimulus",
+        "Description": "Filename of image shown in \"right\" position (shape or face)"
+    },
+    "corrAns": {
+        "LongName": "Correct Answer",
+        "Description": "Value of the correct (matching) stim",
+        "Levels": {
+            "right": "right matched",
+            "left": "left matched"
+        }
+    },
+    "trialResp.keys": {
+        "LongName": "Trial Response Keys",
+        "Description": "List of all keys pressed during trial window (2 sec trial)"
+    },
+    "resp": {
+        "LongName": "Trial Response Reaction times",
+        "Description": "List of all reaction times relative to START OF TRIAL (trialStartTime)",
+        "Unit": "seconds",
+        "RangeMin": 0.0,
+        "RangeMax": 142.4
+    },
+    "msg": {
+        "LongName": "Feedback Message",
+        "Description": "Plain-text feedback message (not displayed)",
+        "Levels": {
+            "Incorrect!": "Participant choose wrong side",
+            "Correct": "Participant choose correct (matching) side",
+            "Too Slow!": "No response received"
+        }
+    },
+    "corrRespMsg": {
+        "LongName": "Trial Outcome",
+        "Description": "Text of trial outcome",
+        "Levels": {
+            "incorrect": "incorrect",
+            "miss": "no response",
+            "correct": "correct"
+        }
+    },
+    "corrRespCode": {
+        "LongName": "Coded Trial Outcome",
+        "Description": "Integer value of trial outcome",
+        "Levels": {
+            "1": "participant responded correctly",
+            "0": "participant missed or was incorrect"
+        }
+    },
+    "countConsecutive": {
+        "LongName": "Consecutive Count",
+        "Description": "Number of times partipant choose the same side"
+    },
+    "mriMode": {
+        "LongName": "MRI Mode",
+        "Description": "Internal indicator for scan vs. behavioral practice task version",
+        "Levels": {
+            "practice": "Task is run as practice",
+            "scan": "Task is run in the scanner; wait for trigger"
+        }
+    },
+    "frameRate": {
+        "LongName": "Frame Rate",
+        "Description": "Measured Frame Rate (psychopy)",
+        "Unit": "Hz"
+    },
+    "sessionID": {
+        "LongName": "Session ID",
+        "Description": "Subject Session Identifier"
+    },
+    "expName": {
+        "LongName": "Experiment Name",
+        "Description": "Short Experiment Label"
+    },
+    "counterbalance": {
+        "LongName": "Counterbalance Order",
+        "Description": "Counterbalance list to use",
+        "Levels": {
+            "CB2": "CB2",
+            "CB3": "CB3",
+            "CB1": "CB1"
+        }
+    },
+    "date": {
+        "LongName": "Date",
+        "Description": "Date-time experiment script was launched (multiple runs will share date)"
+    }
+}

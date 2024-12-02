@@ -1,0 +1,14 @@
+trigger: '7'
+keys:
+  'left': ['1', 'num_1']
+  'right': ['2', 'num_2']
+'style':  # Units: deg
+  'titleLetterSize': 3
+  'subtitleLetterSize': .7
+  'textLetterSize': 1
+  'fixLetterSize': 2.5
+  'wrapWidth': 16
+'monitor':
+  'width': 28.5
+  'distance': 70
+  'screen': 1

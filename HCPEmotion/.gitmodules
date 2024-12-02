@@ -1,0 +1,3 @@
+[submodule "hcpcommon"]
+	path = hcpcommon
+	url = git@code.seas.harvard.edu:hcp-tasks/hcpcommon.git

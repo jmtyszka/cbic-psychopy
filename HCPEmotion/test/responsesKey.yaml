@@ -1,0 +1,75 @@
+- name: Practice
+  checks:
+    - label: 'run0.*_wide'
+      counts:
+        - [trialCondition, shape, 6]
+        - [trialCondition, face, 6]
+      values:
+        - [runEndTime, 50.00]  # In seconds
+  expInfo:
+    participant: testKidPrac
+    session: practice
+    mriMode: 'Off'
+    nRuns: '1'
+  responsesFile: test/responsesPractice.csv
+  script: ../EMOTION_Practice.py
+- name: Scan
+  checks:
+    - label: 'run1.*_wide'
+      counts:
+        - [trialCondition, shape, 18]
+        - [trialCondition, face, 18]
+      values:
+        - [runEndTime, 142.4]  # In seconds
+      durations:
+        - ['fixEndTime - fixStartTime', 1]
+        - ['trialEndTime - trialStartTime', 2]
+        - ['cueEndTime - cueStartTime', 3]
+  expInfo:
+    participant: 'testScan'
+    session: '1'
+    mriMode: 'scan'
+    nRuns: '2'
+    counterbalance: 'CB1'
+  responsesFile: test/responsesScan.csv
+  script: ../EMOTION_Scan.py
+- name: Scan_CB2
+  checks:
+    - label: 'run1.*_wide'
+      counts:
+        - [trialCondition, shape, 18]
+        - [trialCondition, face, 18]
+      values:
+        - [runEndTime, 142.4]  # In seconds
+      durations:
+        - ['fixEndTime - fixStartTime', 1]
+        - ['trialEndTime - trialStartTime', 2]
+        - ['cueEndTime - cueStartTime', 3]
+  expInfo:
+    participant: 'testScan'
+    session: '1'
+    mriMode: 'scan'
+    nRuns: '2'
+    counterbalance: 'CB2'
+  responsesFile: test/responsesScan.csv
+  script: ../EMOTION_Scan.py
+- name: Scan_CB3
+  checks:
+    - label: 'run1.*_wide'
+      counts:
+        - [trialCondition, shape, 18]
+        - [trialCondition, face, 18]
+      values:
+        - [runEndTime, 142.4]  # In seconds
+      durations:
+        - ['fixEndTime - fixStartTime', 1]
+        - ['trialEndTime - trialStartTime', 2]
+        - ['cueEndTime - cueStartTime', 3]
+  expInfo:
+    participant: 'testScan'
+    session: '1'
+    mriMode: 'scan'
+    nRuns: '2'
+    counterbalance: 'CB3'
+  responsesFile: test/responsesScan.csv
+  script: ../EMOTION_Scan.py
