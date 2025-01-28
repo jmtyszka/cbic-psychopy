@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on September 28, 2022, at 14:08
+    on January 28, 2025, at 11:11
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -52,7 +52,7 @@ os.chdir(_thisDir)
 # Store info about the experiment session
 psychopyVersion = '2021.2.3'
 expName = 'MovieWithEyetracking'  # from the Builder filename that created this script
-expInfo = {'participant': 'Damy001'}
+expInfo = {'participant': 'Test'}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
 if dlg.OK == False:
     core.quit()  # user pressed cancel
@@ -66,7 +66,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='D:\\Adolphslab\\psychopy\\cbic-psychopy\\MovieWithEyetracking\\MovieWithEyetracking_lastrun.py',
+    originPath='F:\\AdolphsLab\\DenseAmygdala2\\cbic-psychopy\\MovieWithEyetracking\\MovieWithEyetracking_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -80,11 +80,11 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=[1280, 960], fullscr=True, screen=1, 
+    size=[1280, 720], fullscr=True, screen=1, 
     winType='pyglet', allowGUI=False, allowStencil=False,
-    monitor='hPrisma Projector', color='black', colorSpace='rgb',
+    monitor='CBIC-UHD4K', color='black', colorSpace='rgb',
     blendMode='avg', useFBO=True, 
-    units='height')
+    units='cm')
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
 if expInfo['frameRate'] != None:
@@ -130,7 +130,7 @@ et_instructionsClock = core.Clock()
 text = visual.TextStim(win=win, name='text',
     text='EYE TRACKER SETUP\n\nPlease stare at the moving dots when they appear\n\nPRESS BUTTON 1 TO CONTINUE',
     font='Open Sans',
-    pos=(0, 0), height=0.03, wrapWidth=0.9, ori=0.0, 
+    pos=(0, 0), height=1.5, wrapWidth=50.0, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -141,7 +141,7 @@ sound_check_instrClock = core.Clock()
 sound_check_text = visual.TextStim(win=win, name='sound_check_text',
     text='SOUND LEVEL CHECK\n\nPress 1 for louder\nPress 2 for quieter\nPress 4 to accept\n\nCLOSE YOUR EYES then PRESS BUTTON 1',
     font='Open Sans',
-    pos=(0, 0), height=0.03, wrapWidth=0.9, ori=0.0, 
+    pos=(0, 0), height=1.5, wrapWidth=50.0, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -153,7 +153,7 @@ trigger_detect = keyboard.Keyboard()
 trigger_wait_text = visual.TextStim(win=win, name='trigger_wait_text',
     text='Waiting for scanner ...',
     font='Open Sans',
-    pos=(0, 0), height=0.03, wrapWidth=0.9, ori=0.0, 
+    pos=(0, 0), height=2.0, wrapWidth=40.0, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-1.0);
@@ -161,11 +161,12 @@ trigger_wait_text = visual.TextStim(win=win, name='trigger_wait_text',
 # Initialize components for Routine "sound_check"
 sound_checkClock = core.Clock()
 movie_check = visual.MovieStim3(
-    win=win, name='movie_check',
+    win=win, name='movie_check',units='cm', 
     noAudio = False,
     filename=mp4_fname.replace('.mp4', '_soundcheck.mp4'),
     ori=0.0, pos=(0, 0), opacity=None,
     loop=False,
+    size=[56.8, 32.0],
     depth=0.0,
     )
 adjust = keyboard.Keyboard()
@@ -175,7 +176,7 @@ play_movie_instrClock = core.Clock()
 play_movie_instr_text = visual.TextStim(win=win, name='play_movie_instr_text',
     text='The sound check is complete!\n\nThe movie will start shortly.\n\nWaiting for operator ...',
     font='Open Sans',
-    pos=(0, 0), height=0.03, wrapWidth=0.9, ori=0.0, 
+    pos=(0, 0), height=1.5, wrapWidth=50.0, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -187,7 +188,7 @@ trigger_detect = keyboard.Keyboard()
 trigger_wait_text = visual.TextStim(win=win, name='trigger_wait_text',
     text='Waiting for scanner ...',
     font='Open Sans',
-    pos=(0, 0), height=0.03, wrapWidth=0.9, ori=0.0, 
+    pos=(0, 0), height=2.0, wrapWidth=40.0, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-1.0);
@@ -204,7 +205,7 @@ movie_player = visual.MovieStim3(
     filename=mp4_fname,
     ori=0.0, pos=(0, 0), opacity=None,
     loop=False,
-    size=[36.0, 20.3],
+    size=[56.8, 32.0],
     depth=-1.0,
     )
 
@@ -213,7 +214,7 @@ post_movieClock = core.Clock()
 thanks_text = visual.TextStim(win=win, name='thanks_text',
     text='Thanks for watching!',
     font='Open Sans',
-    pos=(0, 0), height=0.03, wrapWidth=0.9, ori=0.0, 
+    pos=(0, 0), height=1.5, wrapWidth=50.0, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -323,16 +324,16 @@ routineTimer.reset()
 # define target for calibration
 calibrationTarget = visual.TargetStim(win, 
     name='calibrationTarget',
-    radius=0.01, fillColor='', borderColor='black', lineWidth=2.0,
-    innerRadius=0.0035, innerFillColor='green', innerBorderColor='black', innerLineWidth=2.0,
+    radius=0.5, fillColor='', borderColor='black', lineWidth=1.0,
+    innerRadius=0.2, innerFillColor='green', innerBorderColor='black', innerLineWidth=1.0,
     colorSpace='rgb', units=None
 )
 # define parameters for calibration
 calibration = hardware.eyetracker.EyetrackerCalibration(win, 
     eyetracker, calibrationTarget,
     units=None, colorSpace='rgb',
-    progressMode='time', targetDur=1.5, expandScale=1.25,
-    targetLayout='FIVE_POINTS', randomisePos=True,
+    progressMode='time', targetDur=1.0, expandScale=1.0,
+    targetLayout='NINE_POINTS', randomisePos=True,
     movementAnimation=False, targetDelay=1.0
 )
 # run calibration
@@ -347,16 +348,16 @@ routineTimer.reset()
 # define target for validation
 validationTarget = visual.TargetStim(win, 
     name='validationTarget',
-    radius=0.01, fillColor='', borderColor='black', lineWidth=2.0,
-    innerRadius=0.0035, innerFillColor='green', innerBorderColor='black', innerLineWidth=2.0,
+    radius=0.5, fillColor='', borderColor='black', lineWidth=1.0,
+    innerRadius=0.21, innerFillColor='green', innerBorderColor='black', innerLineWidth=1.0,
     colorSpace='rgb', units=None
 )
 # define parameters for validation
 validation = iohub.ValidationProcedure(win,
     target=validationTarget,
     gaze_cursor='green', 
-    positions='FIVE_POINTS', randomize_positions=True,
-    expand_scale=1.25, target_duration=1.5,
+    positions='NINE_POINTS', randomize_positions=True,
+    expand_scale=0.1, target_duration=1.0,
     enable_position_animation=False, target_delay=1.0,
     progress_on_key=None,
     show_results_screen=True, save_results_screen=True,

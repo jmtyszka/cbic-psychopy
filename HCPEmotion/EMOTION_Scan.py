@@ -60,7 +60,7 @@ from psychopy import monitors
 if not os.path.exists('siteConfig.yaml'): raise IOError('Missing siteConfig.yaml - Please copy configuration text file')
 with open('siteConfig.yaml') as f:
     config = yaml.safe_load(f)
-mon = monitors.Monitor('newMonitor')
+mon = monitors.Monitor('CBIC-UHD4K')
 mon.setWidth(config['monitor']['width'])
 mon.setDistance(config['monitor']['distance'])
 mon.setSizePix(resolution)

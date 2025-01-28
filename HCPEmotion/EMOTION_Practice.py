@@ -128,7 +128,7 @@ introText = visual.TextStim(win=win, ori=0, name='introText',
     color='white', colorSpace='rgb', opacity=1,
     depth=-1.0)
 # Setup the RA Experimenter Window
-raWin = visual.Window(size=[1280,800], fullscr=False, allowGUI=True, allowStencil=False,
+raWin = visual.Window(size=[1280, 960], fullscr=False, allowGUI=True, allowStencil=False,
     monitor=u'testMonitor', color=u'black', colorSpace='rgb',
     blendMode='avg', useFBO=True,
     units='deg',

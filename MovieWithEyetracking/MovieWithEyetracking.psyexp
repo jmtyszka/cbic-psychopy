@@ -7,12 +7,12 @@
     <Param name="Data file delimiter" updates="None" val="auto" valType="str"/>
     <Param name="Data filename" updates="None" val="u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])" valType="code"/>
     <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
-    <Param name="Experiment info" updates="None" val="{'participant': 'Damy001'}" valType="code"/>
+    <Param name="Experiment info" updates="None" val="{'participant': 'Test'}" valType="code"/>
     <Param name="Force stereo" updates="None" val="True" valType="bool"/>
     <Param name="Full-screen window" updates="None" val="True" valType="bool"/>
     <Param name="HTML path" updates="None" val="" valType="str"/>
     <Param name="Incomplete URL" updates="None" val="" valType="str"/>
-    <Param name="Monitor" updates="None" val="hPrisma Projector" valType="str"/>
+    <Param name="Monitor" updates="None" val="CBIC-UHD4K" valType="str"/>
     <Param name="Resources" updates="None" val="[]" valType="list"/>
     <Param name="Save csv file" updates="None" val="False" valType="bool"/>
     <Param name="Save excel file" updates="None" val="False" valType="bool"/>
@@ -23,9 +23,9 @@
     <Param name="Screen" updates="None" val="2" valType="num"/>
     <Param name="Show info dlg" updates="None" val="True" valType="bool"/>
     <Param name="Show mouse" updates="None" val="False" valType="bool"/>
-    <Param name="Units" updates="None" val="height" valType="str"/>
+    <Param name="Units" updates="None" val="cm" valType="str"/>
     <Param name="Use version" updates="None" val="2021.2.3" valType="str"/>
-    <Param name="Window size (pixels)" updates="None" val="[1280, 960]" valType="list"/>
+    <Param name="Window size (pixels)" updates="None" val="[1280, 720]" valType="list"/>
     <Param name="blendMode" updates="None" val="avg" valType="str"/>
     <Param name="color" updates="None" val="black" valType="color"/>
     <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
@@ -54,62 +54,6 @@
     <Param name="tbSerialNo" updates="None" val="" valType="str"/>
   </Settings>
   <Routines>
-    <Routine name="instr">
-      <TextboxComponent name="instructions">
-        <Param name="anchor" updates="constant" val="center" valType="str"/>
-        <Param name="autoLog" updates="constant" val="True" valType="bool"/>
-        <Param name="bold" updates="constant" val="False" valType="bool"/>
-        <Param name="borderColor" updates="constant" val="None" valType="color"/>
-        <Param name="borderWidth" updates="constant" val="2" valType="num"/>
-        <Param name="color" updates="constant" val="white" valType="color"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="contrast" updates="constant" val="1" valType="num"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="editable" updates="constant" val="False" valType="bool"/>
-        <Param name="fillColor" updates="constant" val="None" valType="color"/>
-        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
-        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
-        <Param name="italic" updates="constant" val="False" valType="bool"/>
-        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.05" valType="num"/>
-        <Param name="lineSpacing" updates="constant" val="1.0" valType="num"/>
-        <Param name="name" updates="None" val="instructions" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
-        <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="padding" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="size" updates="constant" val="(0.8, 0.8)" valType="list"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="The movie will start in a few moments&amp;#10;&amp;#10;Waiting for scanner ..." valType="str"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
-      </TextboxComponent>
-      <KeyboardComponent name="key_resp">
-        <Param name="allowedKeys" updates="constant" val="'5'" valType="list"/>
-        <Param name="correctAns" updates="constant" val="" valType="str"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
-        <Param name="name" updates="None" val="key_resp" valType="code"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="store" updates="constant" val="last key" valType="str"/>
-        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
-        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
-      </KeyboardComponent>
-    </Routine>
     <Routine name="et_instructions">
       <TextComponent name="text">
         <Param name="color" updates="constant" val="white" valType="color"/>
@@ -120,7 +64,7 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.03" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="1.5" valType="num"/>
         <Param name="name" updates="None" val="text" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -134,7 +78,7 @@
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="text" updates="constant" val="EYE TRACKER SETUP&amp;#10;&amp;#10;Please stare at the moving dots when they appear&amp;#10;&amp;#10;PRESS BUTTON 1 TO CONTINUE" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="wrapWidth" updates="constant" val="0.9" valType="num"/>
+        <Param name="wrapWidth" updates="constant" val="50" valType="num"/>
       </TextComponent>
       <KeyboardComponent name="et_continue">
         <Param name="allowedKeys" updates="constant" val="'1'" valType="list"/>
@@ -182,7 +126,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="size" updates="constant" val="[36.0, 20.3]" valType="list"/>
+        <Param name="size" updates="constant" val="[56.8, 32.0]" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -219,7 +163,7 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.03" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="1.5" valType="num"/>
         <Param name="name" updates="None" val="thanks_text" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -233,7 +177,7 @@
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="text" updates="constant" val="Thanks for watching!" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="wrapWidth" updates="constant" val="0.9" valType="num"/>
+        <Param name="wrapWidth" updates="constant" val="50" valType="num"/>
       </TextComponent>
     </Routine>
     <Routine name="sound_check">
@@ -251,14 +195,14 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="size" updates="constant" val="" valType="list"/>
+        <Param name="size" updates="constant" val="[56.8, 32.0]" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="stopType" updates="None" val="condition" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="units" updates="None" val="cm" valType="str"/>
       </MovieComponent>
       <KeyboardComponent name="adjust">
         <Param name="allowedKeys" updates="constant" val="'1', '2', '4'" valType="list"/>
@@ -306,7 +250,7 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.03" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="1.5" valType="num"/>
         <Param name="name" updates="None" val="sound_check_text" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -320,7 +264,7 @@
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="text" updates="constant" val="SOUND LEVEL CHECK&amp;#10;&amp;#10;Press 1 for louder&amp;#10;Press 2 for quieter&amp;#10;Press 4 to accept&amp;#10;&amp;#10;CLOSE YOUR EYES then PRESS BUTTON 1" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="wrapWidth" updates="constant" val="0.9" valType="num"/>
+        <Param name="wrapWidth" updates="constant" val="50" valType="num"/>
       </TextComponent>
       <KeyboardComponent name="sound_check_inst_text">
         <Param name="allowedKeys" updates="constant" val="'1'" valType="list"/>
@@ -369,7 +313,7 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.03" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="2.0" valType="num"/>
         <Param name="name" updates="None" val="trigger_wait_text" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -383,7 +327,7 @@
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="text" updates="constant" val="Waiting for scanner ..." valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="wrapWidth" updates="constant" val="0.9" valType="num"/>
+        <Param name="wrapWidth" updates="constant" val="40" valType="num"/>
       </TextComponent>
     </Routine>
     <Routine name="play_movie_instr">
@@ -396,7 +340,7 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.03" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="1.5" valType="num"/>
         <Param name="name" updates="None" val="play_movie_instr_text" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -410,7 +354,7 @@
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="text" updates="constant" val="The sound check is complete!&amp;#10;&amp;#10;The movie will start shortly.&amp;#10;&amp;#10;Waiting for operator ..." valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="wrapWidth" updates="constant" val="0.9" valType="num"/>
+        <Param name="wrapWidth" updates="constant" val="50" valType="num"/>
       </TextComponent>
       <KeyboardComponent name="play_movie_trigger">
         <Param name="allowedKeys" updates="constant" val="'space'" valType="list"/>
@@ -431,56 +375,56 @@
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
+    <EyetrackerCalibrationRoutine name="calibration">
+      <Param name="borderColor" updates="None" val="black" valType="color"/>
+      <Param name="borderWidth" updates="None" val="1" valType="num"/>
+      <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
+      <Param name="disabled" updates="None" val="False" valType="bool"/>
+      <Param name="expandDur" updates="None" val="1" valType="num"/>
+      <Param name="expandScale" updates="None" val="1" valType="num"/>
+      <Param name="fillColor" updates="None" val="" valType="color"/>
+      <Param name="innerBorderColor" updates="None" val="black" valType="color"/>
+      <Param name="innerBorderWidth" updates="None" val="1" valType="num"/>
+      <Param name="innerFillColor" updates="None" val="green" valType="color"/>
+      <Param name="innerRadius" updates="None" val="0.2" valType="num"/>
+      <Param name="movementAnimation" updates="None" val="False" valType="bool"/>
+      <Param name="movementDur" updates="None" val="1.0" valType="num"/>
+      <Param name="name" updates="None" val="calibration" valType="code"/>
+      <Param name="outerRadius" updates="None" val="0.5" valType="num"/>
+      <Param name="progressMode" updates="None" val="time" valType="str"/>
+      <Param name="randomisePos" updates="None" val="True" valType="bool"/>
+      <Param name="targetDelay" updates="None" val="0.5" valType="num"/>
+      <Param name="targetDur" updates="None" val="1" valType="num"/>
+      <Param name="targetLayout" updates="None" val="NINE_POINTS" valType="str"/>
+      <Param name="units" updates="None" val="from exp settings" valType="str"/>
+    </EyetrackerCalibrationRoutine>
     <EyetrackerValidationRoutine name="validation">
       <Param name="borderColor" updates="None" val="black" valType="color"/>
-      <Param name="borderWidth" updates="None" val="2" valType="num"/>
+      <Param name="borderWidth" updates="None" val="1" valType="num"/>
       <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
       <Param name="cursorFillColor" updates="None" val="green" valType="color"/>
       <Param name="disabled" updates="None" val="False" valType="bool"/>
       <Param name="expandDur" updates="None" val="1" valType="num"/>
-      <Param name="expandScale" updates="None" val="1.25" valType="num"/>
+      <Param name="expandScale" updates="None" val="0.1" valType="num"/>
       <Param name="fillColor" updates="None" val="" valType="color"/>
       <Param name="innerBorderColor" updates="None" val="black" valType="color"/>
-      <Param name="innerBorderWidth" updates="None" val="2" valType="num"/>
+      <Param name="innerBorderWidth" updates="None" val="1" valType="num"/>
       <Param name="innerFillColor" updates="None" val="green" valType="color"/>
-      <Param name="innerRadius" updates="None" val="0.0035" valType="num"/>
+      <Param name="innerRadius" updates="None" val="0.21" valType="num"/>
       <Param name="movementAnimation" updates="None" val="False" valType="bool"/>
       <Param name="movementDur" updates="None" val="1.0" valType="num"/>
       <Param name="name" updates="None" val="validation" valType="code"/>
-      <Param name="outerRadius" updates="None" val="0.01" valType="num"/>
+      <Param name="outerRadius" updates="None" val="0.5" valType="num"/>
       <Param name="progressMode" updates="None" val="time" valType="str"/>
       <Param name="randomisePos" updates="None" val="True" valType="bool"/>
       <Param name="saveAsImg" updates="None" val="True" valType="bool"/>
       <Param name="showResults" updates="None" val="True" valType="bool"/>
-      <Param name="targetDelay" updates="None" val="1.0" valType="num"/>
-      <Param name="targetDur" updates="None" val="1.5" valType="num"/>
-      <Param name="targetLayout" updates="None" val="FIVE_POINTS" valType="str"/>
+      <Param name="targetDelay" updates="None" val="0.5" valType="num"/>
+      <Param name="targetDur" updates="None" val="1" valType="num"/>
+      <Param name="targetLayout" updates="None" val="NINE_POINTS" valType="str"/>
       <Param name="targetPositions" updates="None" val="NINE_POINTS" valType="list"/>
       <Param name="units" updates="None" val="from exp settings" valType="str"/>
     </EyetrackerValidationRoutine>
-    <EyetrackerCalibrationRoutine name="calibration">
-      <Param name="borderColor" updates="None" val="black" valType="color"/>
-      <Param name="borderWidth" updates="None" val="2" valType="num"/>
-      <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
-      <Param name="disabled" updates="None" val="False" valType="bool"/>
-      <Param name="expandDur" updates="None" val="1" valType="num"/>
-      <Param name="expandScale" updates="None" val="1.25" valType="num"/>
-      <Param name="fillColor" updates="None" val="" valType="color"/>
-      <Param name="innerBorderColor" updates="None" val="black" valType="color"/>
-      <Param name="innerBorderWidth" updates="None" val="2" valType="num"/>
-      <Param name="innerFillColor" updates="None" val="green" valType="color"/>
-      <Param name="innerRadius" updates="None" val="0.0035" valType="num"/>
-      <Param name="movementAnimation" updates="None" val="False" valType="bool"/>
-      <Param name="movementDur" updates="None" val="1.0" valType="num"/>
-      <Param name="name" updates="None" val="calibration" valType="code"/>
-      <Param name="outerRadius" updates="None" val="0.01" valType="num"/>
-      <Param name="progressMode" updates="None" val="time" valType="str"/>
-      <Param name="randomisePos" updates="None" val="True" valType="bool"/>
-      <Param name="targetDelay" updates="None" val="1.0" valType="num"/>
-      <Param name="targetDur" updates="None" val="1.5" valType="num"/>
-      <Param name="targetLayout" updates="None" val="FIVE_POINTS" valType="str"/>
-      <Param name="units" updates="None" val="from exp settings" valType="str"/>
-    </EyetrackerCalibrationRoutine>
   </Routines>
   <Flow>
     <Routine name="et_instructions"/>
